@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        .totais-row {
+            background-color: #0f172a;
+            color: #f9fafb;
+            font-weight: bold;
+        }
+        .totais-row td {
+            border-radius: 999px !important;
+        }
+
+        .totais-label {
+            text-align: right;
+        }
+
+        /* ===== KPI's ===== */
+
+        .kpi-block {
+            margin-bottom: 18px;
+        }
+
+        .kpi-header-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .kpi-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            background-color: #d4af37;
+            color: #111827;
+        }
+
+        .kpi-tag-oficial {
+            background-color: #22c55e;
+            color: #022c22;
+        }
+
+        .kpi-tag-negro {
+            background-color: #f97316;
+            color: #111827;
+        }
+
+        .kpi-header-title {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .kpi-card {
+    background-color: #020b1f;
+    border-radius: 16px;
+    padding: 10px 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 2px solid rgba(212, 175, 55, 0.75);  /* contorno mais forte */
+}
+
+.kpi-card-oficial {
+    border-color: rgba(34, 197, 94, 0.9);       /* verde mais carregado */
+}
+
+.kpi-card-negro {
+    border-color: rgba(249, 115, 22, 0.9);      /* laranja mais carregado */
+}
+
+
+        .kpi-label {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
+        .kpi-value {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .kpi-footer {
+            font-size: 10px;
+            opacity: 0.75;
+        }
+
+        /* ====== Fim KPI's ====== */
+
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Orçamento</h1>
+        <a href="/" class="back-button">Voltar ao Dashboard</a>
+    </div>
+
+    <div class="container">
+
+        <!-- ================= KPIs ================= -->
+        <div class="section-card">
+            <h2 class="section-title">KPI's por hora</h2>
+
+            <!-- BLOCO GERAL -->
+            <div class="kpi-block">
+                <div class="kpi-header-line">
+                    <span class="kpi-tag">GERAL</span>
+                    <span class="kpi-header-title">Visão global</span>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Custo (apenas custos com pessoal) / hora</div>
+                        <div class="kpi-value">{{ kpi_custo_colaborador_hora }}</div>
+                        <div class="kpi-footer">Base completa de colaboradores</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Custo total (colab + todas as despesas) / hora</div>
+                        <div class="kpi-value">{{ kpi_custo_total_hora }}</div>
+                        <div class="kpi-footer">Colaboradores + todas as despesas</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Proveito / hora</div>
+                        <div class="kpi-value">{{ kpi_proveito_hora }}</div>
+                        <div class="kpi-footer">Todos os proveitos</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Margem / hora</div>
+                        <div class="kpi-value">{{ kpi_margem_hora }}</div>
+                        <div class="kpi-footer">Proveitos − custos totais</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO OFICIAL -->
+            <div class="kpi-block">
+                <div class="kpi-header-line">
+                    <span class="kpi-tag kpi-tag-oficial">OFICIAL</span>
+                    <span class="kpi-header-title">Base oficial</span>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card kpi-card-oficial">
+                        <div class="kpi-label">Custo (apenas custos com pessoal) / hora</div>
+                        <div class="kpi-value">{{ kpi_custo_colaborador_hora_oficial }}</div>
+                        <div class="kpi-footer">Mesma base de colaboradores</div>
+                    </div>
+                    <div class="kpi-card kpi-card-oficial">
+                        <div class="kpi-label">Custo total (colab + despesas oficiais) / hora</div>
+                        <div class="kpi-value">{{ kpi_custo_total_hora_oficial }}</div>
+                        <div class="kpi-footer">Colab. + despesas oficiais</div>
+                    </div>
+                    <div class="kpi-card kpi-card-oficial">
+                        <div class="kpi-label">Proveito / hora (base oficial)</div>
+                        <div class="kpi-value">{{ kpi_proveito_hora_oficial }}</div>
+                        <div class="kpi-footer">Proveitos considerados oficiais</div>
+                    </div>
+                    <div class="kpi-card kpi-card-oficial">
+                        <div class="kpi-label">Margem oficial / hora</div>
+                        <div class="kpi-value">{{ kpi_margem_hora_oficial }}</div>
+                        <div class="kpi-footer">Proveitos oficiais − custos oficiais</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO NEGRO -->
+            <div class="kpi-block">
+                <div class="kpi-header-line">
+                    <span class="kpi-tag kpi-tag-negro">NEGRO</span>
+                    <span class="kpi-header-title">Segmento específico</span>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card kpi-card-negro">
+                        <div class="kpi-label">Proveito / hora – Negro</div>
+                        <div class="kpi-value">{{ kpi_negro_proveito_hora }}</div>
+                        <div class="kpi-footer">Proveitos deste segmento</div>
+                    </div>
+                    <div class="kpi-card kpi-card-negro">
+                        <div class="kpi-label">Custo / hora – Negro</div>
+                        <div class="kpi-value">{{ kpi_negro_custo_total_hora }}</div>
+                        <div class="kpi-footer">Custos associados ao segmento</div>
+                    </div>
+                    <div class="kpi-card kpi-card-negro">
+                        <div class="kpi-label">Margem Negra / hora</div>
+                        <div class="kpi-value">{{ kpi_negro_margem_hora }}</div>
+                        <div class="kpi-footer">Proveitos − custos do segmento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PROVEITOS ================= -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="section-title">Proveitos</h2>
+                </div>
+                <div class="section-header-right">
+                    <a href="/orcamento/clientes" class="btn-simple">Ver detalhe clientes</a>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="align-left">Rubrica</th>
+                        <th>Valor mensal</th>
+                        <th>Valor anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for linha in orcamento_proveitos %}
+                    <tr>
+                        <td class="align-left">{{ linha.descricao }}</td>
+                        <td>{{ linha.valor_mensal_str }}</td>
+                        <td>{{ linha.valor_anual_str }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="totais-row">
+                        <td class="totais-label">Total proveitos</td>
+                        <td>{{ total_proveitos_mensal }}</td>
+                        <td>{{ total_proveitos_anual }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= CUSTOS COM COLABORADORES ================= -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="section-title">Custos com colaboradores</h2>
+                </div>
+                <div class="section-header-right">
+                    <a href="/orcamento/colaboradores" class="btn-simple">Ver detalhe colaboradores</a>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="align-left">Rubrica</th>
+                        <th>Valor mensal</th>
+                        <th>Valor anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for linha in orcamento_colaboradores %}
+                    <tr>
+                        <td class="align-left">{{ linha.descricao }}</td>
+                        <td>{{ linha.valor_mensal_str }}</td>
+                        <td>{{ linha.valor_anual_str }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="totais-row">
+                        <td class="totais-label">Total custos com colaboradores</td>
+                        <td>{{ total_colaboradores_mensal }}</td>
+                        <td>{{ total_colaboradores_anual }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= DESPESAS ================= -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="section-title">Despesas</h2>
+                </div>
+                <div class="section-header-right">
+                    <a href="/orcamento/despesas" class="btn-simple">Ver detalhe despesas</a>
+                    <a href="/orcamento/comissoes" class="btn-simple">Ver detalhe comissões</a>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="align-left">Rubrica</th>
+                        <th>Valor mensal</th>
+                        <th>Valor anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for linha in orcamento_despesas %}
+                    <tr>
+                        <td class="align-left">{{ linha.descricao }}</td>
+                        <td>{{ linha.valor_mensal_str }}</td>
+                        <td>{{ linha.valor_anual_str }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="totais-row">
+                        <td class="totais-label">Total despesas</td>
+                        <td>{{ total_despesas_mensal }}</td>
+                        <td>{{ total_despesas_anual }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+    // Manter a posição de scroll nesta página
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_orcamento";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+    </script>
+</body>
+</html>

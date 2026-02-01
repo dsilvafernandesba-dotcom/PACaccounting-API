@@ -1,0 +1,5344 @@
+{
+  "2025": {
+    "2I - SOLUÇÕES INFORMATICAS": {
+      "meses": {
+        "11": 6
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "AC CUNHA DECO, UNIPESSOAL LDA.": {
+      "meses": {
+        "1": 245,
+        "2": 134,
+        "3": 659,
+        "4": 255,
+        "5": 496,
+        "6": 359,
+        "7": 411,
+        "8": 184,
+        "9": 294,
+        "10": 412,
+        "11": 163
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 42,
+          "2": 40,
+          "3": 24,
+          "4": 45,
+          "5": 119,
+          "6": 21,
+          "7": 36,
+          "8": 57,
+          "9": 20,
+          "10": 51,
+          "11": 1
+        },
+        "Pedro Fernandes": {
+          "1": 192,
+          "2": 94,
+          "3": 390,
+          "4": 81,
+          "5": 137,
+          "6": 78,
+          "7": 5,
+          "8": 6,
+          "9": 65,
+          "10": 7,
+          "11": 9
+        },
+        "Ana Rodrigues": {
+          "1": 11,
+          "6": 3,
+          "9": 1
+        },
+        "Celine Santos": {
+          "3": 245,
+          "4": 129,
+          "5": 240,
+          "6": 257,
+          "7": 370,
+          "8": 121,
+          "9": 208,
+          "10": 354,
+          "11": 153
+        }
+      }
+    },
+    "ADIASDVINHO - PROMOÇÃO CONSULTORIA E COMERCIO DE VINHOS LDA": {
+      "meses": {
+        "1": 17,
+        "3": 8,
+        "4": 2,
+        "5": 2,
+        "6": 7,
+        "7": 12,
+        "10": 2,
+        "11": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Adolfo Caldas Pereira Junior": {
+      "meses": {},
+      "extra": 15,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Adriano Afonso Lima de Sousa": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ADRIANO ALVES RODRIGUES": {
+      "meses": {
+        "1": 52,
+        "2": 4,
+        "3": 57,
+        "6": 36,
+        "7": 24,
+        "9": 11,
+        "10": 9,
+        "11": 2
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 52,
+          "2": 4,
+          "3": 57,
+          "6": 36,
+          "7": 24,
+          "9": 11,
+          "10": 9,
+          "11": 2
+        }
+      }
+    },
+    "AGYP - Associação Gap Year Portugal": {
+      "meses": {
+        "1": 23,
+        "2": 169,
+        "3": 50,
+        "4": 247,
+        "5": 161,
+        "6": 324,
+        "7": 545,
+        "8": 465,
+        "9": 827,
+        "10": 37,
+        "11": 66
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 5,
+          "2": 6,
+          "3": 11,
+          "4": 11,
+          "5": 10,
+          "6": 66,
+          "7": 10,
+          "8": 74,
+          "9": 2
+        },
+        "M Albertina Alves": {
+          "1": 2,
+          "2": 98,
+          "5": 16,
+          "6": 222,
+          "7": 496,
+          "8": 45
+        },
+        "Daniela Fernandes": {
+          "1": 16,
+          "2": 65,
+          "3": 20,
+          "4": 3,
+          "5": 8,
+          "6": 11,
+          "7": 39,
+          "8": 155,
+          "9": 92,
+          "10": 37
+        },
+        "Celine Santos": {
+          "3": 19,
+          "4": 233,
+          "5": 127,
+          "6": 25,
+          "8": 191,
+          "9": 733,
+          "11": 66
+        }
+      }
+    },
+    "Ahmed Ouabel": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "AIDA MARIA DE BRITO MELEIRO": {
+      "meses": {
+        "1": 196,
+        "2": 135,
+        "3": 15,
+        "4": 662,
+        "5": 680,
+        "6": 29,
+        "7": 120,
+        "8": 363,
+        "9": 2,
+        "10": 507,
+        "11": 2
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 168,
+          "2": 132,
+          "3": 14,
+          "4": 647,
+          "5": 663,
+          "6": 27,
+          "7": 112,
+          "8": 344,
+          "9": 2,
+          "10": 500,
+          "11": 2
+        },
+        "Pedro Fernandes": {
+          "1": 28,
+          "2": 3,
+          "3": 1,
+          "4": 15,
+          "5": 2,
+          "7": 1,
+          "8": 4,
+          "10": 2
+        },
+        "Daniela Fernandes": {
+          "5": 15,
+          "6": 2,
+          "7": 7,
+          "8": 15,
+          "10": 5
+        }
+      }
+    },
+    "Alaranjado Voador, Lda.": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Alba DNA Lda.": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ALBERTO TRANCOSO UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2,
+        "6": 6,
+        "7": 9,
+        "8": 1,
+        "9": 9,
+        "10": 5
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 2,
+          "2": 2,
+          "3": 2,
+          "4": 2,
+          "5": 2,
+          "7": 1,
+          "8": 1,
+          "9": 9,
+          "10": 4
+        },
+        "M Albertina Alves": {
+          "6": 6,
+          "7": 8,
+          "10": 1
+        }
+      }
+    },
+    "Alexandrina Marisa Cerqueira Chaves": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Alice do Carmo Monteiro": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ALUSUPREME, UNIPESSOAL LDA.": {
+      "meses": {
+        "1": 84,
+        "2": 993,
+        "3": 457,
+        "4": 121,
+        "5": 201,
+        "6": 130,
+        "7": 306,
+        "8": 132,
+        "9": 35,
+        "10": 402,
+        "11": 100
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 10,
+          "2": 4,
+          "3": 28,
+          "4": 12,
+          "5": 12,
+          "6": 4,
+          "7": 19,
+          "8": 55,
+          "9": 34,
+          "10": 59
+        },
+        "Pedro Fernandes": {
+          "1": 74,
+          "2": 980,
+          "3": 429,
+          "4": 109,
+          "5": 189,
+          "6": 126,
+          "7": 287,
+          "8": 77,
+          "9": 1,
+          "10": 343,
+          "11": 100
+        },
+        "Ana Rodrigues": {
+          "2": 9
+        }
+      }
+    },
+    "AMBULÂNCIAS SAÚDE EXPRESS UNIPESSOAL LDA": {
+      "meses": {
+        "1": 115,
+        "2": 591,
+        "3": 310,
+        "4": 57,
+        "5": 47,
+        "6": 188,
+        "7": 2005,
+        "8": 178,
+        "9": 703,
+        "10": 808,
+        "11": 35
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 54,
+          "2": 53,
+          "3": 24,
+          "4": 44,
+          "5": 37,
+          "6": 31,
+          "7": 98,
+          "8": 28,
+          "9": 71,
+          "10": 94,
+          "11": 1
+        },
+        "Pedro Fernandes": {
+          "1": 8,
+          "2": 3,
+          "3": 43,
+          "4": 1,
+          "5": 10,
+          "6": 2,
+          "7": 4,
+          "8": 31,
+          "9": 38,
+          "10": 76,
+          "11": 26
+        },
+        "Celine Santos": {
+          "1": 53,
+          "2": 535,
+          "3": 243,
+          "4": 12,
+          "6": 155,
+          "7": 1903,
+          "8": 119,
+          "9": 590,
+          "10": 327,
+          "11": 2
+        },
+        "Ana Rodrigues": {
+          "9": 4
+        },
+        "João Pedro Alves": {
+          "10": 311,
+          "11": 6
+        }
+      }
+    },
+    "AMPLUS - PROMOÇÃO IMOBILIÁRIA E CONSTRUÇÃO CIVIL, LDA.": {
+      "meses": {
+        "1": 49,
+        "2": 35,
+        "3": 53,
+        "4": 5,
+        "5": 5,
+        "6": 5,
+        "7": 44,
+        "8": 21,
+        "10": 58,
+        "11": 40
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 49,
+          "2": 35,
+          "3": 53,
+          "4": 5,
+          "5": 5,
+          "6": 5,
+          "7": 44,
+          "8": 21,
+          "10": 58,
+          "11": 40
+        }
+      }
+    },
+    "Ana Claudia Rodrigues da Silva": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Ana Paula Soares de Toledo": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Ana Paula Soares Morais": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Ana Silvia Branco Alves Rodrigues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ANDRADE FIGUEIRA, UNIPESSOAL LDA": {
+      "meses": {
+        "3": 21,
+        "4": 10,
+        "5": 80,
+        "6": 2,
+        "7": 67,
+        "8": 6,
+        "9": 7,
+        "10": 72
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "3": 15,
+          "4": 8,
+          "5": 79,
+          "7": 62,
+          "8": 3,
+          "9": 4,
+          "10": 71
+        },
+        "Daniela Fernandes": {
+          "3": 6,
+          "4": 2,
+          "5": 1,
+          "6": 2,
+          "7": 5,
+          "8": 3,
+          "9": 3,
+          "10": 1
+        }
+      }
+    },
+    "ANTONIO LOURENCO RODRIGUES": {
+      "meses": {
+        "2": 70,
+        "5": 81,
+        "7": 1,
+        "9": 80,
+        "10": 1,
+        "11": 38
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "9": 80
+        },
+        "Daniela Fernandes": {
+          "10": 1
+        }
+      }
+    },
+    "ANTONIO RODRIGUES ALVES": {
+      "meses": {
+        "1": 7,
+        "2": 165,
+        "5": 67,
+        "8": 103,
+        "11": 24
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 7,
+          "2": 165,
+          "5": 62,
+          "8": 89,
+          "11": 24
+        },
+        "Pedro Fernandes": {
+          "5": 5,
+          "8": 14
+        }
+      }
+    },
+    "António Dias, Esposa & Filhos, Lda.": {
+      "meses": {
+        "1": 335,
+        "2": 97,
+        "3": 421,
+        "4": 479,
+        "5": 479,
+        "6": 102,
+        "7": 695,
+        "8": 162,
+        "9": 368,
+        "10": 178,
+        "11": 131
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 328,
+          "2": 92,
+          "3": 384,
+          "4": 475,
+          "5": 475,
+          "6": 102,
+          "7": 677,
+          "8": 157,
+          "9": 352,
+          "10": 148,
+          "11": 131
+        },
+        "Daniela Fernandes": {
+          "1": 7,
+          "2": 5,
+          "3": 37,
+          "4": 4,
+          "5": 4,
+          "7": 18,
+          "8": 5,
+          "9": 16,
+          "10": 30
+        }
+      }
+    },
+    "António Manuel de Jesus Cunha": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "António Terças Felgueiras": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "AOMI - ASSOCIAçãO ORQUESTRA MéDICA IBéRICA": {
+      "meses": {
+        "1": 3,
+        "2": 1,
+        "3": 33,
+        "4": 37,
+        "5": 170,
+        "6": 65,
+        "7": 30,
+        "8": 72,
+        "9": 48,
+        "10": 63,
+        "11": 26
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "2": 1,
+          "11": 9
+        },
+        "Ana Rodrigues": {
+          "11": 17
+        }
+      }
+    },
+    "Aridj Fethi": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ARISTIDES RODRIGUES FRANCISCO": {
+      "meses": {
+        "1": 11,
+        "2": 612,
+        "4": 117,
+        "5": 117,
+        "6": 19,
+        "7": 56,
+        "8": 166,
+        "9": 18,
+        "10": 52,
+        "11": 239
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 11,
+          "2": 612,
+          "4": 117,
+          "5": 117,
+          "6": 19,
+          "7": 56,
+          "8": 166,
+          "9": 18,
+          "10": 52,
+          "11": 239
+        }
+      }
+    },
+    "ARLINDO SALVADOR DOMINGUES DE SOUSA": {
+      "meses": {
+        "1": 5,
+        "2": 92,
+        "3": 3,
+        "4": 11,
+        "5": 71,
+        "6": 3,
+        "7": 10,
+        "8": 67,
+        "9": 15,
+        "10": 22,
+        "11": 16
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 5,
+          "4": 8,
+          "5": 15,
+          "7": 10,
+          "8": 13,
+          "9": 15,
+          "10": 20
+        },
+        "Pedro Fernandes": {
+          "2": 2
+        },
+        "M Albertina Alves": {
+          "2": 90,
+          "3": 3,
+          "4": 3,
+          "5": 56,
+          "6": 3,
+          "8": 54,
+          "10": 2,
+          "11": 16
+        }
+      }
+    },
+    "Armando A. D. Pinto": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Armando Emilio Andrade de Santiago Lopes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ARTISTRY Estética - de Nair dos Santos": {
+      "meses": {
+        "9": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "9": 3
+        }
+      }
+    },
+    "Associação Ibérica Britânica": {
+      "meses": {
+        "1": 16,
+        "2": 74,
+        "3": 65,
+        "4": 15,
+        "5": 158,
+        "6": 12,
+        "7": 11,
+        "8": 235,
+        "9": 141,
+        "10": 341,
+        "11": 117
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 2,
+          "3": 4,
+          "4": 4,
+          "5": 1,
+          "6": 1,
+          "7": 7,
+          "8": 14,
+          "9": 43,
+          "10": 19
+        },
+        "Celine Santos": {
+          "1": 13,
+          "2": 64,
+          "3": 52,
+          "4": 9,
+          "5": 138,
+          "6": 1,
+          "8": 141,
+          "9": 1,
+          "10": 237
+        },
+        "Pedro Fernandes": {
+          "1": 1,
+          "2": 10,
+          "3": 9,
+          "4": 2,
+          "5": 19,
+          "6": 10,
+          "7": 4,
+          "8": 80,
+          "9": 97,
+          "10": 84,
+          "11": 36
+        },
+        "João Pedro Alves": {
+          "10": 1,
+          "11": 81
+        }
+      }
+    },
+    "ASSOCIAÇÃO IGUALDADE PT": {
+      "meses": {
+        "1": 38,
+        "2": 43,
+        "3": 37,
+        "4": 267,
+        "5": 95,
+        "6": 163,
+        "7": 31,
+        "8": 147,
+        "9": 67,
+        "10": 2,
+        "11": 7
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 9,
+          "2": 17,
+          "3": 6,
+          "4": 223,
+          "5": 15,
+          "6": 1,
+          "7": 3,
+          "8": 145,
+          "11": 7
+        },
+        "Daniela Fernandes": {
+          "1": 29,
+          "2": 26,
+          "3": 31,
+          "4": 44,
+          "5": 80,
+          "6": 162,
+          "7": 28,
+          "8": 2,
+          "9": 67,
+          "10": 2
+        }
+      }
+    },
+    "ASSOCIAÇÃO PORTUGUESA TECNOLOGIA AGRÍCOLA DESENVOLVIMENTO": {
+      "meses": {
+        "11": 13
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "11": 13
+        }
+      }
+    },
+    "Aymane Amansou": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "BEATRIZ FERNANDES UNIPESSOAL LDA": {
+      "meses": {
+        "1": 177,
+        "2": 77,
+        "3": 34,
+        "4": 117,
+        "5": 172,
+        "6": 255,
+        "7": 180,
+        "8": 17,
+        "9": 258,
+        "10": 135,
+        "11": 79
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 9,
+          "2": 3,
+          "3": 2,
+          "4": 1,
+          "5": 3,
+          "6": 3,
+          "7": 7,
+          "8": 1,
+          "9": 3,
+          "10": 4
+        },
+        "Ana Rodrigues": {
+          "1": 168,
+          "2": 74,
+          "3": 32,
+          "4": 116,
+          "5": 169,
+          "6": 252,
+          "7": 173,
+          "8": 16,
+          "9": 255,
+          "10": 131,
+          "11": 79
+        }
+      }
+    },
+    "BENJAMIM GONÇALVES": {
+      "meses": {
+        "2": 92,
+        "3": 58,
+        "4": 101,
+        "5": 101,
+        "7": 129,
+        "9": 5,
+        "10": 67,
+        "11": 2
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "2": 92,
+          "3": 55,
+          "4": 101,
+          "5": 101,
+          "7": 129,
+          "9": 5,
+          "10": 67,
+          "11": 1
+        },
+        "João Pedro Alves": {
+          "3": 3,
+          "11": 1
+        }
+      }
+    },
+    "Bento Richil da Silva": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Bouziane Tazir": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Caio Rodrigo Villar Oldenburg": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "CAPITÃO GONÇALVES - Ferro Armado, Lda": {
+      "meses": {
+        "1": 17,
+        "2": 34,
+        "3": 7,
+        "4": 185,
+        "5": 4,
+        "6": 6,
+        "7": 12,
+        "8": 3,
+        "9": 5,
+        "10": 21,
+        "11": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 6,
+          "2": 5,
+          "3": 6,
+          "4": 17,
+          "5": 1,
+          "6": 1,
+          "7": 2,
+          "8": 3,
+          "9": 5,
+          "10": 2
+        },
+        "Pedro Fernandes": {
+          "1": 11,
+          "2": 5,
+          "3": 1,
+          "4": 2,
+          "5": 1,
+          "6": 4,
+          "7": 5,
+          "10": 18,
+          "11": 3
+        },
+        "M Albertina Alves": {
+          "2": 24,
+          "4": 166,
+          "5": 2,
+          "6": 1,
+          "7": 5
+        },
+        "João Pedro Alves": {
+          "10": 1
+        }
+      }
+    },
+    "Carcei -  Const. Met. de Ceivães Unipessoal Lda.": {
+      "meses": {
+        "1": 232,
+        "2": 135,
+        "3": 516,
+        "4": 110,
+        "5": 110,
+        "6": 51,
+        "7": 268,
+        "8": 69,
+        "9": 29,
+        "10": 232,
+        "11": 114
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 10,
+          "3": 7,
+          "6": 5,
+          "7": 8,
+          "8": 14,
+          "9": 5,
+          "10": 7
+        },
+        "M Albertina Alves": {
+          "1": 222,
+          "2": 135,
+          "3": 509,
+          "4": 110,
+          "5": 110,
+          "6": 46,
+          "7": 260,
+          "8": 55,
+          "9": 24,
+          "10": 225,
+          "11": 114
+        }
+      }
+    },
+    "Carlos Jorge Magalhães Oliveira": {
+      "meses": {
+        "1": 4,
+        "2": 83,
+        "3": 230,
+        "4": 27,
+        "5": 146,
+        "6": 10,
+        "7": 480,
+        "8": 11,
+        "9": 8,
+        "10": 313,
+        "11": 17
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 2,
+          "2": 14,
+          "3": 1,
+          "4": 22,
+          "5": 5,
+          "6": 3,
+          "7": 25,
+          "8": 6,
+          "9": 5,
+          "10": 9
+        },
+        "Celine Santos": {
+          "1": 2,
+          "2": 69,
+          "3": 224,
+          "4": 5,
+          "5": 141,
+          "6": 7,
+          "7": 439,
+          "9": 2,
+          "10": 283,
+          "11": 4
+        },
+        "Pedro Fernandes": {
+          "3": 5,
+          "7": 16,
+          "8": 5,
+          "9": 1,
+          "10": 21,
+          "11": 3
+        },
+        "João Pedro Alves": {
+          "11": 10
+        }
+      }
+    },
+    "CARPINTARIA SÃO MIGUEL, UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 300,
+        "2": 107,
+        "3": 329,
+        "4": 711,
+        "5": 133,
+        "6": 643,
+        "7": 50,
+        "8": 326,
+        "9": 902,
+        "10": 139,
+        "11": 317
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 38,
+          "2": 72,
+          "3": 18,
+          "4": 36,
+          "5": 8,
+          "6": 32,
+          "7": 33,
+          "8": 78,
+          "9": 85,
+          "10": 15
+        },
+        "Pedro Fernandes": {
+          "1": 256,
+          "2": 24,
+          "3": 158,
+          "4": 33,
+          "5": 6,
+          "6": 6,
+          "7": 1,
+          "8": 70,
+          "9": 24,
+          "10": 8,
+          "11": 7
+        },
+        "Ana Rodrigues": {
+          "1": 6,
+          "2": 11,
+          "3": 153,
+          "4": 642,
+          "5": 119,
+          "6": 605,
+          "7": 16,
+          "8": 178,
+          "9": 793,
+          "10": 116,
+          "11": 310
+        }
+      }
+    },
+    "Carvalho & Abreu, Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "CATIA RAQUEL NEVES DOS SANTOS GONÇALVES": {
+      "meses": {
+        "1": 29,
+        "2": 67,
+        "3": 15,
+        "4": 17,
+        "5": 142,
+        "6": 24,
+        "7": 157,
+        "8": 104,
+        "9": 44,
+        "10": 192,
+        "11": 15
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 29,
+          "2": 40,
+          "3": 14,
+          "4": 6,
+          "5": 7,
+          "6": 5,
+          "7": 28,
+          "8": 23,
+          "9": 29,
+          "10": 17,
+          "11": 8
+        },
+        "Daniela Fernandes": {
+          "2": 27,
+          "3": 1,
+          "4": 3,
+          "5": 4,
+          "6": 7,
+          "7": 37,
+          "8": 12,
+          "9": 12,
+          "10": 84
+        },
+        "Celine Santos": {
+          "4": 8,
+          "5": 131,
+          "6": 12,
+          "7": 92,
+          "8": 69,
+          "9": 3,
+          "10": 9,
+          "11": 6
+        },
+        "João Pedro Alves": {
+          "10": 82,
+          "11": 1
+        }
+      }
+    },
+    "Cesar Lopes De Mesquita Sociedade Unipessoal Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "CESARIO COELHO & FILHOS, LDA": {
+      "meses": {
+        "1": 39,
+        "2": 2,
+        "3": 1,
+        "4": 38,
+        "5": 38,
+        "6": 7,
+        "7": 17,
+        "8": 7,
+        "9": 4,
+        "10": 15
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 7,
+          "3": 1,
+          "4": 7,
+          "5": 7,
+          "6": 2,
+          "7": 13,
+          "8": 7,
+          "9": 4,
+          "10": 15
+        },
+        "M Albertina Alves": {
+          "1": 32,
+          "2": 2,
+          "4": 31,
+          "5": 31,
+          "6": 5,
+          "7": 4
+        }
+      }
+    },
+    "Cesário Coelho Pires": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "CHUVA D'AFETOS - ASSOCIAÇÃO SOLIDARIEDADE SOCIAL": {
+      "meses": {
+        "1": 36,
+        "4": 302,
+        "5": 302,
+        "6": 9,
+        "7": 13,
+        "8": 1,
+        "9": 20,
+        "10": 16,
+        "11": 13
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 32,
+          "4": 301,
+          "5": 301,
+          "6": 9,
+          "7": 6,
+          "9": 17,
+          "10": 13,
+          "11": 13
+        },
+        "Daniela Fernandes": {
+          "1": 4,
+          "4": 1,
+          "5": 1,
+          "7": 7,
+          "9": 3,
+          "10": 3
+        }
+      }
+    },
+    "Cifrão & Perfeição, Lda.": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "CONDADO VITALÍCIO UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 1,
+        "2": 4
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 1,
+          "2": 4
+        }
+      }
+    },
+    "CONLUZI CONSTRUÇÃO CIVIL E OBRAS PUBLICAS INVESTIMENTO E PROMOÇÃO IMOBILIARIA LDA": {
+      "meses": {
+        "4": 94,
+        "5": 94,
+        "6": 6,
+        "7": 10,
+        "11": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Luzia Moreira": {
+          "4": 94,
+          "5": 94,
+          "6": 6,
+          "7": 10,
+          "11": 1
+        }
+      }
+    },
+    "CONSTRUÇÕES GERÊS PARQUE UNIPESSOAL LDA": {
+      "meses": {
+        "1": 78,
+        "2": 33,
+        "3": 6,
+        "4": 475,
+        "5": 220,
+        "6": 17,
+        "7": 126,
+        "8": 23,
+        "9": 19,
+        "10": 177,
+        "11": 85
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 2,
+          "3": 2,
+          "4": 1,
+          "5": 1,
+          "8": 5,
+          "9": 5,
+          "10": 9
+        },
+        "M Albertina Alves": {
+          "1": 72,
+          "2": 33,
+          "3": 3,
+          "4": 472,
+          "5": 212,
+          "6": 17,
+          "7": 126,
+          "8": 18,
+          "9": 14,
+          "10": 168,
+          "11": 85
+        },
+        "Pedro Fernandes": {
+          "1": 4,
+          "3": 1,
+          "4": 2,
+          "5": 7
+        }
+      }
+    },
+    "CRESPO'S SOCIEDADE POR QUOTAS LDA": {
+      "meses": {
+        "1": 141,
+        "2": 24,
+        "3": 197,
+        "4": 46,
+        "5": 46,
+        "6": 107,
+        "7": 90,
+        "8": 15,
+        "9": 134,
+        "10": 103,
+        "11": 36
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 139,
+          "2": 1,
+          "3": 189,
+          "4": 28,
+          "5": 28,
+          "6": 106,
+          "7": 77,
+          "8": 7,
+          "9": 125,
+          "10": 89,
+          "11": 36
+        },
+        "Daniela Fernandes": {
+          "1": 2,
+          "2": 23,
+          "3": 8,
+          "4": 18,
+          "5": 18,
+          "6": 1,
+          "7": 13,
+          "8": 8,
+          "9": 9,
+          "10": 14
+        }
+      }
+    },
+    "CÁTIA RAQUEL PEREIRA - ESTETICA E COMESTICA, LDA": {
+      "meses": {
+        "1": 185,
+        "2": 210,
+        "3": 87,
+        "4": 967,
+        "5": 40,
+        "6": 13,
+        "7": 56,
+        "8": 477,
+        "9": 437,
+        "10": 301,
+        "11": 141
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 128,
+          "2": 207,
+          "3": 69,
+          "4": 955,
+          "5": 32,
+          "6": 6,
+          "7": 39,
+          "8": 464,
+          "9": 322,
+          "10": 258,
+          "11": 132
+        },
+        "Daniela Fernandes": {
+          "1": 8,
+          "2": 1,
+          "3": 1,
+          "4": 5,
+          "5": 1,
+          "6": 1,
+          "7": 15,
+          "8": 7,
+          "9": 5,
+          "10": 6
+        },
+        "Pedro Fernandes": {
+          "1": 49,
+          "2": 2,
+          "3": 17,
+          "4": 7,
+          "5": 7,
+          "6": 6,
+          "7": 2,
+          "8": 6,
+          "9": 110,
+          "10": 37,
+          "11": 9
+        }
+      }
+    },
+    "Célia de Lima Certal": {
+      "meses": {
+        "2": 4,
+        "3": 11,
+        "4": 6,
+        "5": 389,
+        "8": 212,
+        "9": 1,
+        "10": 1,
+        "11": 72
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "2": 4,
+          "4": 6,
+          "9": 1,
+          "10": 1
+        }
+      }
+    },
+    "D'SILVA FERNANDES, BUSINESS & ACCOUNTING, UNIPESSOAL LDA": {
+      "meses": {
+        "1": 1,
+        "2": 50,
+        "3": 8,
+        "4": 28,
+        "5": 1,
+        "6": 2,
+        "7": 43,
+        "10": 26,
+        "11": 7
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 1,
+          "2": 50,
+          "3": 8,
+          "4": 28,
+          "5": 1,
+          "6": 2,
+          "7": 43,
+          "10": 26,
+          "11": 7
+        }
+      }
+    },
+    "Daniela Califani Martins de Melo": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "DANIELA TOMÁS, UNIPESSOAL LDA": {
+      "meses": {
+        "1": 95,
+        "2": 157,
+        "3": 656,
+        "4": 43,
+        "5": 472,
+        "6": 314,
+        "7": 662,
+        "8": 441,
+        "9": 28,
+        "10": 586,
+        "11": 288
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 61,
+          "2": 126,
+          "3": 655,
+          "4": 25,
+          "5": 436,
+          "6": 303,
+          "7": 651,
+          "8": 427,
+          "10": 577,
+          "11": 288
+        },
+        "Daniela Fernandes": {
+          "1": 34,
+          "2": 31,
+          "3": 1,
+          "4": 18,
+          "5": 36,
+          "6": 11,
+          "7": 11,
+          "8": 14,
+          "9": 28,
+          "10": 9
+        }
+      }
+    },
+    "David Francisco Lourenço": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "DELFIM DAVID AFONSO FERNANDES": {
+      "meses": {
+        "1": 5,
+        "2": 43,
+        "3": 117,
+        "4": 55,
+        "5": 55,
+        "6": 12,
+        "7": 146,
+        "8": 3,
+        "9": 171,
+        "10": 158,
+        "11": 5
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "2": 43,
+          "4": 1,
+          "5": 1,
+          "6": 12,
+          "7": 3,
+          "10": 1
+        },
+        "João Pedro Alves": {
+          "4": 54,
+          "5": 54,
+          "7": 143,
+          "8": 3,
+          "9": 171,
+          "10": 157,
+          "11": 5
+        }
+      }
+    },
+    "Denise Ventura Barbosa Cardoso": {
+      "meses": {
+        "5": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "5": 1
+        }
+      }
+    },
+    "DESAFIO VICIANTE - LDA.": {
+      "meses": {
+        "1": 42,
+        "2": 405,
+        "3": 171,
+        "4": 411,
+        "5": 162,
+        "6": 22,
+        "7": 54,
+        "8": 36,
+        "9": 224,
+        "10": 417,
+        "11": 28
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 8,
+          "2": 354,
+          "3": 119,
+          "4": 262,
+          "5": 144,
+          "6": 5,
+          "7": 22,
+          "8": 4,
+          "9": 171,
+          "10": 356,
+          "11": 20
+        },
+        "Pedro Fernandes": {
+          "1": 2,
+          "2": 26,
+          "3": 37,
+          "4": 102,
+          "7": 1,
+          "8": 2,
+          "9": 4,
+          "10": 16,
+          "11": 3
+        },
+        "Daniela Fernandes": {
+          "1": 32,
+          "2": 25,
+          "3": 15,
+          "4": 47,
+          "5": 18,
+          "6": 17,
+          "7": 31,
+          "8": 30,
+          "9": 49,
+          "10": 45,
+          "11": 5
+        }
+      }
+    },
+    "DESPORTIVO DE MONCAO": {
+      "meses": {
+        "1": 6,
+        "2": 42,
+        "3": 7,
+        "4": 15,
+        "5": 647,
+        "6": 8,
+        "7": 15,
+        "8": 11,
+        "9": 807,
+        "10": 18,
+        "11": 14
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 4,
+          "2": 1,
+          "3": 2,
+          "4": 7,
+          "5": 13,
+          "7": 3
+        },
+        "Pedro Fernandes": {
+          "1": 2,
+          "2": 41,
+          "3": 5,
+          "4": 8,
+          "5": 634,
+          "6": 8,
+          "7": 12,
+          "8": 11,
+          "9": 807,
+          "10": 18,
+          "11": 14
+        }
+      }
+    },
+    "Dezidério Caldas de Castro": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "DF-BUSINESS & SOLUTIONS, LDA": {
+      "meses": {
+        "2": 35,
+        "3": 26,
+        "4": 3,
+        "5": 7,
+        "6": 1,
+        "7": 61,
+        "8": 2,
+        "9": 4,
+        "10": 47,
+        "11": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "2": 35,
+          "3": 26,
+          "4": 3,
+          "5": 7,
+          "6": 1,
+          "7": 61,
+          "8": 2,
+          "10": 47
+        }
+      }
+    },
+    "DHARMA, SOCIEDADE UNIPESSOAL LDA": {
+      "meses": {
+        "2": 7,
+        "3": 4,
+        "4": 5,
+        "7": 2,
+        "8": 1,
+        "11": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "2": 6,
+          "3": 4,
+          "4": 5,
+          "7": 2
+        },
+        "Pedro Fernandes": {
+          "2": 1,
+          "11": 1
+        }
+      }
+    },
+    "DINÂMICA IMPERDÍVEL UNIPESSOAL LDA": {
+      "meses": {
+        "1": 255,
+        "2": 153,
+        "3": 734,
+        "4": 304,
+        "5": 311,
+        "6": 60,
+        "7": 36,
+        "8": 888,
+        "9": 929,
+        "10": 446,
+        "11": 403
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 251,
+          "2": 133,
+          "3": 733,
+          "4": 296,
+          "5": 309,
+          "6": 56,
+          "7": 29,
+          "8": 879,
+          "9": 922,
+          "10": 433,
+          "11": 401
+        },
+        "Daniela Fernandes": {
+          "1": 4,
+          "2": 5,
+          "3": 1,
+          "4": 7,
+          "5": 2,
+          "7": 7,
+          "8": 8,
+          "9": 6,
+          "10": 6
+        },
+        "Pedro Fernandes": {
+          "2": 15,
+          "4": 1,
+          "6": 4,
+          "8": 1,
+          "9": 1,
+          "10": 7,
+          "11": 2
+        }
+      }
+    },
+    "Dionatan Alves Rodrigues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "DSG ALUMINIOS, LDA": {
+      "meses": {
+        "1": 338,
+        "2": 304,
+        "3": 636,
+        "4": 372,
+        "5": 557,
+        "6": 520,
+        "7": 355,
+        "8": 62,
+        "9": 307,
+        "10": 411,
+        "11": 332
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 32,
+          "2": 18,
+          "3": 18,
+          "4": 57,
+          "5": 21,
+          "6": 8,
+          "7": 25,
+          "8": 12,
+          "9": 29,
+          "10": 21
+        },
+        "Pedro Fernandes": {
+          "1": 2,
+          "2": 164,
+          "3": 5,
+          "4": 2,
+          "5": 59,
+          "6": 11,
+          "7": 4,
+          "11": 2
+        },
+        "Ana Rodrigues": {
+          "1": 304,
+          "2": 122,
+          "3": 613,
+          "4": 313,
+          "5": 477,
+          "6": 501,
+          "7": 326,
+          "8": 50,
+          "9": 278,
+          "10": 390,
+          "11": 330
+        }
+      }
+    },
+    "El  Houcine Sefioune": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ELECTRO GIL AFONSO, LDA": {
+      "meses": {
+        "1": 467,
+        "2": 304,
+        "3": 304,
+        "4": 297,
+        "5": 297,
+        "6": 50,
+        "7": 446,
+        "8": 167,
+        "9": 172,
+        "10": 39,
+        "11": 309
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 6,
+          "2": 2,
+          "3": 4,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 9,
+          "8": 10,
+          "9": 4,
+          "10": 12
+        },
+        "M Albertina Alves": {
+          "1": 461,
+          "2": 302,
+          "3": 300,
+          "4": 296,
+          "5": 296,
+          "6": 49,
+          "7": 437,
+          "8": 157,
+          "9": 168,
+          "10": 27,
+          "11": 309
+        }
+      }
+    },
+    "Elias Garcia Fritz de Oliveira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "ELISABETE MOREIRA DE CARVALHO": {
+      "meses": {
+        "1": 10,
+        "2": 5,
+        "3": 2,
+        "4": 6,
+        "5": 4,
+        "6": 5,
+        "7": 2,
+        "8": 40,
+        "9": 27,
+        "10": 1,
+        "11": 33
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Luzia Moreira": {
+          "1": 6,
+          "2": 5,
+          "3": 2,
+          "4": 4,
+          "5": 1,
+          "6": 5
+        },
+        "Pedro Fernandes": {
+          "1": 4,
+          "5": 1,
+          "10": 1
+        },
+        "M Albertina Alves": {
+          "4": 2,
+          "5": 2,
+          "7": 2
+        }
+      }
+    },
+    "EME TRES IBERICA LDA": {
+      "meses": {
+        "1": 1,
+        "2": 9,
+        "4": 7,
+        "5": 5,
+        "6": 1,
+        "7": 22,
+        "8": 1,
+        "9": 3,
+        "10": 4,
+        "11": 6
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 1,
+          "2": 9,
+          "4": 7,
+          "5": 5,
+          "6": 1,
+          "7": 22,
+          "8": 1,
+          "9": 3,
+          "10": 4,
+          "11": 6
+        }
+      }
+    },
+    "ESTALEIROS DO NORTE - EMBARCAÇÕES PROFISSIONAIS E DESPORTIVAS, LDA.": {
+      "meses": {
+        "1": 351,
+        "2": 75,
+        "3": 133,
+        "4": 1038,
+        "5": 232,
+        "6": 413,
+        "7": 647,
+        "8": 400,
+        "9": 643,
+        "10": 499,
+        "11": 209
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 262,
+          "2": 20,
+          "3": 89,
+          "4": 917,
+          "5": 214,
+          "6": 377,
+          "7": 520,
+          "8": 319,
+          "9": 501,
+          "10": 273,
+          "11": 208
+        },
+        "Daniela Fernandes": {
+          "1": 65,
+          "2": 53,
+          "3": 44,
+          "4": 121,
+          "5": 18,
+          "6": 36,
+          "7": 127,
+          "8": 81,
+          "9": 115,
+          "10": 226,
+          "11": 1
+        },
+        "Ana Rodrigues": {
+          "1": 24,
+          "2": 2,
+          "9": 27
+        }
+      }
+    },
+    "Ezequias da Silva Luz": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "F&D VENDING LDA": {
+      "meses": {
+        "1": 2,
+        "2": 28,
+        "3": 96,
+        "4": 6,
+        "5": 8,
+        "6": 1,
+        "7": 12,
+        "8": 2,
+        "9": 3,
+        "10": 13
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 2,
+          "2": 28,
+          "3": 96,
+          "4": 6,
+          "5": 8,
+          "6": 1,
+          "7": 12,
+          "8": 2,
+          "9": 1,
+          "10": 13
+        },
+        "Daniela Fernandes": {
+          "9": 2
+        }
+      }
+    },
+    "Fernanda da Conceição F. Rodrigues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Fernando Andrade Figueira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Fernando Antonio Lima Machado": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "FERNANDO JOSÉ FERREIRA GUEDES": {
+      "meses": {
+        "1": 7,
+        "2": 252,
+        "3": 36,
+        "4": 155,
+        "5": 21,
+        "6": 16,
+        "7": 149,
+        "8": 12,
+        "9": 74,
+        "10": 65,
+        "11": 56
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 7,
+          "2": 2,
+          "3": 5,
+          "4": 6,
+          "5": 15,
+          "6": 4,
+          "7": 9,
+          "8": 5,
+          "9": 8,
+          "10": 7
+        },
+        "Celine Santos": {
+          "2": 250,
+          "3": 30,
+          "4": 149,
+          "5": 6,
+          "6": 12,
+          "7": 140,
+          "8": 7,
+          "9": 18,
+          "10": 55,
+          "11": 43
+        },
+        "Pedro Fernandes": {
+          "3": 1,
+          "9": 48,
+          "10": 3,
+          "11": 3
+        },
+        "João Pedro Alves": {
+          "11": 10
+        }
+      }
+    },
+    "Fernando Silvestre Rodrigues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Filipe Xavier Pereira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Florêncio - Construções, Lda.": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "FLYOVER TRANSPORTES, UNIPESSOAL LDA": {
+      "meses": {
+        "1": 6,
+        "2": 150,
+        "3": 7,
+        "4": 121,
+        "5": 12,
+        "6": 17,
+        "7": 181,
+        "8": 7,
+        "9": 10,
+        "10": 14,
+        "11": 64
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 4,
+          "2": 2,
+          "3": 1,
+          "4": 6,
+          "5": 5,
+          "7": 11,
+          "8": 5,
+          "9": 5,
+          "10": 12
+        },
+        "Celine Santos": {
+          "1": 2,
+          "2": 148,
+          "3": 6,
+          "4": 115,
+          "5": 7,
+          "6": 17,
+          "7": 170,
+          "8": 2,
+          "9": 1,
+          "10": 2,
+          "11": 64
+        },
+        "Pedro Fernandes": {
+          "9": 4
+        }
+      }
+    },
+    "Fouad Djouhar": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "FRANCISCA LAURA SOARES DANHO": {
+      "meses": {
+        "5": 63,
+        "6": 3,
+        "7": 74,
+        "8": 89,
+        "9": 3,
+        "10": 120
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "5": 63,
+          "6": 3,
+          "7": 74,
+          "8": 89,
+          "9": 3,
+          "10": 120
+        }
+      }
+    },
+    "Francisco Duarte Marinho Lira Agre": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Francisco Manuel Afonso Domingues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "FRANCISCO MARIA CORREIA CAIMOTO": {
+      "meses": {
+        "4": 5,
+        "5": 2,
+        "6": 15,
+        "7": 2,
+        "8": 15,
+        "10": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "4": 5,
+          "5": 2,
+          "6": 15,
+          "7": 2,
+          "8": 15,
+          "10": 1
+        }
+      }
+    },
+    "Fábio Ferreira da Costa": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "GAPITO PAINTS UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 22,
+        "2": 145,
+        "3": 240,
+        "4": 164,
+        "5": 164,
+        "6": 287,
+        "7": 80,
+        "8": 350,
+        "9": 7,
+        "10": 520
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 22,
+          "2": 145,
+          "3": 240,
+          "4": 164,
+          "5": 164,
+          "6": 287,
+          "7": 80,
+          "8": 350,
+          "9": 7,
+          "10": 520
+        }
+      }
+    },
+    "GENOVAL KESKOSKI UNIPESSOAL LDA": {
+      "meses": {
+        "10": 141,
+        "11": 17
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "10": 3
+        },
+        "João Pedro Alves": {
+          "10": 138,
+          "11": 17
+        }
+      }
+    },
+    "Gil Humberto Cristina Rodrigues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Gil Noronha Dos Santos": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Glauciele do Nascimento Silva Costa": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Granimerufe - Granitos, Unipessoal Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Guilherme Ismael Messias Dos Santos": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Hadjer Rezazgui": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Heather Conrad": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Hichem Benghedfa": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Hippalus Distribuição Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Housseyn Remmani": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Iasn - Instituto De Apoio Ao Suporte Nutricional L": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "IASN - INSTITUTO DE APOIO AO SUPORTE NUTRICIONAL, LDA": {
+      "meses": {
+        "1": 56,
+        "2": 118,
+        "3": 366,
+        "4": 96,
+        "5": 112,
+        "6": 5,
+        "7": 124,
+        "8": 133,
+        "9": 10,
+        "10": 318,
+        "11": 50
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 11,
+          "2": 16,
+          "3": 2,
+          "4": 8,
+          "5": 3,
+          "6": 3,
+          "7": 17,
+          "8": 22,
+          "9": 9,
+          "10": 13
+        },
+        "Pedro Fernandes": {
+          "1": 45,
+          "2": 102,
+          "3": 364,
+          "4": 88,
+          "5": 109,
+          "6": 2,
+          "7": 107,
+          "8": 111,
+          "9": 1,
+          "10": 305,
+          "11": 50
+        }
+      }
+    },
+    "Igor Alexandre Simão Fonseca": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "IKNOW INTERLIGENT KOMMUNIZIEREN UNIPESSOAL LDA": {
+      "meses": {
+        "1": 25,
+        "2": 137,
+        "3": 157,
+        "4": 307,
+        "5": 145,
+        "6": 17,
+        "7": 244,
+        "8": 153,
+        "9": 122,
+        "10": 198,
+        "11": 38
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 14,
+          "2": 35,
+          "3": 18,
+          "4": 44,
+          "5": 17,
+          "6": 12,
+          "7": 39,
+          "8": 60,
+          "9": 46,
+          "10": 20
+        },
+        "Ana Rodrigues": {
+          "1": 11,
+          "2": 102,
+          "3": 139,
+          "4": 263,
+          "5": 128,
+          "6": 5,
+          "7": 205,
+          "8": 93,
+          "9": 76,
+          "10": 178,
+          "11": 38
+        }
+      }
+    },
+    "IMPROVE2getHER LDA": {
+      "meses": {
+        "1": 47,
+        "2": 264,
+        "3": 1,
+        "4": 71,
+        "5": 2,
+        "6": 1,
+        "7": 15,
+        "8": 1,
+        "9": 8,
+        "10": 5
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 5,
+          "2": 3,
+          "3": 1,
+          "7": 2,
+          "8": 1,
+          "10": 5
+        },
+        "Ana Rodrigues": {
+          "1": 19,
+          "2": 253,
+          "4": 70,
+          "5": 1,
+          "7": 13
+        },
+        "Pedro Fernandes": {
+          "1": 23,
+          "2": 8,
+          "4": 1,
+          "5": 1,
+          "9": 8
+        }
+      }
+    },
+    "INICIATIVA E PERSISTÊNCIA, LDA.": {
+      "meses": {
+        "1": 217,
+        "2": 225,
+        "3": 202,
+        "4": 203,
+        "5": 188,
+        "6": 203,
+        "7": 81,
+        "8": 294,
+        "9": 148,
+        "10": 216,
+        "11": 141
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 175,
+          "2": 199,
+          "3": 186,
+          "4": 177,
+          "5": 172,
+          "6": 194,
+          "7": 63,
+          "8": 279,
+          "9": 100,
+          "10": 165,
+          "11": 141
+        },
+        "Daniela Fernandes": {
+          "1": 27,
+          "2": 25,
+          "3": 16,
+          "4": 26,
+          "5": 13,
+          "6": 9,
+          "7": 18,
+          "8": 15,
+          "9": 48,
+          "10": 51
+        },
+        "Ana Rodrigues": {
+          "1": 15,
+          "2": 1,
+          "5": 3
+        }
+      }
+    },
+    "INMONÇÃO-DISTRIBUIÇÃO, UNIPESSOAL, LDA": {
+      "meses": {
+        "1": 390,
+        "2": 413,
+        "3": 441,
+        "4": 246,
+        "5": 971,
+        "6": 824,
+        "7": 226,
+        "8": 310,
+        "9": 1634,
+        "10": 250,
+        "11": 594
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 6,
+          "2": 12,
+          "3": 1,
+          "4": 13,
+          "5": 69,
+          "6": 188,
+          "7": 4,
+          "9": 67,
+          "10": 5,
+          "11": 2
+        },
+        "Daniela Fernandes": {
+          "1": 5,
+          "2": 35,
+          "3": 7,
+          "4": 12,
+          "5": 13,
+          "6": 5,
+          "7": 16,
+          "8": 7,
+          "9": 69,
+          "10": 11
+        },
+        "Ana Rodrigues": {
+          "1": 379,
+          "2": 366,
+          "3": 433,
+          "4": 221,
+          "5": 889,
+          "6": 631,
+          "7": 206,
+          "8": 303,
+          "9": 1498,
+          "10": 234,
+          "11": 592
+        }
+      }
+    },
+    "INOVA SKIN UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 10,
+        "2": 4,
+        "3": 51,
+        "4": 11,
+        "5": 37,
+        "6": 1,
+        "7": 50,
+        "8": 10,
+        "9": 6,
+        "10": 59,
+        "11": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 4,
+          "2": 4,
+          "3": 49,
+          "4": 2,
+          "5": 33,
+          "7": 46,
+          "8": 2,
+          "9": 2,
+          "10": 50,
+          "11": 1
+        },
+        "Daniela Fernandes": {
+          "1": 6,
+          "3": 2,
+          "4": 9,
+          "5": 4,
+          "6": 1,
+          "7": 4,
+          "8": 8,
+          "9": 4,
+          "10": 9
+        }
+      }
+    },
+    "Inácio Alves": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Isidro Manuel Alves Pereira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "IVO PEDRO VIEIRA": {
+      "meses": {
+        "1": 7,
+        "2": 135,
+        "3": 66,
+        "4": 8,
+        "5": 84,
+        "6": 1,
+        "7": 228,
+        "8": 18,
+        "9": 167,
+        "10": 278,
+        "11": 91
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 7,
+          "2": 135,
+          "3": 66,
+          "4": 8,
+          "5": 84,
+          "6": 1,
+          "7": 228,
+          "8": 18,
+          "9": 167,
+          "10": 274,
+          "11": 18
+        },
+        "João Pedro Alves": {
+          "10": 4,
+          "11": 73
+        }
+      }
+    },
+    "Jackson Evangelista dos Santos": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "JAFISERAN - COMERCIO DE GENEROS ALIMENTICIOS LDA": {
+      "meses": {
+        "1": 722,
+        "2": 101,
+        "3": 825,
+        "4": 615,
+        "5": 219,
+        "6": 401,
+        "7": 526,
+        "8": 454,
+        "9": 400,
+        "10": 354,
+        "11": 312
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 3
+        },
+        "M Albertina Alves": {
+          "1": 705,
+          "2": 99,
+          "3": 813,
+          "4": 606,
+          "5": 217,
+          "6": 399,
+          "7": 522,
+          "8": 401,
+          "9": 376,
+          "10": 340,
+          "11": 312
+        },
+        "Daniela Fernandes": {
+          "1": 14,
+          "2": 2,
+          "3": 12,
+          "4": 9,
+          "5": 2,
+          "6": 2,
+          "7": 4,
+          "8": 53,
+          "9": 24,
+          "10": 14
+        }
+      }
+    },
+    "Jamal Jaafari": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Jamim Jonathan Alves de Souza": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "JOAO DOMINGUES": {
+      "meses": {
+        "1": 8,
+        "2": 289,
+        "4": 334,
+        "5": 334,
+        "6": 16,
+        "7": 968,
+        "8": 158,
+        "9": 209,
+        "10": 415,
+        "11": 117
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 8,
+          "2": 289,
+          "4": 334,
+          "5": 334,
+          "6": 16,
+          "7": 968,
+          "8": 158,
+          "9": 209,
+          "10": 415,
+          "11": 117
+        }
+      }
+    },
+    "Joaquim Fernandes Gomes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Jorge Filipe Dias Antunes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Jorge Lourenço, SOCIEDADE UNIPESSOAL, Lda.": {
+      "meses": {
+        "1": 804,
+        "2": 47,
+        "3": 529,
+        "4": 267,
+        "5": 267,
+        "6": 717,
+        "7": 450,
+        "8": 102,
+        "9": 481,
+        "10": 202
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 802,
+          "2": 47,
+          "3": 527,
+          "4": 266,
+          "5": 266,
+          "6": 716,
+          "7": 444,
+          "8": 96,
+          "9": 472,
+          "10": 194
+        },
+        "Daniela Fernandes": {
+          "1": 2,
+          "3": 2,
+          "4": 1,
+          "5": 1,
+          "6": 1,
+          "7": 6,
+          "8": 6,
+          "9": 9,
+          "10": 8
+        }
+      }
+    },
+    "Jorge Manuel Rodrigues Lourenço": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "JOSE ANTONIO CRUZ GOMES": {
+      "meses": {
+        "2": 83,
+        "5": 254,
+        "7": 172,
+        "8": 2,
+        "9": 92,
+        "10": 69,
+        "11": 20
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "7": 172,
+          "8": 2,
+          "9": 92,
+          "10": 69,
+          "11": 5
+        },
+        "João Pedro Alves": {
+          "11": 15
+        }
+      }
+    },
+    "Josimar Marciel da Silva": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Josue Califani de Melo": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José Adriano Domingues Oliveira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José Alberto Gomes Fernandes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José António Gallardo Boo": {
+      "meses": {
+        "1": 4,
+        "2": 2,
+        "3": 7,
+        "4": 2,
+        "5": 1,
+        "6": 27,
+        "7": 95,
+        "9": 50,
+        "10": 133,
+        "11": 8
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 4,
+          "2": 2,
+          "4": 2,
+          "5": 1
+        }
+      }
+    },
+    "José Diogo Rodrigues Rosário": {
+      "meses": {
+        "1": 7,
+        "2": 102,
+        "3": 34,
+        "4": 14,
+        "5": 161,
+        "6": 4,
+        "7": 20,
+        "8": 57,
+        "9": 13,
+        "10": 42,
+        "11": 22
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 7,
+          "2": 102,
+          "3": 34,
+          "4": 14,
+          "5": 161,
+          "6": 4,
+          "7": 20,
+          "8": 57,
+          "9": 13,
+          "10": 42,
+          "11": 22
+        }
+      }
+    },
+    "José Feliciano Fernandes da Costa Monteiro": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José Marques Rodrigues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José Pedro Quintela Silva": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José Soares do Nascimento": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "José Valdomiro D. Pinto": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "João Carlos Pastor Gonçalves": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "João M. Dias, unipessoal, lda.": {
+      "meses": {
+        "1": 1,
+        "3": 1,
+        "6": 38,
+        "7": 3,
+        "8": 21,
+        "9": 9,
+        "10": 8
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 1,
+          "3": 1,
+          "7": 3,
+          "8": 9,
+          "9": 8,
+          "10": 8
+        },
+        "Celine Santos": {
+          "6": 38,
+          "8": 2
+        },
+        "M Luzia Moreira": {
+          "8": 10,
+          "9": 1
+        }
+      }
+    },
+    "João Manuel Alves Dias": {
+      "meses": {
+        "1": 4,
+        "2": 4,
+        "3": 11,
+        "4": 1,
+        "5": 1,
+        "7": 4,
+        "8": 22,
+        "9": 6,
+        "10": 20
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 4,
+          "2": 4,
+          "3": 11,
+          "4": 1,
+          "5": 1,
+          "7": 4,
+          "8": 22,
+          "9": 6,
+          "10": 20
+        }
+      }
+    },
+    "João Paulo Martins Nunes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "João Ricardo Machado Martins": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Junta de Freguesia de Barbeita": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Katia Boudif": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Katy Thiers": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Khalid Outaleb": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Kleberson Vericio dos Santos": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "KRAKEN STEEL LDA": {
+      "meses": {
+        "1": 81,
+        "2": 12,
+        "3": 75,
+        "4": 8,
+        "5": 161,
+        "6": 13,
+        "7": 106,
+        "8": 4,
+        "9": 55,
+        "10": 358,
+        "11": 123
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 81,
+          "2": 12,
+          "3": 75,
+          "4": 8,
+          "5": 135,
+          "6": 13,
+          "7": 106,
+          "8": 2,
+          "9": 37,
+          "10": 324,
+          "11": 123
+        },
+        "Daniela Fernandes": {
+          "5": 26,
+          "8": 2,
+          "9": 18,
+          "10": 34
+        }
+      }
+    },
+    "Leah Narodetsky": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "LEANDRO DE BRITO FERREIRA, UNIPESSOAL LDA": {
+      "meses": {
+        "3": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "3": 3
+        }
+      }
+    },
+    "LGTVENDING LDA.": {
+      "meses": {
+        "1": 46,
+        "2": 45,
+        "3": 77,
+        "4": 60,
+        "5": 85,
+        "6": 21,
+        "7": 16,
+        "8": 10,
+        "9": 29,
+        "10": 68,
+        "11": 5
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 43,
+          "2": 4,
+          "3": 29,
+          "4": 30,
+          "5": 56,
+          "6": 8,
+          "7": 6,
+          "8": 7,
+          "9": 27,
+          "10": 61
+        },
+        "Pedro Fernandes": {
+          "1": 3,
+          "2": 41,
+          "3": 48,
+          "4": 30,
+          "5": 29,
+          "6": 13,
+          "7": 10,
+          "8": 3,
+          "9": 2,
+          "10": 7,
+          "11": 5
+        }
+      }
+    },
+    "LINHA DO MINHO NEGÓCIOS IMOBILIARIOS E GESTAO LDA": {
+      "meses": {
+        "4": 1,
+        "5": 1,
+        "8": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "8": 1
+        }
+      }
+    },
+    "Liniker Whuildner de Souza": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Luis Carlos Tangarife Catano": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "M&M CRESPOS LDA": {
+      "meses": {
+        "1": 2,
+        "8": 5,
+        "11": 2
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 2,
+          "8": 5,
+          "11": 2
+        }
+      }
+    },
+    "Madeiras Adriano - Comércio de Madeiras, Lda.": {
+      "meses": {
+        "1": 65,
+        "2": 223,
+        "3": 61,
+        "4": 7,
+        "5": 7,
+        "6": 114,
+        "7": 159,
+        "9": 45,
+        "10": 17,
+        "11": 16
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 65,
+          "2": 223,
+          "3": 61,
+          "4": 7,
+          "5": 7,
+          "6": 114,
+          "7": 159,
+          "9": 45,
+          "10": 17,
+          "11": 16
+        }
+      }
+    },
+    "Manuel Alberto Presa Trancoso": {
+      "meses": {
+        "1": 15,
+        "2": 20,
+        "4": 59,
+        "5": 59,
+        "6": 7,
+        "7": 5,
+        "8": 9,
+        "9": 10,
+        "10": 32
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 12,
+          "2": 20,
+          "4": 59,
+          "5": 59,
+          "6": 7
+        },
+        "Daniela Fernandes": {
+          "1": 3,
+          "7": 5,
+          "8": 9,
+          "9": 10,
+          "10": 32
+        }
+      }
+    },
+    "Manuel António Domingues & Filho LDA": {
+      "meses": {
+        "1": 324,
+        "2": 192,
+        "3": 443,
+        "4": 189,
+        "5": 189,
+        "6": 514,
+        "7": 193,
+        "8": 332,
+        "9": 418,
+        "10": 313,
+        "11": 316
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 3,
+          "2": 68,
+          "3": 18,
+          "4": 24,
+          "5": 24,
+          "6": 32,
+          "7": 30,
+          "8": 65,
+          "9": 70,
+          "10": 94
+        },
+        "Ana Rodrigues": {
+          "1": 321,
+          "2": 124,
+          "3": 425,
+          "4": 165,
+          "5": 165,
+          "6": 482,
+          "7": 163,
+          "8": 267,
+          "9": 348,
+          "10": 219,
+          "11": 316
+        }
+      }
+    },
+    "MANUEL ANTÓNIO DOMINGUES - SOCIEDADE UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 1,
+        "4": 1,
+        "5": 1,
+        "7": 16
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 1,
+          "7": 16
+        }
+      }
+    },
+    "Manuel de Sá Garcia": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Manuel Fernando Fernandes Carrico": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Manuel Henrique Domingues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Manuel Henrique Pereira Crespo": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Manuel Luis Gonçalves Ferreira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MANUEL LUIS PEREIRA ROCHA & FILHOS LDA": {
+      "meses": {
+        "1": 162,
+        "2": 540,
+        "3": 703,
+        "4": 84,
+        "5": 84,
+        "6": 161,
+        "7": 85,
+        "8": 190,
+        "9": 71,
+        "10": 553,
+        "11": 70
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 161,
+          "2": 539,
+          "3": 703,
+          "4": 84,
+          "5": 84,
+          "6": 161,
+          "7": 82,
+          "8": 177,
+          "9": 67,
+          "10": 546,
+          "11": 70
+        },
+        "Daniela Fernandes": {
+          "1": 1,
+          "2": 1,
+          "7": 3,
+          "8": 13,
+          "9": 4,
+          "10": 7
+        }
+      }
+    },
+    "Manuel Luís Gomes Fernandes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MARCELINO CAMPOS GONÇALVES, UNIPESSOAL, LDA": {
+      "meses": {
+        "1": 24,
+        "2": 328,
+        "3": 19,
+        "4": 521,
+        "5": 480,
+        "6": 31,
+        "7": 802,
+        "8": 112,
+        "9": 1108,
+        "10": 495,
+        "11": 200
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 14,
+          "2": 324,
+          "3": 12,
+          "4": 492,
+          "5": 438,
+          "6": 29,
+          "7": 795,
+          "8": 2,
+          "9": 1060,
+          "10": 426,
+          "11": 150
+        },
+        "Pedro Fernandes": {
+          "1": 7,
+          "2": 2,
+          "3": 6,
+          "4": 26,
+          "5": 40,
+          "7": 1,
+          "8": 108,
+          "9": 41,
+          "10": 62,
+          "11": 49
+        },
+        "Daniela Fernandes": {
+          "1": 3,
+          "2": 2,
+          "3": 1,
+          "4": 3,
+          "5": 2,
+          "6": 2,
+          "7": 6,
+          "8": 2,
+          "9": 7,
+          "10": 7
+        },
+        "João Pedro Alves": {
+          "11": 1
+        }
+      }
+    },
+    "Marcelo Vinicius Messias Da Silva": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Marciele Souza Candido": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Marco Paulo Fernandes Crespo": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MARCO PAULO GOUVEIA GOMES": {
+      "meses": {
+        "8": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MARCO PAULO VILA POUCA FERNANDES": {
+      "meses": {
+        "2": 125,
+        "5": 74,
+        "6": 2,
+        "7": 71,
+        "11": 29
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "2": 125,
+          "5": 74,
+          "6": 2,
+          "7": 71,
+          "11": 29
+        }
+      }
+    },
+    "MARCOBRINDE II-SOCIEDADE POR QUOTAS,LDA": {
+      "meses": {
+        "1": 1159,
+        "2": 1201,
+        "3": 701,
+        "4": 1374,
+        "5": 401,
+        "6": 1313,
+        "7": 732,
+        "8": 38,
+        "9": 1537,
+        "10": 1076,
+        "11": 568
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "1": 1125,
+          "2": 1175,
+          "3": 673,
+          "4": 1334,
+          "5": 389,
+          "6": 1281,
+          "7": 691,
+          "8": 24,
+          "9": 1504,
+          "10": 1044,
+          "11": 568
+        },
+        "Daniela Fernandes": {
+          "1": 28,
+          "2": 26,
+          "3": 25,
+          "4": 40,
+          "5": 12,
+          "6": 32,
+          "7": 40,
+          "8": 14,
+          "9": 33,
+          "10": 32
+        },
+        "Pedro Fernandes": {
+          "1": 6,
+          "3": 3,
+          "7": 1
+        }
+      }
+    },
+    "Marcobrinde Unipessoal, Lda.": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Marcos Paulo Braga": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Maria Conceição Gonçalves Lamas Pereira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MARIA DA CONCEIÇÃO FERNANDES GOMES": {
+      "meses": {
+        "2": 79,
+        "4": 435,
+        "5": 435,
+        "6": 2,
+        "7": 149,
+        "8": 1,
+        "10": 128
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "2": 79,
+          "4": 435,
+          "5": 435,
+          "6": 2,
+          "7": 149,
+          "8": 1,
+          "10": 128
+        }
+      }
+    },
+    "Maria do Céu Sá Fernandes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Maria José Lourenço Costa": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Maria José Rodrigues de Sousa": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Maria Primavera Torres Fernandes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MARIA TERESA ESTEVES GONÇALVES": {
+      "meses": {
+        "2": 37,
+        "4": 87,
+        "5": 87,
+        "9": 53,
+        "11": 38
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Luzia Moreira": {
+          "2": 37,
+          "4": 87,
+          "5": 87,
+          "9": 53,
+          "11": 38
+        }
+      }
+    },
+    "MARIO JORGE GONÇALVES PEDREIRA": {
+      "meses": {
+        "1": 89,
+        "2": 22,
+        "3": 4,
+        "4": 7,
+        "5": 7,
+        "6": 68,
+        "7": 14,
+        "8": 51,
+        "9": 2,
+        "10": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 81,
+          "2": 21,
+          "3": 1,
+          "6": 38,
+          "7": 12,
+          "8": 51,
+          "9": 2
+        },
+        "Daniela Fernandes": {
+          "1": 8,
+          "2": 1,
+          "3": 3,
+          "4": 7,
+          "5": 7,
+          "6": 30,
+          "7": 2,
+          "10": 1
+        }
+      }
+    },
+    "Marta Cristina Fernandes Lourenço": {
+      "meses": {
+        "1": 132,
+        "2": 40,
+        "3": 195,
+        "4": 35,
+        "5": 65,
+        "6": 160,
+        "7": 90,
+        "8": 81,
+        "9": 55,
+        "10": 90,
+        "11": 51
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 5,
+          "2": 1,
+          "3": 4,
+          "4": 7,
+          "6": 1,
+          "7": 6,
+          "8": 12,
+          "9": 2,
+          "10": 18
+        },
+        "Pedro Fernandes": {
+          "1": 127,
+          "2": 39,
+          "3": 191,
+          "4": 28,
+          "5": 65,
+          "6": 159,
+          "7": 84,
+          "8": 69,
+          "9": 53,
+          "10": 72,
+          "11": 51
+        }
+      }
+    },
+    "Martinho Marinho": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Matalla Houari": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Matos Pereira Dias Representações Lda.": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MAURICIO DE SOUSA E SILVA": {
+      "meses": {
+        "1": 44,
+        "2": 29,
+        "3": 17,
+        "4": 19,
+        "5": 19,
+        "6": 2,
+        "7": 26,
+        "8": 48,
+        "9": 22,
+        "10": 53,
+        "11": 16
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Megherbi Mohamed Amine": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MELISSA GONÇALVES MARTINS FERREIRA": {
+      "meses": {
+        "8": 2,
+        "9": 194,
+        "10": 18,
+        "11": 104
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "8": 1,
+          "9": 141,
+          "11": 94
+        },
+        "Pedro Fernandes": {
+          "8": 1,
+          "9": 53,
+          "11": 10
+        }
+      }
+    },
+    "Michael Lourenço": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MIGUEL AMORIM ARANTES DE SOUSA E SILVA": {
+      "meses": {
+        "1": 3,
+        "2": 34,
+        "3": 8,
+        "4": 9,
+        "5": 41,
+        "6": 9,
+        "7": 12,
+        "8": 2,
+        "9": 2,
+        "10": 10,
+        "11": 26
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 3,
+          "3": 8,
+          "4": 3,
+          "5": 1,
+          "6": 9,
+          "7": 12,
+          "8": 2,
+          "9": 2,
+          "10": 10
+        },
+        "M Albertina Alves": {
+          "2": 34,
+          "4": 5,
+          "5": 34,
+          "11": 26
+        },
+        "Pedro Fernandes": {
+          "4": 1,
+          "5": 6
+        }
+      }
+    },
+    "Miloud Chahraqui": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Mohamed Akli Sab": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Mohamed Ameziane Chafai": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Moises Gonçalves Morais": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "MONTANHA BALSÂMICA - UNIPESSOAL LDA": {
+      "meses": {
+        "1": 5,
+        "2": 109,
+        "4": 5,
+        "5": 44,
+        "7": 12,
+        "8": 2,
+        "9": 2,
+        "10": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 5,
+          "2": 9,
+          "4": 1,
+          "5": 2,
+          "7": 3,
+          "8": 2,
+          "9": 2,
+          "10": 3
+        },
+        "Ana Rodrigues": {
+          "2": 1,
+          "5": 2
+        },
+        "Celine Santos": {
+          "2": 99,
+          "4": 4,
+          "5": 40,
+          "7": 9
+        }
+      }
+    },
+    "MONTEIRO AFONSO & FILHOS LDA": {
+      "meses": {
+        "1": 409,
+        "2": 419,
+        "3": 222,
+        "4": 474,
+        "5": 202,
+        "6": 1203,
+        "7": 274,
+        "8": 194,
+        "9": 138,
+        "10": 126,
+        "11": 546
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 384,
+          "2": 395,
+          "3": 93,
+          "4": 181,
+          "5": 137,
+          "6": 1064,
+          "7": 184,
+          "8": 2,
+          "9": 4
+        },
+        "Daniela Fernandes": {
+          "1": 25,
+          "2": 20,
+          "3": 9,
+          "4": 39,
+          "5": 19,
+          "6": 5,
+          "7": 10,
+          "8": 12,
+          "9": 2,
+          "10": 17
+        },
+        "Pedro Fernandes": {
+          "2": 4,
+          "3": 120,
+          "4": 254,
+          "5": 46,
+          "6": 134,
+          "7": 80,
+          "8": 180,
+          "9": 132,
+          "10": 109,
+          "11": 546
+        }
+      }
+    },
+    "Murilo Henrique Moreira Leme": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Márcia Maria Cardoso Bernando": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Nair Fátima Nóvoas Álvaro": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "NUTRIRE, Unipessoal, Lda.": {
+      "meses": {
+        "1": 48,
+        "2": 669,
+        "3": 6,
+        "4": 319,
+        "5": 122,
+        "6": 15,
+        "7": 157,
+        "8": 4,
+        "9": 16,
+        "10": 10,
+        "11": 23
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 28,
+          "2": 664,
+          "4": 171,
+          "6": 14,
+          "8": 2
+        },
+        "Pedro Fernandes": {
+          "1": 18,
+          "2": 2,
+          "3": 4,
+          "4": 13,
+          "5": 10,
+          "7": 20,
+          "9": 3,
+          "10": 1
+        },
+        "Daniela Fernandes": {
+          "1": 2,
+          "2": 3,
+          "3": 2,
+          "4": 3,
+          "5": 2,
+          "7": 2,
+          "8": 1,
+          "9": 13,
+          "10": 8
+        },
+        "Celine Santos": {
+          "4": 132,
+          "5": 110,
+          "6": 1,
+          "7": 135,
+          "8": 1,
+          "10": 1,
+          "11": 23
+        }
+      }
+    },
+    "Nélson Crespo Neves": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "OCC - Empresa de demonstração - TOConline": {
+      "meses": {
+        "1": 45,
+        "2": 46,
+        "3": 27,
+        "4": 18,
+        "5": 17,
+        "6": 19,
+        "7": 70,
+        "8": 8,
+        "9": 24,
+        "10": 77
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Ana Rodrigues": {
+          "2": 1,
+          "8": 2
+        },
+        "Daniela Fernandes": {
+          "2": 20,
+          "4": 1
+        },
+        "Pedro Fernandes": {
+          "6": 17,
+          "7": 4,
+          "9": 5
+        }
+      }
+    },
+    "Olimpia da Luz Fernandes Gonçalves": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "PACaccounting, LDA.": {
+      "meses": {
+        "1": 562,
+        "2": 562,
+        "3": 611,
+        "4": 526,
+        "5": 265,
+        "6": 380,
+        "7": 581,
+        "8": 285,
+        "9": 526,
+        "10": 539,
+        "11": 252
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 486,
+          "2": 530,
+          "3": 574,
+          "4": 513,
+          "5": 238,
+          "6": 358,
+          "7": 559,
+          "8": 274,
+          "9": 501,
+          "10": 526,
+          "11": 225
+        },
+        "Ana Rodrigues": {
+          "1": 25,
+          "2": 16,
+          "3": 10,
+          "4": 13,
+          "5": 23,
+          "6": 20,
+          "7": 13,
+          "8": 11,
+          "9": 25,
+          "10": 12,
+          "11": 8
+        },
+        "Celine Santos": {
+          "1": 38,
+          "2": 13,
+          "3": 16,
+          "11": 19
+        },
+        "Daniela Fernandes": {
+          "1": 13,
+          "3": 11,
+          "5": 4,
+          "6": 2,
+          "7": 9,
+          "10": 1
+        },
+        "João Pedro Alves": {
+          "2": 3
+        }
+      }
+    },
+    "PALHÃO DIAS - UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 6,
+        "2": 2,
+        "3": 22,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 12,
+        "9": 1,
+        "10": 6,
+        "11": 7
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Pamela Gonçalves de Souza Ruiz": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "PATAMAR ELOQUENTE - LDA": {
+      "meses": {
+        "1": 13,
+        "2": 80,
+        "3": 50,
+        "4": 5,
+        "5": 91,
+        "6": 6,
+        "7": 95,
+        "8": 6,
+        "9": 7,
+        "10": 141,
+        "11": 7
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 4,
+          "4": 2,
+          "5": 4,
+          "8": 2,
+          "9": 1,
+          "10": 1
+        },
+        "Pedro Fernandes": {
+          "1": 9,
+          "2": 80,
+          "3": 50,
+          "4": 3,
+          "5": 87,
+          "6": 6,
+          "7": 95,
+          "8": 4,
+          "9": 6,
+          "10": 140,
+          "11": 7
+        }
+      }
+    },
+    "Paula Cristina Alvares da Cunha": {
+      "meses": {
+        "1": 569,
+        "2": 167,
+        "3": 356,
+        "4": 354,
+        "5": 354,
+        "6": 40,
+        "7": 15,
+        "8": 306,
+        "9": 58,
+        "10": 345,
+        "11": 12
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 13,
+          "2": 9,
+          "3": 7,
+          "4": 17,
+          "5": 17,
+          "7": 3,
+          "8": 7,
+          "9": 6,
+          "10": 11
+        },
+        "Ana Rodrigues": {
+          "1": 556,
+          "2": 158,
+          "3": 349,
+          "4": 337,
+          "5": 337,
+          "6": 40,
+          "7": 12,
+          "8": 299,
+          "9": 52,
+          "10": 334,
+          "11": 12
+        }
+      }
+    },
+    "Paulo Jorge Mota Pereira": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Paulo Manuel Pereira Afonso": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Paulo Manuel R. Felgueiras": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "PEDRO FERREIRA LEMOS": {
+      "meses": {
+        "10": 15
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "10": 6
+        },
+        "Celine Santos": {
+          "10": 9
+        }
+      }
+    },
+    "PEDRO MIGUEL CAPITÃO, UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 455,
+        "2": 61,
+        "3": 48,
+        "4": 141,
+        "5": 137,
+        "6": 43,
+        "7": 59,
+        "8": 789,
+        "9": 143,
+        "10": 28,
+        "11": 306
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "1": 55,
+          "2": 17,
+          "3": 8,
+          "4": 14,
+          "6": 12,
+          "7": 4,
+          "8": 190,
+          "9": 104,
+          "10": 14,
+          "11": 226
+        },
+        "Daniela Fernandes": {
+          "1": 63,
+          "2": 21,
+          "3": 40,
+          "4": 15,
+          "5": 8,
+          "6": 14,
+          "7": 18,
+          "8": 21,
+          "9": 33,
+          "10": 14
+        },
+        "M Albertina Alves": {
+          "1": 337,
+          "2": 23,
+          "4": 104,
+          "5": 1,
+          "6": 17,
+          "7": 3,
+          "8": 1
+        },
+        "Celine Santos": {
+          "4": 8,
+          "5": 128,
+          "7": 34,
+          "8": 577,
+          "9": 6
+        },
+        "João Pedro Alves": {
+          "11": 80
+        }
+      }
+    },
+    "Phillipe Gonçalves de Souza Scarpelli": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Porfirio Domingues": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "POUSADA DO SOSSEGO LDA": {
+      "meses": {
+        "7": 56,
+        "8": 25,
+        "9": 5,
+        "10": 144,
+        "11": 4
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "7": 50,
+          "9": 3,
+          "10": 137,
+          "11": 4
+        },
+        "Daniela Fernandes": {
+          "7": 6,
+          "8": 25,
+          "9": 2,
+          "10": 7
+        }
+      }
+    },
+    "Prazeres Da Portela-Restauração E Turismo Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Preciosa Empreendimentos Turisticos Unipessoal Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Protagonistciacúbica - Unipessoal Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rafael Wanderson da Conceição": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Ramiro João Correia Pinto": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "RENOVIL - SOLDADURA ESPECIALIZADA, UNIPESSOAL LDA": {
+      "meses": {
+        "1": 33,
+        "2": 16,
+        "3": 56,
+        "4": 1365,
+        "5": 1365,
+        "6": 61,
+        "7": 45,
+        "8": 341,
+        "9": 30,
+        "10": 241
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 18,
+          "2": 12,
+          "4": 1342,
+          "5": 1342,
+          "6": 7,
+          "7": 15,
+          "8": 311,
+          "9": 8,
+          "10": 198
+        },
+        "Daniela Fernandes": {
+          "1": 15,
+          "2": 4,
+          "3": 56,
+          "4": 23,
+          "5": 23,
+          "6": 54,
+          "7": 30,
+          "8": 30,
+          "9": 22,
+          "10": 43
+        }
+      }
+    },
+    "Rita Barata F. Gomes de Castro": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rita Mariana Pina Caniço Albano": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "RITMOS SUBLIMES, UNIPESSOAL, LDA": {
+      "meses": {
+        "1": 534,
+        "2": 181,
+        "3": 705,
+        "4": 61,
+        "5": 380,
+        "6": 510,
+        "7": 262,
+        "8": 334,
+        "9": 275,
+        "10": 527,
+        "11": 270
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 90,
+          "2": 100,
+          "3": 23,
+          "4": 31,
+          "5": 12,
+          "6": 23,
+          "7": 57,
+          "8": 47,
+          "9": 84,
+          "10": 32,
+          "11": 4
+        },
+        "Pedro Fernandes": {
+          "1": 444,
+          "2": 81,
+          "3": 682,
+          "4": 30,
+          "5": 368,
+          "6": 487,
+          "7": 205,
+          "8": 287,
+          "9": 191,
+          "10": 495,
+          "11": 266
+        }
+      }
+    },
+    "Roberto Carlos R. Romano": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Roberto Carlos Santos Cardoso": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rodrigo Moreira Gomes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rosa Maria Pereira Gonçalves Lourenço": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rosa Maria Pereira Mendes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rui Marinho Pires": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Rui Pedro Fernandes Alves": {
+      "meses": {
+        "10": 174,
+        "11": 66
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "10": 174,
+          "11": 18
+        },
+        "João Pedro Alves": {
+          "11": 48
+        }
+      }
+    },
+    "SALVADOR RODRIGUES FERNANDES": {
+      "meses": {
+        "1": 301,
+        "2": 3,
+        "3": 8,
+        "4": 243,
+        "5": 50,
+        "6": 19,
+        "7": 2,
+        "8": 106,
+        "9": 9,
+        "10": 123,
+        "11": 8
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 299,
+          "2": 3,
+          "4": 236,
+          "5": 47,
+          "6": 19,
+          "8": 100,
+          "10": 105,
+          "11": 8
+        },
+        "Pedro Fernandes": {
+          "1": 1,
+          "3": 1,
+          "5": 3
+        },
+        "Daniela Fernandes": {
+          "1": 1,
+          "3": 7,
+          "4": 7,
+          "7": 2,
+          "8": 6,
+          "9": 9,
+          "10": 18
+        }
+      }
+    },
+    "SARA MARGARIDA COVAS LOURENÇO DA COSTA": {
+      "meses": {
+        "7": 48,
+        "8": 1,
+        "9": 1,
+        "11": 12
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "7": 48,
+          "8": 1
+        },
+        "Celine Santos": {
+          "9": 1,
+          "11": 12
+        }
+      }
+    },
+    "SERGIO BRITO DE OLIVEIRA": {
+      "meses": {
+        "1": 133,
+        "2": 1,
+        "3": 1,
+        "6": 1,
+        "8": 1
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 124,
+          "2": 1,
+          "3": 1
+        },
+        "Daniela Fernandes": {
+          "1": 9
+        }
+      }
+    },
+    "SERGIO MANUEL PENA RODRIGUES": {
+      "meses": {
+        "1": 117,
+        "2": 179,
+        "3": 1,
+        "6": 6
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 117,
+          "2": 139,
+          "6": 6
+        },
+        "Pedro Fernandes": {
+          "2": 40
+        }
+      }
+    },
+    "SERMAFE II, LDA": {
+      "meses": {
+        "1": 28,
+        "2": 25,
+        "3": 15,
+        "4": 6,
+        "5": 6,
+        "6": 11,
+        "7": 16,
+        "8": 5,
+        "9": 13,
+        "10": 68,
+        "11": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 20,
+          "3": 7,
+          "11": 3
+        },
+        "Daniela Fernandes": {
+          "1": 8,
+          "2": 25,
+          "3": 8,
+          "4": 6,
+          "5": 6,
+          "6": 11,
+          "7": 16,
+          "8": 5,
+          "9": 13,
+          "10": 68
+        }
+      }
+    },
+    "SERMAFE MADEIRAS DO ALTO MINHO LDA": {
+      "meses": {
+        "1": 42,
+        "2": 21,
+        "3": 52,
+        "4": 139,
+        "5": 139,
+        "6": 33,
+        "7": 269,
+        "8": 6,
+        "9": 27,
+        "10": 24,
+        "11": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 2,
+          "2": 17,
+          "3": 7,
+          "4": 8,
+          "5": 8,
+          "6": 22,
+          "7": 9,
+          "8": 5,
+          "9": 14,
+          "10": 21
+        },
+        "Celine Santos": {
+          "1": 40,
+          "2": 4,
+          "3": 45,
+          "4": 131,
+          "5": 131,
+          "6": 11,
+          "7": 260,
+          "8": 1,
+          "9": 13,
+          "10": 3,
+          "11": 3
+        }
+      }
+    },
+    "SERRALHARIA SÃO PEDRO LDA": {
+      "meses": {
+        "1": 418,
+        "2": 72,
+        "3": 58,
+        "4": 436,
+        "5": 436,
+        "6": 74,
+        "7": 36,
+        "8": 402,
+        "9": 9,
+        "10": 320,
+        "11": 11
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 2,
+          "3": 2,
+          "4": 2,
+          "5": 2,
+          "6": 2,
+          "7": 6,
+          "8": 1,
+          "9": 5,
+          "10": 3
+        },
+        "M Albertina Alves": {
+          "1": 416,
+          "2": 72,
+          "3": 56,
+          "4": 434,
+          "5": 434,
+          "6": 72,
+          "7": 30,
+          "8": 401,
+          "9": 4,
+          "10": 317,
+          "11": 11
+        }
+      }
+    },
+    "Severo Alves Gomes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Sidnei Luiz Carvalho": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Silvano Cardoso": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "SINUS HUB, UNIPESSOAL LDA.": {
+      "meses": {
+        "7": 31,
+        "8": 1,
+        "9": 10,
+        "10": 81,
+        "11": 21
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "7": 31,
+          "8": 1,
+          "9": 10,
+          "10": 81,
+          "11": 9
+        },
+        "João Pedro Alves": {
+          "11": 12
+        }
+      }
+    },
+    "Soufiane Myouri": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Suely Cardoso": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "SUSANA DA LUZ PIRES": {
+      "meses": {
+        "10": 19
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "10": 17
+        },
+        "Pedro Fernandes": {
+          "10": 2
+        }
+      }
+    },
+    "SÓ PEREIRA & FILHO, UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 452,
+        "2": 538,
+        "3": 256,
+        "4": 314,
+        "5": 176,
+        "6": 57,
+        "7": 1254,
+        "8": 154,
+        "9": 479,
+        "10": 252,
+        "11": 386
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 1,
+          "3": 3,
+          "4": 4,
+          "5": 2,
+          "6": 2,
+          "7": 8,
+          "8": 12,
+          "9": 43,
+          "10": 10,
+          "11": 1
+        },
+        "Pedro Fernandes": {
+          "1": 451,
+          "2": 538,
+          "3": 253,
+          "4": 310,
+          "5": 174,
+          "6": 55,
+          "7": 1246,
+          "8": 142,
+          "9": 436,
+          "10": 242,
+          "11": 385
+        }
+      }
+    },
+    "Sónia Sofia Dias Duque": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "TELECOMUNICAÇÕES E SOLUÇÕES QUATRO UNIPESSOAL, LDA.": {
+      "meses": {
+        "1": 528,
+        "2": 550,
+        "3": 225,
+        "4": 284,
+        "5": 493,
+        "6": 631,
+        "7": 387,
+        "8": 151,
+        "9": 180,
+        "10": 195,
+        "11": 41
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 162,
+          "2": 393,
+          "3": 94,
+          "4": 133,
+          "5": 117,
+          "6": 160,
+          "7": 245,
+          "8": 79,
+          "9": 137,
+          "10": 148,
+          "11": 41
+        },
+        "Pedro Fernandes": {
+          "1": 7,
+          "2": 18,
+          "3": 3,
+          "5": 10,
+          "6": 17,
+          "7": 17,
+          "8": 12,
+          "9": 21,
+          "10": 3
+        },
+        "Daniela Fernandes": {
+          "1": 359,
+          "2": 139,
+          "3": 128,
+          "4": 151,
+          "5": 366,
+          "6": 454,
+          "7": 125,
+          "8": 60,
+          "9": 22,
+          "10": 44
+        }
+      }
+    },
+    "Thera-IQ Plataforma de Medicina Avançada Unipessoal Lda": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Tiago Augusto dos Santos": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "TRANSVJHM - Unipessoal, Lda.": {
+      "meses": {
+        "1": 843,
+        "2": 103,
+        "3": 350,
+        "4": 817,
+        "5": 121,
+        "6": 126,
+        "7": 52,
+        "8": 466,
+        "9": 135,
+        "10": 793,
+        "11": 158
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 23,
+          "2": 3,
+          "3": 19,
+          "4": 38,
+          "5": 27,
+          "6": 24,
+          "7": 38,
+          "8": 55,
+          "9": 70,
+          "10": 33
+        },
+        "Ana Rodrigues": {
+          "1": 816,
+          "2": 92,
+          "3": 325,
+          "4": 779,
+          "5": 94,
+          "6": 97,
+          "7": 12,
+          "8": 400,
+          "9": 65,
+          "10": 757,
+          "11": 153
+        },
+        "Pedro Fernandes": {
+          "1": 4,
+          "2": 8,
+          "3": 6,
+          "6": 5,
+          "7": 2,
+          "8": 11,
+          "10": 3,
+          "11": 5
+        }
+      }
+    },
+    "TRIUNFO HOMOGÉNEO LDA": {
+      "meses": {
+        "4": 36,
+        "5": 13,
+        "6": 22,
+        "7": 53,
+        "8": 32,
+        "9": 12,
+        "10": 3
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "4": 20,
+          "5": 7,
+          "6": 22,
+          "7": 20,
+          "8": 9,
+          "9": 11
+        },
+        "Pedro Fernandes": {
+          "4": 16,
+          "5": 6,
+          "7": 33,
+          "8": 23,
+          "9": 1,
+          "10": 3
+        }
+      }
+    },
+    "VALÉRIA FERNANDES, UNIPESSOAL LDA": {
+      "meses": {
+        "1": 105,
+        "2": 46,
+        "3": 43,
+        "4": 11,
+        "5": 4,
+        "6": 9,
+        "7": 17,
+        "8": 388,
+        "9": 130,
+        "10": 90,
+        "11": 238
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 3,
+          "3": 1,
+          "4": 1,
+          "5": 4,
+          "6": 1,
+          "7": 5,
+          "8": 6,
+          "9": 8,
+          "10": 5
+        },
+        "Pedro Fernandes": {
+          "1": 102,
+          "2": 46,
+          "3": 42,
+          "4": 10,
+          "6": 8,
+          "7": 12,
+          "8": 382,
+          "9": 122,
+          "10": 85,
+          "11": 181
+        },
+        "João Pedro Alves": {
+          "11": 57
+        }
+      }
+    },
+    "Vanderleia Mesias dos Santos": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Vera Lúcia Gouveia Gomes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "VILAS & FERNANDES,LDA": {
+      "meses": {
+        "1": 425,
+        "2": 60,
+        "3": 565,
+        "4": 279,
+        "5": 279,
+        "6": 287,
+        "7": 389,
+        "8": 278,
+        "9": 298,
+        "10": 574,
+        "11": 2
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Daniela Fernandes": {
+          "1": 9,
+          "2": 1,
+          "3": 5,
+          "4": 38,
+          "5": 38,
+          "6": 4,
+          "7": 7,
+          "8": 7,
+          "9": 34,
+          "10": 19,
+          "11": 1
+        },
+        "M Albertina Alves": {
+          "1": 416,
+          "2": 59,
+          "3": 560,
+          "4": 241,
+          "5": 241,
+          "6": 283,
+          "7": 382,
+          "8": 271,
+          "9": 264,
+          "10": 555,
+          "11": 1
+        }
+      }
+    },
+    "VINHOS DE MONÇÃO LDA": {
+      "meses": {
+        "1": 58,
+        "2": 6,
+        "3": 1,
+        "4": 17,
+        "5": 17,
+        "6": 89,
+        "7": 56,
+        "8": 3,
+        "9": 6
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "M Albertina Alves": {
+          "1": 58,
+          "2": 6,
+          "4": 17,
+          "5": 17,
+          "6": 89,
+          "7": 56,
+          "8": 3,
+          "9": 6
+        }
+      }
+    },
+    "Vitor da Costa Gonçalves Fernandes": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "VITOR MANUEL RODRIGUES LOURENÇO": {
+      "meses": {
+        "2": 59,
+        "5": 54,
+        "9": 1,
+        "11": 5
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Pedro Fernandes": {
+          "9": 1
+        }
+      }
+    },
+    "Vitor Silva de Farias": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Wassid Tioula": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Wender Martins da Silva": {
+      "meses": {},
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {}
+    },
+    "Xavier André Castro Fernandes Unipessoal Lda.": {
+      "meses": {
+        "1": 272,
+        "2": 2,
+        "3": 2,
+        "4": 190,
+        "5": 64,
+        "6": 16,
+        "7": 903,
+        "8": 265,
+        "9": 212,
+        "10": 251,
+        "11": 169
+      },
+      "extra": 0,
+      "apagado": false,
+      "por_tecnico": {
+        "Celine Santos": {
+          "1": 261,
+          "2": 1,
+          "4": 108,
+          "5": 18,
+          "7": 55,
+          "9": 14,
+          "10": 3
+        },
+        "Pedro Fernandes": {
+          "1": 5,
+          "2": 1,
+          "4": 74,
+          "5": 41,
+          "6": 11,
+          "7": 828,
+          "8": 251,
+          "9": 189,
+          "10": 241,
+          "11": 169
+        },
+        "Daniela Fernandes": {
+          "1": 6,
+          "3": 2,
+          "4": 8,
+          "5": 5,
+          "6": 5,
+          "7": 20,
+          "8": 13,
+          "9": 9,
+          "10": 7
+        },
+        "Ana Rodrigues": {
+          "8": 1
+        }
+      }
+    }
+  }
+}

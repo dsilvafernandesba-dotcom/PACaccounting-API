@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento - Comissões</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f; /* igual ao dashboard */
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-bar {
+            background-color: #020b1f;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-left,
+        .top-right {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .back-button,
+        .nav-button {
+            background-color: #d4af37;
+            color: #020b1f;
+            border: none;
+            border-radius: 999px;
+            padding: 8px 18px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .back-button:hover,
+        .nav-button:hover {
+            opacity: 0.9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            color: #facc15; /* dourado */
+            font-size: 24px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #facc15;
+            text-align: left;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 10px auto 40px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background-color: #06142f;
+            border-radius: 999px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #020b1f;
+            background-color: #d4af37; /* dourado */
+            border-top-left-radius: 999px;
+            border-top-right-radius: 999px;
+        }
+
+        tbody td {
+            padding: 6px 8px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Linhas com fundo branco */
+        tbody tr:nth-child(even),
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+            color: #020b1f;
+        }
+
+        tbody td.cliente {
+            text-align: left;
+            padding-left: 16px;
+        }
+
+        tfoot td {
+            padding: 8px;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #020b1f;
+            text-align: center;
+        }
+
+        .total-label {
+            text-align: left;
+            padding-left: 16px;
+        }
+
+        .section-separator {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #4b5563, transparent);
+            margin: 10px 0 15px 0;
+        }
+
+        .badge-auto {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .refresh-container {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-left">
+            <a href="/" class="back-button">Voltar ao Dashboard</a>
+        </div>
+        <div class="top-right">
+            <a href="/orcamento" class="nav-button">Orçamento Global</a>
+            <a href="/orcamento/clientes" class="nav-button">Orçamento Clientes</a>
+            <a href="/orcamento/colaboradores" class="nav-button">Orçamento Colaboradores</a>
+            <a href="/orcamento/despesas" class="nav-button">Orçamento Despesas</a>
+            <a href="/orcamento/comissoes" class="nav-button">Comissões</a>
+        </div>
+    </div>
+
+    <h1>Comissões</h1>
+    <div class="subtitle">
+        Valores calculados automaticamente com base nas mensalidades e regras de comissionamento.
+    </div>
+
+    <!-- Botão para atualizar / refrescar a listagem -->
+    <div class="refresh-container">
+        <a href="/orcamento/comissoes" class="nav-button">Atualizar listagem</a>
+    </div>
+
+    <div class="section-separator"></div>
+
+    <div class="container">
+
+        <!-- ====== RESUMO POR DETENTOR DE CARTEIRA ====== -->
+        <h2>Resumo por detentor da carteira</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Detentor da carteira</th>
+                        <th>Comissão mensal</th>
+                        <th>Comissão anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if comissoes_por_carteira_lista %}
+                        {% for linha in comissoes_por_carteira_lista %}
+                        <tr>
+                            <td class="cliente">{{ linha.detentor }}</td>
+                            <td>{{ linha.comissao_mensal_str }}</td>
+                            <td>{{ linha.comissao_anual_str }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="3">
+                                Não existem comissões calculadas (sem clientes com mensalidade definida).
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="total-label">TOTAL COMISSÕES</td>
+                        <td>{{ comissoes_total_mensal }}</td>
+                        <td>{{ comissoes_total_anual }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- ====== DETALHE POR CLIENTE ====== -->
+        <h2>Detalhe por cliente</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>NIF</th>
+                        <th>Mensalidade</th>
+                        <th>% Comissão</th>
+                        <th>Comissão mensal</th>
+                        <th>Comissão anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if comissoes_lista %}
+                        {% for linha in comissoes_lista %}
+                        <tr>
+                            <td class="cliente">
+                                {{ linha.nome }}
+                                <div class="badge-auto">
+                                    cálculo automático
+                                </div>
+                            </td>
+                            <td>{{ linha.nif }}</td>
+                            <td>{{ linha.mensalidade_str }}</td>
+                            <td>{{ linha.percentagem_str }}</td>
+                            <td>{{ linha.comissao_mensal_str }}</td>
+                            <td>{{ linha.comissao_anual_str }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6">
+                                Não existem comissões calculadas (sem clientes com mensalidade definida).
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="total-label">TOTAL COMISSÕES</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ comissoes_total_mensal }}</td>
+                        <td>{{ comissoes_total_anual }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

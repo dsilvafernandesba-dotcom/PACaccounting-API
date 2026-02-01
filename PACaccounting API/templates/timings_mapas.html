@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapas anuais por técnico e por cliente</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        h3 {
+            margin: 10px 0 6px;
+            font-size: 14px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .filter-row label {
+            margin-right: 4px;
+        }
+
+        .filter-row select {
+            font-size: 13px;
+            padding: 3px 6px;
+            border-radius: 999px;
+            border: 1px solid #9ca3af;
+            background-color: #020617;
+            color: #f9fafb;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn-excluir {
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .btn-excluir:hover {
+            background-color: #ef4444;
+            color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .tag-sem-dados {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-left: 6px;
+        }
+
+        tfoot tr {
+            background-color: #0f172a;
+            color: #f9fafb;
+        }
+        tfoot th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tfoot th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        .empty-msg {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .jan-input {
+            width: 80px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 999px;
+        }
+        .jan-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        .mes-cell {
+            min-width: 60px;
+        }
+
+        .form-actions {
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <h1>Mapas anuais por técnico e por cliente</h1>
+    <a href="/timings" class="back-button">Voltar a Timings</a>
+</div>
+
+<div class="container">
+    <div class="section-card">
+        <h2 class="section-title">Filtros</h2>
+
+        <!-- Filtros: Ano + nº meses para média + Técnico -->
+        <div class="filter-row">
+            <form method="get" action="{{ request.url.path }}">
+                <label for="ano">Ano:</label>
+                <select id="ano" name="ano" onchange="this.form.submit()">
+                    {% for ano in anos_disponiveis %}
+                        <option value="{{ ano }}" {% if ano == ano_sel %}selected{% endif %}>
+                            {{ ano }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <label for="media_meses">Média sobre:</label>
+                <select id="media_meses" name="media_meses" onchange="this.form.submit()">
+                    {% for n in media_meses_opcoes %}
+                        <option value="{{ n }}" {% if n == media_meses_sel %}selected{% endif %}>
+                            {{ n }} meses
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <label for="tecnico_mapa">Técnico:</label>
+                <select id="tecnico_mapa" name="tecnico_mapa" onchange="this.form.submit()">
+                    {% if tecnicos_mapa and tecnicos_mapa|length > 0 %}
+                        {% for t in tecnicos_mapa %}
+                            <option value="{{ t }}" {% if tecnico_mapa == t %}selected{% endif %}>
+                                {{ t }}
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="">(sem técnicos atribuídos)</option>
+                    {% endif %}
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <h2 class="section-title">Mapa por cliente (por técnico)</h2>
+
+        {% if mapa_cliente_tecnico %}
+            <h3>Timings por cliente – Técnico: {{ tecnico_mapa }} ({{ ano_sel }})</h3>
+
+            <!-- FORM para gravar as médias definidas em Janeiro -->
+            <form method="post" action="/timings/guardar-media">
+                <!-- Campos ocultos para manter o contexto ao voltar -->
+                <input type="hidden" name="ano" value="{{ ano_sel }}">
+                <input type="hidden" name="media_meses" value="{{ media_meses_sel }}">
+                <input type="hidden" name="tecnico_mapa" value="{{ tecnico_mapa }}">
+
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="align-left">Cliente</th>
+                            {% for num_mes, label_mes in meses_labels %}
+                                <th>{{ label_mes }}</th>
+                            {% endfor %}
+                            <th>Média mensal</th>
+                            <th>Total ano</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for linha in mapa_cliente_tecnico.linhas %}
+                            <tr>
+                                <td class="align-left">
+                                    {{ linha.cliente }}{% if linha.sem_timings %}<span class="tag-sem-dados">(sem dados)</span>{% endif %}
+                                    <!-- nome do cliente para o backend -->
+                                    <input type="hidden" name="cliente_media" value="{{ linha.cliente }}">
+                                </td>
+
+                                {# Colunas dos meses: Janeiro editável, resto só leitura #}
+                                {% for valor in linha.valores_por_mes %}
+                                    {% if loop.index0 == 0 %}
+                                        <td>
+                                            <input
+                                                type="text"
+                                                class="jan-input"
+                                                name="jan_media"
+                                                value="{{ valor }}"
+                                                data-cliente="{{ linha.cliente }}"
+                                            >
+                                        </td>
+                                    {% else %}
+                                        <td class="mes-cell" data-mes="{{ loop.index }}">
+                                            {{ valor }}
+                                        </td>
+                                    {% endif %}
+                                {% endfor %}
+
+                                <td class="mes-cell media-cell">
+                                    {% if linha.media_str is defined %}
+                                        {{ linha.media_str }}
+                                    {% endif %}
+                                </td>
+                                <td class="mes-cell total-cell">{{ linha.total_str }}</td>
+                                <td>
+                                    <a href="/timings/excluir?ano={{ ano_sel }}&empresa={{ linha.cliente | urlencode }}&origem=mapas&media_meses={{ media_meses_sel }}&tecnico_mapa={{ tecnico_mapa | urlencode }}{% if empresa_q %}&empresa_q={{ empresa_q | urlencode }}{% endif %}{% if tecnico_q %}&tecnico_q={{ tecnico_q | urlencode }}{% endif %}"
+                                       class="btn-excluir"
+                                       onclick="return confirm('Tem a certeza que pretende excluir este cliente de todos os timings deste ano?');">
+                                        Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th class="align-left">TOTAL DO MÊS</th>
+                            {% for total_mes in mapa_cliente_tecnico.totais_mes_str %}
+                                <th>{{ total_mes }}</th>
+                            {% endfor %}
+                            <th></th>
+                            <th>{{ mapa_cliente_tecnico.total_ano_str }}</th>
+                            <th></th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-simple">
+                        Gravar médias
+                    </button>
+                </div>
+            </form>
+        {% else %}
+            <p class="empty-msg">
+                Ainda não foi possível construir o mapa por técnico/cliente
+                (sem dados ou sem técnicos associados).
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="section-card">
+        <h2 class="section-title">Mapa global por técnico</h2>
+
+        {% if mapa_tecnico_global %}
+            <h3>Timings totais por técnico ({{ ano_sel }})</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="align-left">Técnico</th>
+                        {% for num_mes, label_mes in meses_labels %}
+                            <th>{{ label_mes }}</th>
+                        {% endfor %}
+                        <th>Média mensal</th>
+                        <th>Total ano</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for linha in mapa_tecnico_global.linhas %}
+                        <tr>
+                            <td class="align-left">{{ linha.tecnico }}</td>
+                            {% for valor in linha.valores_por_mes %}
+                                <td class="mes-cell">{{ valor }}</td>
+                            {% endfor %}
+                            <td class="mes-cell">
+                                {% if linha.media_str is defined %}
+                                    {{ linha.media_str }}
+                                {% endif %}
+                            </td>
+                            <td class="mes-cell">{{ linha.total_str }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th class="align-left">TOTAL DO MÊS</th>
+                        {% for total_mes in mapa_tecnico_global.totais_mes_str %}
+                            <th>{{ total_mes }}</th>
+                        {% endfor %}
+                        <th></th>
+                        <th>{{ mapa_tecnico_global.total_ano_str }}</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        {% else %}
+            <p class="empty-msg">
+                Ainda não existem dados suficientes para o mapa global por técnico.
+            </p>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+// ===== Helpers em JS para imitar o backend =====
+function parseTempoParaMinutos(valor) {
+    if (valor === null || valor === undefined) return 0;
+    let s = String(valor).trim();
+    if (!s) return 0;
+
+    // Procurar padrões 'xh' e 'ym'
+    const matchH = s.match(/(\d+)\s*h/i);
+    const matchM = s.match(/(\d+)\s*m/i);
+
+    let horas = matchH ? parseInt(matchH[1], 10) : 0;
+    let mins = matchM ? parseInt(matchM[1], 10) : 0;
+
+    // fallback: se não tiver h/m, tenta interpretar como horas decimais
+    if (!matchH && !matchM) {
+        s = s.replace(",", ".");
+        const hFloat = parseFloat(s);
+        if (isNaN(hFloat)) return 0;
+        return Math.round(hFloat * 60);
+    }
+
+    return horas * 60 + mins;
+}
+
+function formatMinutos(minutos) {
+    if (!minutos || isNaN(minutos)) minutos = 0;
+    minutos = parseInt(minutos, 10);
+    const horas = Math.floor(minutos / 60);
+    const mins = minutos % 60;
+    return `${horas}h${String(mins).padStart(2, "0")}m`;
+}
+
+// Janeiro SEMPRE editável: converte para XhYYm e propaga visualmente
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".jan-input").forEach(function (input) {
+
+        // ao sair do campo (blur) => converte e propaga só no frontend
+        input.addEventListener("blur", function () {
+            const row = input.closest("tr");
+            if (!row) return;
+
+            const mins = parseTempoParaMinutos(input.value);
+            const formatted = mins > 0 ? formatMinutos(mins) : "";
+
+            // mostrar formatado em Janeiro
+            input.value = formatted;
+
+            // preencher restantes meses da mesma linha (visualmente)
+            const mesCells = row.querySelectorAll("td.mes-cell");
+            mesCells.forEach(function (td) {
+                td.textContent = formatted;
+            });
+        });
+    });
+
+    // ===== Preservar posição de scroll nesta página de mapas =====
+    const KEY = "timings_scroll_y";
+    const storeScroll = function () {
+        try {
+            sessionStorage.setItem(KEY, String(window.scrollY || 0));
+        } catch (e) {}
+    };
+
+    const saved = sessionStorage.getItem(KEY);
+    if (saved !== null) {
+        sessionStorage.removeItem(KEY);
+        const y = parseInt(saved, 10);
+        if (!isNaN(y)) {
+            window.scrollTo(0, y);
+        }
+    }
+
+    const guardarForm = document.querySelector('form[action="/timings/guardar-media"]');
+    if (guardarForm) {
+        guardarForm.addEventListener("submit", storeScroll);
+    }
+
+    const excluirLinks = document.querySelectorAll('a[href*="/timings/excluir"]');
+    excluirLinks.forEach(function (link) {
+        link.addEventListener("click", storeScroll);
+    });
+
+    window.addEventListener("beforeunload", storeScroll);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sugestão de mensalidade</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .filter-row label {
+            margin-right: 4px;
+        }
+
+        .filter-row input[type="text"],
+        .filter-row input[type="number"] {
+            font-size: 13px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid #9ca3af;
+            background-color: #020617;
+            color: #f9fafb;
+            width: 90px;
+            box-sizing: border-box;
+            text-align: right;
+        }
+
+        .filter-row select {
+            font-size: 13px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            border: 1px solid #9ca3af;
+            background-color: #020617;
+            color: #f9fafb;
+        }
+
+        #filtro_clientes {
+            width: 720px;
+            max-width: 100%;
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 8px;
+            border: 1px solid #9ca3af;
+        }
+
+        #filtro_clientes option {
+            white-space: normal;
+            background-color: #ffffff;
+            color: #111827;
+        }
+
+        .filter-row input:focus,
+        .filter-row select:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+
+        /* Cabeçalho fixo ao fazer scroll */
+        thead th {
+            background-color: #d4af37;
+            color: #041020;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        .empty-msg {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .extra-input {
+            width: 80px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 999px;
+        }
+        .extra-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        .total-row {
+            background-color: #d4af37 !important;
+            color: #041020 !important;
+            font-weight: bold;
+        }
+        .total-row td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        .total-row td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .estado-ok {
+            color: #16a34a;
+            font-weight: bold;
+        }
+        .estado-rever {
+            color: #f97316;
+            font-weight: bold;
+        }
+        .estado-critico {
+            color: #b91c1c;
+            font-weight: bold;
+        }
+        .estado-excelente {
+            color: #0ea5e9;
+            font-weight: bold;
+        }
+        .estado-neutro {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Sugestão de mensalidade</h1>
+        <a href="/" class="back-button">Voltar ao Dashboard</a>
+    </div>
+
+    <div class="container">
+        <div>
+            <small>Sugestão versão: {{ sugestao_version }}</small>
+        </div>
+        <form method="get" action="/sugestao-mensalidade/export" style="margin: 16px 0;">
+            <div class="filter-row">
+                <label for="export_estado">Exportar estado:</label>
+                <select id="export_estado" name="estado">
+                    <option value="">Todos</option>
+                    <option value="critico">Crítico</option>
+                    <option value="a rever">A rever</option>
+                    <option value="ok">OK</option>
+                    <option value="excelente">Excelente</option>
+                </select>
+                <button type="submit" class="btn-simple">Download CSV</button>
+            </div>
+        </form>
+        <form method="post" action="/sugestao-mensalidade">
+            <!-- PARÂMETROS GERAIS -->
+            <div class="section-card">
+                <h2 class="section-title">Parâmetros de valor/hora e filtros</h2>
+
+                <!-- Linha 1: valores/hora -->
+                <div class="filter-row">
+                    <label for="valor_hora_geral">Valor hora (Geral):</label>
+                    <input
+                        type="text"
+                        id="valor_hora_geral"
+                        name="valor_hora_geral"
+                        class="valor-input"
+                        value="{{ '%.2f'|format(valor_hora_geral) }}"
+                    >
+
+                    <label for="valor_hora_oficial">Oficial:</label>
+                    <input type="text"
+                           id="valor_hora_oficial"
+                           name="valor_hora_oficial"
+                           value="{{ '%.2f'|format(valor_hora_oficial) }}">
+
+                    <label for="valor_hora_negro">Negro:</label>
+                    <input type="text"
+                           id="valor_hora_negro"
+                           name="valor_hora_negro"
+                           value="{{ '%.2f'|format(valor_hora_negro) }}">
+
+                    <label for="valor_hora_grh">Valor hora (GRH):</label>
+                    <input
+                        type="text"
+                        id="valor_hora_grh"
+                        name="valor_hora_grh"
+                        class="valor-input"
+                        value="{{ '%.2f'|format(valor_hora_grh) }}"
+                    >
+                        <label for="margem_pct">Margem (%):</label>
+                        <input
+                            type="text"
+                            id="margem_pct"
+                            name="margem_pct"
+                            class="valor-input"
+                            value="{{ '%.1f'|format(margem_pct) }}"
+                        >
+
+                    <div style="margin-left:auto; display:flex; gap:8px;">
+                        <button type="button" class="btn-simple" onclick="limparFiltros()">
+                            Limpar filtros
+                        </button>
+                        <button type="submit" class="btn-simple" name="acao" value="sync_timings">
+                            Sincronizar timings médios
+                        </button>
+                        <button type="submit" class="btn-simple">
+                            Recalcular / Aplicar filtros
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Linha 2: filtros -->
+                <div class="filter-row">
+                    <label for="filtro_clientes">Clientes:</label>
+                        <select id="filtro_clientes"
+                            name="filtro_clientes"
+                            multiple
+                            size="10">
+                        {% for cli in clientes_opcoes %}
+                            <option value="{{ cli.key }}"
+                                {% if filtro_clientes and cli.key in filtro_clientes %}selected{% endif %}>
+                                {{ cli.nome }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="filtro_diff_pct">Dif. % Geral:</label>
+                    <select id="filtro_diff_pct" name="filtro_diff_pct">
+                        <option value="">(todos)</option>
+                        <option value="abaixo_0" {% if filtro_diff_pct == 'abaixo_0' %}selected{% endif %}>
+                            Abaixo de 0%
+                        </option>
+                        <option value="entre_0_20" {% if filtro_diff_pct == 'entre_0_20' %}selected{% endif %}>
+                            0% a 20%
+                        </option>
+                        <option value="entre_20_50" {% if filtro_diff_pct == 'entre_20_50' %}selected{% endif %}>
+                            20% a 50%
+                        </option>
+                        <option value="acima_50" {% if filtro_diff_pct == 'acima_50' %}selected{% endif %}>
+                            Acima de 50%
+                        </option>
+                    </select>
+
+                    <label for="filtro_estado">Estado:</label>
+                    <select id="filtro_estado" name="filtro_estado">
+                        <option value="">(todos)</option>
+                        <option value="Excelente" {% if filtro_estado == 'Excelente' %}selected{% endif %}>Excelente</option>
+                        <option value="OK" {% if filtro_estado == 'OK' %}selected{% endif %}>OK</option>
+                        <option value="A Rever" {% if filtro_estado == 'A Rever' %}selected{% endif %}>A Rever</option>
+                        <option value="Crítico" {% if filtro_estado == 'Crítico' %}selected{% endif %}>Crítico</option>
+                        <option value="Sem dados (0h)" {% if filtro_estado == 'Sem dados (0h)' %}selected{% endif %}>Sem dados (0h)</option>
+                        <option value="Sem dados" {% if filtro_estado == 'Sem dados' %}selected{% endif %}>Sem dados</option>
+                        <option value="Sem cálculo" {% if filtro_estado == 'Sem cálculo' %}selected{% endif %}>Sem cálculo</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- TABELA GERAL DE CLIENTES -->
+            <div class="section-card">
+                <h2 class="section-title">Sugestão de mensalidade - Contabilidade + GRH</h2>
+
+                {% if clientes_rows and clientes_rows|length > 0 %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Cliente</th>
+                            <th>Horas Contab</th>
+                            <th>Horas GRH</th>
+                            <th>Horas Totais</th>
+                            <th>Mensalidade atual</th>
+                            <th>GRH atual</th>
+                            <th>Atual total</th>
+                            <th>Preço (custo+margem) × horas</th>
+                            <th>Sugestão total</th>
+                            <th>Dif. total</th>
+                            <th>Dif. %</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in clientes_rows %}
+                        <tr>
+                            <td class="align-left">{{ c.nome }}</td>
+                            <td>
+                                <input
+                                    type="text"
+                                    class="extra-input"
+                                    name="horas_{{ c.key }}"
+                                    value="{{ '%.2f'|format(c.horas) }}"
+                                >
+                            </td>
+                            <td>{{ '%.2f'|format(c.horas_grh) }}</td>
+                            <td>{{ '%.2f'|format(c.horas_totais) }}</td>
+                            <td>{{ format_euro(c.mensalidade_atual) }}</td>
+                            <td>{{ '%.2f'|format(c.valor_grh_atual) }} €</td>
+                            <td>{{ '%.2f'|format(c.total_atual) }} €</td>
+                            <td>{{ format_euro(c.preco_custo_margem_total) }}</td>
+                            <td>{{ format_euro(c.sugestao_mensalidade) }}</td>
+                            <td>{{ format_euro(c.dif_total) }}</td>
+                            <td>{{ '%.1f'|format(c.dif_pct_total) }} %</td>
+                            <td>
+                                {% if c.estado == 'Excelente' %}
+                                    <span class="estado-excelente">Excelente</span>
+                                {% elif c.estado == 'OK' %}
+                                    <span class="estado-ok">OK</span>
+                                {% elif c.estado == 'A Rever' %}
+                                    <span class="estado-rever">A Rever</span>
+                                {% elif c.estado == 'Crítico' %}
+                                    <span class="estado-critico">Crítico</span>
+                                {% else %}
+                                    <span class="estado-neutro">{{ c.estado }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        <tr class="total-row">
+                            <td class="align-left">TOTAL</td>
+                            <td>{{ '%.2f'|format(totais_geral.horas_contab) }}</td>
+                            <td>{{ '%.2f'|format(totais_geral.horas_grh) }}</td>
+                            <td>{{ '%.2f'|format(totais_geral.horas_totais) }}</td>
+                            <td>{{ format_euro(totais_geral.mensalidade_contab) }}</td>
+                            <td>{{ '%.2f'|format(totais_geral.valor_grh_total) }} €</td>
+                            <td>{{ '%.2f'|format(totais_geral.total_atual) }} €</td>
+                            <td>{{ format_euro(totais_geral.preco_custo_margem_total) }}</td>
+                            <td>{{ format_euro(totais_geral.sugestao_total) }}</td>
+                            <td>{{ format_euro(totais_geral.total_dif) }}</td>
+                            <td>{{ '%.1f'|format(totais_geral.dif_pct) }} %</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% else %}
+                    <p class="empty-msg">
+                        Nenhum cliente encontrado com os filtros atuais.
+                    </p>
+                {% endif %}
+            </div>
+
+            <!-- TABELA ESPECÍFICA GRH / DANIELA -->
+            <div class="section-card">
+                <h2 class="section-title">Sugestão GRH - Daniela (por cliente)</h2>
+
+                {% if grh_rows and grh_rows|length > 0 %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Cliente</th>
+                            <th>Horas/mês Daniela</th>
+                            <th>Extras (h/mês)</th>
+                            <th>Horas totais</th>
+                            <th>Valor GRH atual</th>
+                            <th>Valor/hora efetivo</th>
+                            <th>Mensalidade GRH objetivo</th>
+                            <th>Dif. vs atual</th>
+                            <th>Dif. %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for g in grh_rows %}
+                        <tr>
+                            <td class="align-left">{{ g.nome }}</td>
+                            <td>{{ '%.2f'|format(g.horas_daniela) }}</td>
+                            <td>
+                                <input
+                                    type="text"
+                                    class="extra-input"
+                                    name="daniela_{{ g.key }}"
+                                    value="{{ '%.2f'|format(g.extras) }}"
+                                >
+                            </td>
+                            <td>{{ '%.2f'|format(g.horas_totais) }}</td>
+                            <td>{{ format_euro(g.valor_grh_atual) }}</td>
+                            <td>{{ '%.2f'|format(g.valor_hora_efetivo) }} €</td>
+                            <td>{{ format_euro(g.mensalidade_obj_grh) }}</td>
+                            <td>{{ format_euro(g.dif_grh) }}</td>
+                            <td>{{ '%.1f'|format(g.dif_pct_grh) }} %</td>
+                        </tr>
+                        {% endfor %}
+
+                        <tr class="total-row">
+                            <td class="align-left">TOTAL</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ format_euro(totais_grh.total_atual) }}</td>
+                            <td></td>
+                            <td>{{ format_euro(totais_grh.total_obj) }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 12px; text-align: right;">
+                    <button type="submit" class="btn-simple">
+                        Gravar / Recalcular GRH
+                    </button>
+                </div>
+                {% else %}
+                    <p class="empty-msg">
+                        Não existem clientes com valor de GRH configurado ou que passem nos filtros atuais.
+                    </p>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <script>
+    // Manter a posição de scroll nesta página
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_sugestao_mensalidade";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+
+    // Limpar filtros (clientes/dif%/estado) e submeter de novo
+    function limparFiltros() {
+        const form = document.querySelector('form');
+        if (!form) return;
+
+        const selClientes = document.getElementById('filtro_clientes');
+        if (selClientes) {
+            for (let i = 0; i < selClientes.options.length; i++) {
+                selClientes.options[i].selected = false;
+            }
+        }
+
+        const diff = document.getElementById('filtro_diff_pct');
+        if (diff) {
+            diff.value = "";
+        }
+
+        const est = document.getElementById('filtro_estado');
+        if (est) {
+            est.value = "";
+        }
+
+        form.submit();
+    }
+    </script>
+</body>
+</html>

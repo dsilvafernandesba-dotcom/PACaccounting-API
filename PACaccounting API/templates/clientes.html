@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes - PACACCOUNTING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+        .top-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .back-button, .primary-button {
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .primary-button {
+            background-color: #d4af37;
+            color: #111827;
+        }
+        .back-button {
+            background-color: #374151;
+            color: #e5e7eb;
+        }
+        .primary-button:hover,
+        .back-button:hover {
+            filter: brightness(1.1);
+        }
+        .container {
+            max-width: 1500px;
+            margin: 20px auto 40px auto;
+            padding: 20px;
+            background: radial-gradient(circle at top, #111827 0, #020617 80%);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 8px;
+            font-size: 19px;
+            border-left: 4px solid #d4af37;
+            padding-left: 8px;
+            text-align: left;
+        }
+        .subtitulo {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding: 8px;
+            background-color: #020617;
+            border-radius: 10px;
+            border: 1px solid #374151;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 150px;
+            flex: 1;
+        }
+        .filter-group label {
+            font-size: 12px;
+            color: #e5e7eb;
+            margin-bottom: 2px;
+        }
+        .filters select {
+            padding: 4px 6px;
+            border-radius: 6px;
+            border: 1px solid #4b5563;
+            background-color: #ffffff;
+            color: #111827;
+            font-size: 12px;
+        }
+        .filters-actions {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        .btn-filter, .btn-clear {
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: none;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-filter {
+            background-color: #d4af37;
+            color: #111827;
+        }
+        .btn-clear {
+            background-color: transparent;
+            color: #e5e7eb;
+            border: 1px solid #9ca3af;
+        }
+        .btn-filter:hover, .btn-clear:hover {
+            filter: brightness(1.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 13px;
+            background-color: #ffffff;
+        }
+        th, td {
+            border-bottom: 1px solid #d4af37;
+            padding: 6px 4px;
+            text-align: center;      /* tudo centrado */
+            vertical-align: middle;
+        }
+        th {
+            background-color: #d4af37;
+            color: #111827;
+            font-weight: 700;
+        }
+        /* todas as células com fundo branco */
+        td {
+            background-color: #ffffff;
+            color: #111827;
+        }
+        td.col-nome {
+            min-width: 260px;
+            text-align: left;       /* só o nome fica à esquerda */
+        }
+        td.col-nome a {
+            color: #111827;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        td.col-nome a:hover {
+            text-decoration: underline;
+        }
+        .valor {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 999px;
+            font-size: 11px;
+            background-color: #1f2937;
+            color: #e5e7eb;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #111827;
+            border: 1px solid #d4af37;
+            border-radius: 999px;
+            font-size: 11px;
+            padding: 3px 9px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            filter: brightness(1.1);
+        }
+        .empty-row {
+            text-align: center;
+            color: #6b7280;
+            font-size: 13px;
+            padding: 16px 0;
+        }
+        .totals-bar {
+            margin-top: 16px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #d4af37, #facc15);
+            color: #111827;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .totals-item {
+            flex: 1;
+        }
+        .totals-label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .totals-value {
+            display: block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <h1>Clientes</h1>
+    <div class="top-buttons">
+        <a href="/clientes/novo" class="primary-button">+ Novo cliente</a>
+        <a href="/" class="back-button">Voltar ao Dashboard</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Lista de clientes</h2>
+    <p class="subtitulo">
+        Clique no <strong>nome</strong> para editar o cliente numa página própria.
+        Os filtros abaixo limitam a lista e atualizam os totais no rodapé.
+    </p>
+
+    <!-- NOVO: formulário de importação Excel -->
+    <form method="post" action="/clientes/importar-excel" enctype="multipart/form-data" style="margin-bottom: 12px;">
+        <label for="ficheiro_excel">Importar clientes (Excel):</label>
+        <input type="file" id="ficheiro_excel" name="ficheiro" accept=".xlsx,.xls" required>
+        <button type="submit" class="primary-button">Importar</button>
+    </form>
+
+    <form method="get" action="/clientes" class="filters">
+        <div class="filter-group">
+            <label>Carteira</label>
+            <select name="carteira">
+                <option value="">(todas)</option>
+                {% for item in listas.carteiras %}
+                    <option value="{{ item }}" {% if filtros.carteira == item %}selected{% endif %}>{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Técnico</label>
+            <select name="tecnico">
+                <option value="">(todos)</option>
+                {% for item in listas.tecnicos %}
+                    <option value="{{ item }}" {% if filtros.tecnico == item %}selected{% endif %}>{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Tipo contabilidade</label>
+            <select name="tipo_contabilidade">
+                <option value="">(todos)</option>
+                {% for item in listas.tipos_contabilidade %}
+                    <option value="{{ item }}" {% if filtros.tipo_contabilidade == item %}selected{% endif %}>{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Periodicidade IVA</label>
+            <select name="periodicidade_iva">
+                <option value="">(todas)</option>
+                {% for item in listas.periodicidades_iva %}
+                    <option value="{{ item }}" {% if filtros.periodicidade_iva == item %}selected{% endif %}>{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Regime IVA</label>
+            <select name="regime_iva">
+                <option value="">(todos)</option>
+                {% for item in listas.regimes_iva %}
+                    <option value="{{ item }}" {% if filtros.regime_iva == item %}selected{% endif %}>{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Com fatura</label>
+            <select name="com_fatura">
+                <option value="">(todos)</option>
+                <option value="sim" {% if filtros.com_fatura == "sim" %}selected{% endif %}>Sim</option>
+                <option value="nao" {% if filtros.com_fatura == "nao" %}selected{% endif %}>Não</option>
+            </select>
+        </div>
+
+        <div class="filters-actions">
+            <button type="submit" class="btn-filter">Aplicar filtros</button>
+            <a href="/clientes" class="btn-clear">Limpar</a>
+        </div>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>NIF</th>
+            <th>Mensalidade</th>
+            <th>GRH</th>
+            <th>G. Comercial</th>
+            <th>Carteira</th>
+            <th>Técnico</th>
+            <th>Técn. GRH</th>
+            <th>Tipo contab.</th>
+            <th>Periodic. IVA</th>
+            <th>Regime IVA</th>
+            <th>Com fatura</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in clientes %}
+            <tr id="cliente-{{ c.nif }}">
+                <td class="col-nome">
+                    <a href="/clientes/editar/{{ c._idx }}">{{ c.nome }}</a>
+                </td>
+                <td>{{ c.nif }}</td>
+                <td class="valor">{{ c.mensalidade | eur }}</td>
+                <td class="valor">{{ c.valor_grh | eur }}</td>
+                <td class="valor">{{ c.valor_toconline | eur }}</td>
+                <td>{{ c.carteira or "" }}</td>
+                <td>{{ c.tecnico or "" }}</td>
+                <td>{{ c.tecnico_grh or "" }}</td>
+                <td>{{ c.tipo_contabilidade or "" }}</td>
+                <td>{{ c.periodicidade_iva or "" }}</td>
+                <td>{{ c.regime_iva or "" }}</td>
+                <td>
+                    {% if c.com_fatura %}
+                        <span class="tag">Sim</span>
+                    {% else %}
+                        <span class="tag">Não</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/clientes/remover?idx={{ c._idx }}" class="btn-secondary">Excluir</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13" class="empty-row">
+                    Ainda não existem clientes registados (ou os filtros não devolvem nenhum resultado).
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="totals-bar">
+        <div class="totals-item">
+            <span class="totals-label">Total Mensalidades</span>
+            <span class="totals-value">{{ totais.mensalidade | eur }}</span>
+        </div>
+        <div class="totals-item">
+            <span class="totals-label">Total GRH</span>
+            <span class="totals-value">{{ totais.valor_grh | eur }}</span>
+        </div>
+        <div class="totals-item">
+            <span class="totals-label">Total G. Comercial</span>
+            <span class="totals-value">{{ totais.valor_gcomercial | eur }}</span>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const key = "scroll_clientes";
+
+    // Recuperar posição de scroll anterior (se existir)
+    const saved = sessionStorage.getItem(key);
+    if (saved !== null) {
+        const y = parseInt(saved, 10);
+        if (!isNaN(y)) {
+            window.scrollTo(0, y);
+        }
+    }
+
+    // Antes de sair da página, guardar scroll atual
+    window.addEventListener("beforeunload", function () {
+        sessionStorage.setItem(key, window.scrollY.toString());
+    });
+});
+</script>
+</body>
+</html>

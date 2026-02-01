@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Colaboradores - PACACCOUNTING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            filter: brightness(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 20px;
+            background: radial-gradient(circle at top, #111827 0, #020617 80%);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+        .subtitulo {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;   /* para criar espaço entre as linhas */
+            border-spacing: 0 8px;       /* distância vertical entre “barras” */
+            margin-top: 8px;
+            font-size: 12px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;          /* tudo centrado por defeito */
+            vertical-align: middle;
+            border: none;
+        }
+
+        /* CABEÇALHO DA TABELA – barra dourada centrada */
+        thead tr {
+            background-color: #d4af37;
+            color: #111827;
+            border-radius: 999px;
+        }
+        thead th {
+            font-weight: 600;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        /* cada linha do corpo como “barra oval” */
+        tbody tr {
+            background-color: #020617;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        /* Células de leitura (não editáveis) em amarelo água */
+        .celula-readonly {
+            background-color: #fffde7;
+            color: #111827;
+        }
+
+        /* EXCEÇÃO: nome alinhado à esquerda */
+        .col-nome {
+            text-align: left;
+        }
+
+        .col-nome a {
+            color: #111827;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .col-nome a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-primary, .btn-secondary {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 11px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #f9fafb;
+            border: 1px solid #d4af37;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            filter: brightness(1.1);
+        }
+
+        .acoes {
+            white-space: nowrap;
+        }
+
+        .top-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <h1>Colaboradores</h1>
+    <a href="/" class="back-button">⬅ Voltar ao Dashboard</a>
+</div>
+
+<div class="container">
+    <h2>Lista de colaboradores</h2>
+    <p class="subtitulo">
+        Clique no nome do colaborador para editar os detalhes. A lista está ordenada por nome.
+    </p>
+
+    <div class="top-actions">
+        <a href="/colaboradores/novo" class="btn-primary">+ Novo colaborador</a>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Função</th>
+            <th>Vencimento base</th>
+            <th>S. alimentação (dia)</th>
+            <th>Ajudas custo (mês)</th>
+            <th>Subsídios</th>
+            <th>TSU (mês)</th>
+            <th>Outras</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in colaboradores %}
+            {% set v = c.vencimento_mensal or 0 %}
+            {% set sa = c.subsidio_alimentacao_diario or 0 %}
+            {% set ac = c.ajudas_custo_mensal or 0 %}
+            {% set tsu = c.tsu or 0 %}
+            {% set out = c.outras or 0 %}
+            {% set sf = c.subsidio_ferias_modo | default("completo") %}
+            {% set sn = c.subsidio_natal_modo | default("completo") %}
+            {% if sf == sn %}
+                {% set subs_txt = "Completos" if sf == "completo" else "Duodécimos" %}
+            {% else %}
+                {% set subs_txt = "Misto" %}
+            {% endif %}
+            <tr>
+                <td class="celula-readonly col-nome">
+                    <a href="/colaboradores/{{ c._idx }}">{{ c.nome }}</a>
+                </td>
+                <td class="celula-readonly">
+                    {{ c.funcao or "(sem função)" }}
+                </td>
+                <td class="celula-readonly">
+                    {{ "{:,.2f}".format(v).replace(",", "X").replace(".", ",").replace("X", ".") }} €
+                </td>
+                <td class="celula-readonly">
+                    {{ "{:,.2f}".format(sa).replace(",", "X").replace(".", ",").replace("X", ".") }} €
+                </td>
+                <td class="celula-readonly">
+                    {{ "{:,.2f}".format(ac).replace(",", "X").replace(".", ",").replace("X", ".") }} €
+                </td>
+                <td class="celula-readonly">
+                    {{ subs_txt }}
+                </td>
+                <td class="celula-readonly">
+                    {{ "{:,.2f}".format(tsu).replace(",", "X").replace(".", ",").replace("X", ".") }} €
+                </td>
+                <td class="celula-readonly">
+                    {{ "{:,.2f}".format(out).replace(",", "X").replace(".", ",").replace("X", ".") }} €
+                </td>
+                <td class="acoes">
+                    <form method="post"
+                          action="/colaboradores/{{ c._idx }}/excluir"
+                          style="display:inline;"
+                          onsubmit="return confirm('Tem a certeza que pretende excluir este colaborador?');">
+                        <button type="submit" class="btn-secondary">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9" class="celula-readonly">Ainda não existem colaboradores registados.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

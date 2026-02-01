@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Timings por cliente</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* NOVO: agrupar os botões da direita */
+        .top-bar-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .top-bar-actions form {
+            margin: 0;
+        }
+
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .filter-row label {
+            margin-right: 4px;
+        }
+
+        .filter-row select,
+        .filter-row input[type="file"] {
+            font-size: 13px;
+            padding: 3px 6px;
+            border-radius: 999px;
+            border: 1px solid #9ca3af;
+            background-color: #020617;
+            color: #f9fafb;
+        }
+
+        .filter-row input[type="text"] {
+            font-size: 13px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            border: 1px solid #9ca3af;
+            background-color: #020617;
+            color: #f9fafb;
+            min-width: 160px;
+        }
+
+        .filter-row input[type="file"] {
+            border-radius: 999px;
+            padding: 3px 6px;
+            max-width: 260px;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn-excluir {
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .btn-excluir:hover {
+            background-color: #ef4444;
+            color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        .empty-msg {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .extra-input {
+            width: 80px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 999px;
+        }
+        .extra-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Timings por cliente</h1>
+        <div class="top-bar-actions">
+            <form method="post" action="/timings/sincronizar-clientes">
+                <input type="hidden" name="ano" value="{{ ano_sel }}">
+                <input type="hidden" name="media_meses" value="{{ media_meses_sel }}">
+                <button type="submit" class="btn-simple">Sincronizar clientes</button>
+            </form>
+            <form method="post"
+                  action="/timings/migrar-formato"
+                  onsubmit="return confirm('Executar migração manual para minutos? Será criado um backup automático.');">
+                <input type="hidden" name="ano" value="{{ ano_sel }}">
+                <input type="hidden" name="media_meses" value="{{ media_meses_sel }}">
+                <button type="submit" class="btn-simple">Migrar formato</button>
+            </form>
+            <!-- NOVO BOTÃO: limpar timings do ano selecionado -->
+            <form method="post"
+                  action="/timings/limpar"
+                  onsubmit="return confirm('Tem a certeza que pretende limpar todos os timings deste ano?');">
+                <input type="hidden" name="ano" value="{{ ano_sel }}">
+                <input type="hidden" name="media_meses" value="{{ media_meses_sel }}">
+                                <input type="hidden" name="confirm_limpar" value="APAGAR">
+                <button type="submit" class="btn-simple">Limpar timings</button>
+            </form>
+
+            <a href="/" class="back-button">Voltar ao Dashboard</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-card">
+            <h2 class="section-title">Importação e resumo anual</h2>
+
+            <!-- Filtros: Ano + nº meses para média + botão para mapas -->
+            <div class="filter-row">
+                <form method="get" action="/timings">
+                    <label for="ano">Ano:</label>
+                    <select id="ano" name="ano" onchange="this.form.submit()">
+                        {% for ano in anos_disponiveis %}
+                            <option value="{{ ano }}" {% if ano == ano_sel %}selected{% endif %}>
+                                {{ ano }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="media_meses">Média sobre:</label>
+                    <select id="media_meses" name="media_meses" onchange="this.form.submit()">
+                        {% for n in media_meses_opcoes %}
+                            <option value="{{ n }}" {% if n == media_meses_sel %}selected{% endif %}>
+                                {{ n }} meses
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="empresa_q">Empresa:</label>
+                    <input
+                        type="text"
+                        id="empresa_q"
+                        name="empresa_q"
+                        value="{{ empresa_q or '' }}"
+                        placeholder="Filtrar empresa"
+                    >
+
+                    <label for="tecnico_q">Técnico:</label>
+                    <select id="tecnico_q" name="tecnico_q" onchange="this.form.submit()">
+                        <option value="" {% if not tecnico_q %}selected{% endif %}>Todos</option>
+                        {% for tecnico in tecnicos_opcoes %}
+                            <option value="{{ tecnico }}" {% if tecnico_q == tecnico %}selected{% endif %}>{{ tecnico }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit" class="btn-simple">Filtrar</button>
+                </form>
+
+                <div style="margin-left:auto;">
+                    <a href="/timings/mapas?ano={{ ano_sel }}&media_meses={{ media_meses_sel }}"
+                       class="btn-simple">
+                        Mapas anuais por técnico e por cliente
+                    </a>
+                </div>
+            </div>
+
+            <!-- Importação de Excel -->
+            <div class="filter-row">
+                <form method="post" action="/timings/importar" enctype="multipart/form-data">
+                    <input type="hidden" name="ano" value="{{ ano_sel }}">
+                    <label for="mes">Mês:</label>
+                    <select id="mes" name="mes">
+                        {% for num_mes, label_mes in meses_labels %}
+                            <option value="{{ num_mes }}">{{ label_mes }}</option>
+                        {% endfor %}
+                    </select>
+
+                          <input type="file" name="ficheiros" accept=".xlsx" multiple required>
+
+                    <button type="submit" class="btn-simple">Importar Excel</button>
+                </form>
+            </div>
+
+            {% if linhas and linhas|length > 0 %}
+            <!-- Tabela de timings com extras -->
+            <form method="post"
+                action="/timings/guardar?ano={{ ano_sel }}&media_meses={{ media_meses_sel }}{% if empresa_q %}&empresa_q={{ empresa_q | urlencode }}{% endif %}">
+                <input type="hidden" name="ano" value="{{ ano_sel }}">
+                <input type="hidden" name="media_meses" value="{{ media_meses_sel }}">
+                <input type="hidden" name="empresa_q" value="{{ empresa_q or '' }}">
+                <input type="hidden" name="tecnico_q" value="{{ tecnico_q or '' }}">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Empresa</th>
+                            {% for num_mes, label_mes in meses_labels %}
+                                <th>{{ label_mes }}</th>
+                            {% endfor %}
+                            <th>Total ano (contab.)</th>
+                            <th>Extra mensal médio</th>
+                            <th>Total ajustado</th>
+                            <th>Média mensal</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for linha in linhas %}
+                        <tr>
+                            <td class="align-left">
+                                {{ linha.empresa }}
+                                <input type="hidden" name="empresa" value="{{ linha.empresa }}">
+                            </td>
+
+                            {% for valor in linha.valores_por_mes %}
+                                <td>{{ valor }}</td>
+                            {% endfor %}
+
+                            <td>{{ linha.total_base_str }}</td>
+
+                            <td>
+                                <input
+                                    type="text"
+                                    name="extra"
+                                    class="extra-input"
+                                    value="{{ linha.extra_str }}"
+                                    placeholder="0h00m"
+                                >
+                            </td>
+
+                            <td>{{ linha.total_ajustado_str }}</td>
+                            <td>{{ linha.media_str }}</td>
+                            <td>
+                                <a href="/timings/excluir?ano={{ ano_sel }}&empresa={{ linha.empresa | urlencode }}&origem=timings&media_meses={{ media_meses_sel }}{% if empresa_q %}&empresa_q={{ empresa_q | urlencode }}{% endif %}{% if tecnico_q %}&tecnico_q={{ tecnico_q | urlencode }}{% endif %}"
+                                   class="btn-excluir"
+                                   onclick="return confirm('Tem a certeza que pretende excluir este cliente de todos os timings deste ano?');">
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 12px; text-align: right;">
+                    <button type="submit" class="btn-simple">Gravar extras mensais</button>
+                </div>
+            </form>
+            {% else %}
+                <p class="empty-msg">
+                    Ainda não existem timings registados para o ano selecionado.
+                    Importe um ficheiro de tempos para começar.
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+        <script>
+        (function () {
+            const KEY = "timings_scroll_y";
+            const storeScroll = function () {
+                try {
+                    sessionStorage.setItem(KEY, String(window.scrollY || 0));
+                } catch (e) {}
+            };
+
+            const form = document.querySelector('form[action^="/timings/guardar"]');
+            if (form) {
+                form.addEventListener("submit", storeScroll);
+            }
+
+            const excluirLinks = document.querySelectorAll('a[href*="/timings/excluir"]');
+            excluirLinks.forEach(function (link) {
+                link.addEventListener("click", storeScroll);
+            });
+            window.addEventListener("load", function () {
+                try {
+                    const y = sessionStorage.getItem(KEY);
+                    if (y !== null) {
+                        sessionStorage.removeItem(KEY);
+                        const yy = parseInt(y, 10);
+                        if (!Number.isNaN(yy)) {
+                            window.scrollTo(0, yy);
+                        }
+                    }
+                } catch (e) {}
+            });
+        })();
+        </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if modo == "editar" %}Editar cliente{% else %}Novo cliente{% endif %} - PACACCOUNTING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            background-color: #374151;
+            color: #e5e7eb;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .back-button:hover {
+            filter: brightness(1.1);
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto 40px auto;
+            padding: 20px;
+            background: radial-gradient(circle at top, #111827 0, #020617 80%);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 8px;
+            font-size: 18px;
+            border-left: 4px solid #d4af37;
+            padding-left: 8px;
+        }
+        .subtitulo {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 180px;
+        }
+        .form-group label {
+            font-size: 13px;
+            color: #e5e7eb;
+            display: block;
+            margin-bottom: 2px;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            padding: 5px 7px;
+            border-radius: 6px;
+            border: 1px solid #4b5563;
+            background-color: #ffffff;
+            color: #111827;
+            font-size: 13px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .btn-primary:hover {
+            filter: brightness(1.1);
+        }
+        .btn-nif {
+            margin-top: 4px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid #d4af37;
+            background-color: transparent;
+            color: #f9fafb;
+            font-size: 11px;
+            cursor: pointer;
+        }
+        .btn-nif:hover {
+            filter: brightness(1.1);
+        }
+        .btn-row {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+        .hint {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <h1>{% if modo == "editar" %}Editar cliente{% else %}Novo cliente{% endif %}</h1>
+    <a href="/clientes" class="back-button">Voltar à lista de clientes</a>
+</div>
+
+<div class="container">
+    <h2>Dados do cliente</h2>
+    <p class="subtitulo">
+        Preencha os dados e selecione as opções nas dropdowns. Pode usar o botão "NIF.pt" para tentar preencher
+        automaticamente o nome a partir do NIF.
+    </p>
+
+    {% if modo == "editar" %}
+        <form method="post" action="/clientes/atualizar">
+            <input type="hidden" name="idx" value="{{ idx }}">
+    {% else %}
+        <form method="post" action="/clientes/adicionar">
+    {% endif %}
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" name="nome" value="{{ cliente.nome }}" required>
+            </div>
+            <div class="form-group">
+                <label>NIF</label>
+                <input type="text" name="nif" value="{{ cliente.nif }}" required>
+                <button type="button" class="btn-nif" onclick="buscarNIF()">NIF.pt</button>
+                <div class="hint">Usa o NIF.pt para tentar preencher o nome automaticamente.</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Mensalidade</label>
+                <input type="number" step="0.01" name="mensalidade" value="{{ cliente.mensalidade or 0 }}">
+            </div>
+            <div class="form-group">
+                <label>GRH</label>
+                <input type="number" step="0.01" name="valor_grh" value="{{ cliente.valor_grh or 0 }}">
+            </div>
+            <div class="form-group">
+                <label>G. Comercial</label>
+                <input type="number" step="0.01" name="valor_toconline" value="{{ cliente.valor_toconline or 0 }}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Carteira</label>
+                <select name="carteira">
+                    <option value="">(sem)</option>
+                    {% for item in listas.carteiras %}
+                        <option value="{{ item }}" {% if cliente.carteira == item %}selected{% endif %}>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Técnico</label>
+                <select name="tecnico">
+                    <option value="">(sem)</option>
+                    {% for item in listas.tecnicos %}
+                        <option value="{{ item }}" {% if cliente.tecnico == item %}selected{% endif %}>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Técn. GRH</label>
+                <select name="tecnico_grh">
+                    <option value="">(sem)</option>
+                    {% for item in listas.tecn_grh %}
+                        <option value="{{ item }}" {% if cliente.tecnico_grh == item %}selected{% endif %}>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tipo de contabilidade</label>
+                <select name="tipo_contabilidade">
+                    <option value="">(sem)</option>
+                    {% for item in listas.tipos_contabilidade %}
+                        <option value="{{ item }}" {% if cliente.tipo_contabilidade == item %}selected{% endif %}>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Periodicidade IVA</label>
+                <select name="periodicidade_iva">
+                    <option value="">(sem)</option>
+                    {% for item in listas.periodicidades_iva %}
+                        <option value="{{ item }}" {% if cliente.periodicidade_iva == item %}selected{% endif %}>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Regime IVA</label>
+                <select name="regime_iva">
+                    <option value="">(sem)</option>
+                    {% for item in listas.regimes_iva %}
+                        <option value="{{ item }}" {% if cliente.regime_iva == item %}selected{% endif %}>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Com fatura</label>
+                <select name="com_fatura">
+                    <option value="sim" {% if cliente.com_fatura %}selected{% endif %}>Sim</option>
+                    <option value="nao" {% if not cliente.com_fatura %}selected{% endif %}>Não</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button type="submit" class="btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function buscarNIF() {
+        const nifInput = document.querySelector('input[name="nif"]');
+        const nomeInput = document.querySelector('input[name="nome"]');
+
+        const nif = nifInput.value.trim();
+        if (!nif) {
+            alert("Introduza primeiro o NIF.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("nif", nif);
+
+        fetch("/clientes/autofill-nif", {
+            method: "POST",
+            body: formData
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.ok) {
+                if (data.nome && (!nomeInput.value || nomeInput.value.trim() === "")) {
+                    nomeInput.value = data.nome;
+                }
+                alert("Dados obtidos do NIF.pt com sucesso.");
+            } else {
+                alert(data.message || "Não foi possível obter dados do NIF.pt.");
+            }
+        })
+        .catch(() => {
+            alert("Erro ao contactar o servidor para o NIF.pt.");
+        });
+    }
+</script>
+</body>
+</html>

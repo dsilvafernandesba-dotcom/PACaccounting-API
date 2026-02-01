@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Custo/Hora</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #010E2B;
+      color: #f9fafb;
+    }
+
+    .top-bar {
+      background-color: #010E2B;
+      padding: 16px 24px;
+      border-bottom: 2px solid #fbbf24;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar h1 {
+      margin: 0;
+      font-size: 20px;
+      color: #fbbf24;
+      letter-spacing: 0.2px;
+    }
+
+    .back-button {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid #fbbf24;
+      color: #010E2B;
+      background-color: #fbbf24;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 18px auto 40px auto;
+      padding: 0 18px;
+    }
+
+    .card {
+      background-color: #0b1b3a;
+      border-radius: 18px;
+      padding: 16px 18px 18px 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .year-select {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #f9fafb;
+    }
+
+    select {
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(251,191,36,0.7);
+      background: #071434;
+      color: #f9fafb;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .kpi {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(251,191,36,0.25);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+
+    .kpi .label {
+      font-size: 12px;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+
+    .kpi .value {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fbbf24;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+      font-size: 13px;
+    }
+
+    .table thead th {
+      text-align: center;
+      padding: 10px 8px;
+      color: #010E2B;
+      background: #fbbf24;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .table thead th:first-child {
+      border-top-left-radius: 999px;
+      border-bottom-left-radius: 999px;
+      text-align:left;
+      padding-left: 14px;
+    }
+
+    .table thead th:last-child  {
+      border-top-right-radius: 999px;
+      border-bottom-right-radius: 999px;
+    }
+
+    .table tbody td {
+      padding: 10px 8px;
+      text-align: center;
+      background: rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      white-space: nowrap;
+    }
+
+    .table tbody td:first-child {
+      text-align: left;
+      padding-left: 14px;
+      border-top-left-radius: 999px;
+      border-bottom-left-radius: 999px;
+      font-weight: bold;
+    }
+
+    .table tbody td:last-child {
+      border-top-right-radius: 999px;
+      border-bottom-right-radius: 999px;
+    }
+
+    .muted {
+      opacity: 0.85;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 980px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .table { font-size: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar">
+    <h1>Custo/Hora — Geral</h1>
+    <a href="/dashboard" class="back-button">Voltar ao dashboard</a>
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>
+        Indicadores gerais
+        <span class="year-select">
+          Ano
+          <select id="anoSelect">
+            {% for a in anos_lista %}
+              <option value="{{ a }}" {% if a == ano %}selected{% endif %}>{{ a }}</option>
+            {% endfor %}
+          </select>
+        </span>
+      </h2>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">Horas/mês (capacidade)</div>
+          <div class="value">{{ kpi.horas_mes }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Despesa média/mês (todas as despesas)</div>
+          <div class="value">{{ kpi.despesa_media_mes }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Proveito médio/mês (geral)</div>
+          <div class="value">{{ kpi.proveito_media_mes }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Proveito médio/mês (legal)</div>
+          <div class="value">{{ kpi.proveito_media_mes_legal }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Custo/Hora geral</div>
+          <div class="value">{{ kpi.custo_hora_geral }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Proveito/Hora geral</div>
+          <div class="value">{{ kpi.proveito_hora_geral }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Proveito/Hora legal</div>
+          <div class="value">{{ kpi.proveito_hora_legal }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Margem/Hora geral</div>
+          <div class="value">{{ kpi.margem_hora_geral }}</div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Margem/Hora legal</div>
+          <div class="value">{{ kpi.margem_hora_legal }}</div>
+        </div>
+      </div>
+
+      <div class="muted">
+        Nota: o Custo/Hora geral usa as despesas totais (colaboradores + comissões + despesas manuais).
+        O Proveito/Hora legal usa apenas clientes com <b>com_fatura=True</b>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Custo/Proveito por hora — por mês</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th>Despesas</th>
+            <th>Proveitos (geral)</th>
+            <th>Proveitos (legal)</th>
+            <th>Horas</th>
+            <th>Custo/Hora</th>
+            <th>Prov/H geral</th>
+            <th>Prov/H legal</th>
+            <th>Marg/H geral</th>
+            <th>Marg/H legal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for l in linhas_mensais %}
+          <tr>
+            <td>{{ l.mes }}</td>
+            <td>{{ l.despesas }}</td>
+            <td>{{ l.proveitos }}</td>
+            <td>{{ l.proveitos_legal }}</td>
+            <td>{{ l.horas }}</td>
+            <td>{{ l.custo_hora }}</td>
+            <td>{{ l.proveito_hora }}</td>
+            <td>{{ l.proveito_hora_legal }}</td>
+            <td>{{ l.margem_hora }}</td>
+            <td>{{ l.margem_hora_legal }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Custo/Hora por colaborador</h2>
+
+      {% if linhas_colab and linhas_colab|length > 0 %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Colaborador</th>
+            <th>Vencimento</th>
+            <th>S.A. diário</th>
+            <th>Ajudas</th>
+            <th>Dias/mês</th>
+            <th>Horas/dia</th>
+            <th>Custo mensal</th>
+            <th>Horas/mês</th>
+            <th>Custo/hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for l in linhas_colab %}
+          <tr>
+            <td>{{ l.nome }}</td>
+            <td>{{ l.vencimento }}</td>
+            <td>{{ l.sa_diario }}</td>
+            <td>{{ l.ajudas }}</td>
+            <td>{{ l.dias }}</td>
+            <td>{{ l.horas_dia }}</td>
+            <td>{{ l.custo_mensal }}</td>
+            <td>{{ l.horas_mes }}</td>
+            <td>{{ l.custo_hora }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <div class="muted">Ainda não existem colaboradores registados para calcular o custo/hora.</div>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("anoSelect")?.addEventListener("change", function () {
+      const ano = this.value;
+      window.location.href = "/custo-hora?ano=" + encodeURIComponent(ano);
+    });
+
+    // Preservar scroll
+    document.addEventListener("DOMContentLoaded", function () {
+      const key = "scroll_custo_hora";
+      const saved = sessionStorage.getItem(key);
+      if (saved !== null) {
+        sessionStorage.removeItem(key);
+        const y = parseInt(saved, 10);
+        if (!Number.isNaN(y)) window.scrollTo(0, y);
+      }
+      window.addEventListener("beforeunload", function () {
+        sessionStorage.setItem(key, String(window.scrollY || 0));
+      });
+    });
+  </script>
+</body>
+</html>

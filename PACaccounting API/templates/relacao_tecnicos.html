@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Relação Técnicos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 13px;
+            background-color: #d4af37;
+            color: #111827;
+        }
+        .back-button:hover {
+            filter: brightness(1.1);
+        }
+        .container {
+            max-width: 1600px;
+            margin: 20px auto 40px auto;
+            padding: 20px;
+            background: radial-gradient(circle at top, #111827 0, #020617 80%);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+        .header-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .kpi-card {
+            flex: 1;
+            min-width: 200px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border: 1px solid #d4af37;
+            border-radius: 14px;
+            padding: 14px 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+        .kpi-card strong {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #fbbf24;
+            letter-spacing: 0.4px;
+            margin-bottom: 4px;
+        }
+        .kpi-card span {
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .actions-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .primary-button, .secondary-button {
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        .primary-button {
+            background-color: #d4af37;
+            color: #111827;
+        }
+        .secondary-button {
+            background-color: transparent;
+            color: #f9fafb;
+            border: 1px solid #d4af37;
+        }
+        .primary-button:hover,
+        .secondary-button:hover {
+            filter: brightness(1.08);
+        }
+        .filters-card {
+            background-color: #020617;
+            border: 1px solid #374151;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 18px;
+        }
+        .filters-card form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 160px;
+            flex: 1;
+        }
+        .filter-group label {
+            font-size: 12px;
+            color: #e5e7eb;
+            margin-bottom: 4px;
+        }
+        .filters-card select,
+        .filters-card input[type="text"] {
+            border-radius: 8px;
+            border: 1px solid #4b5563;
+            background-color: #ffffff;
+            color: #111827;
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+        .filters-actions {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        .filters-actions button,
+        .filters-actions a {
+            height: 32px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        thead {
+            background-color: #d4af37;
+            color: #111827;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #fbbf24;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th.sortable {
+            cursor: pointer;
+        }
+        th.sortable a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+        }
+        .sort-indicator {
+            font-size: 12px;
+            color: #111827;
+        }
+        td.align-left {
+            text-align: left;
+        }
+        td.tecnico-cell { text-align: center; }
+        tr.alert {
+            background-color: #fff7ed;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            margin: 2px;
+            background-color: #ef4444;
+            color: #ffffff;
+        }
+        tfoot td {
+            font-weight: 700;
+            background-color: #facc15;
+            color: #111827;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 20px 0;
+            color: #6b7280;
+        }
+        .downloads-tecnicos {
+            margin-top: 32px;
+            background-color: #061834;
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+        }
+        .downloads-tecnicos h2 {
+            margin: 0 0 16px 0;
+            font-size: 18px;
+            color: #fbbf24;
+            letter-spacing: 0.4px;
+        }
+        .downloads-tecnicos-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .downloads-tecnicos-table thead {
+            background-color: rgba(4, 18, 40, 0.9);
+        }
+        .downloads-tecnicos-table th,
+        .downloads-tecnicos-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+        }
+        .downloads-tecnicos-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 1px solid #fbbf24;
+            background: linear-gradient(135deg, #fbbf24, #d4af37);
+            color: #06152d;
+            cursor: pointer;
+            transition: filter 0.15s ease;
+            min-width: 120px;
+        }
+        .download-btn:hover {
+            filter: brightness(1.08);
+        }
+        .download-btn.download-image {
+            background: transparent;
+            color: #fbbf24;
+            border-color: #fbbf24;
+            background-color: rgba(15, 23, 42, 0.6);
+        }
+        .download-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 960px) {
+            .filter-group {
+                min-width: 140px;
+            }
+            .download-btn { min-width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Relação Técnicos</h1>
+        <a href="/" class="back-button">Voltar ao Dashboard</a>
+    </div>
+
+    <div class="container">
+        <div class="header-row">
+            <div class="kpi-card">
+                <strong>Número de clientes</strong>
+                <span>{{ contagem }}</span>
+            </div>
+            <div class="kpi-card">
+                <strong>Total timing médio mensal</strong>
+                <span>{{ total_str }}</span>
+            </div>
+            <div class="actions-group">
+                <a class="primary-button" href="/relacao-tecnicos/export/excel{% if export_qs %}?{{ export_qs }}{% endif %}">Exportar Excel</a>
+                <a class="secondary-button" href="/relacao-tecnicos/export/pdf{% if export_qs %}?{{ export_qs }}{% endif %}">Exportar PDF</a>
+            </div>
+        </div>
+
+        <div class="filters-card">
+            <form method="get" action="/relacao-tecnicos">
+                <div class="filter-group" style="max-width: 200px;">
+                    <label>Ano</label>
+                    <select name="ano">
+                        {% if not anos_disponiveis %}
+                            <option value="">(sem dados)</option>
+                        {% else %}
+                            {% for ano in anos_disponiveis %}
+                                <option value="{{ ano }}" {% if ano == ano_sel %}selected{% endif %}>{{ ano }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="filter-group" style="flex: 2; min-width: 220px;">
+                    <label>Pesquisa (nome, NIF ou técnico)</label>
+                    <input type="text" name="search" value="{{ filtros.search }}" placeholder="Procurar cliente ou técnico">
+                </div>
+                <div class="filter-group">
+                    <label>Técnico</label>
+                    <select name="tecnico">
+                        <option value="">(todos)</option>
+                        {% for item in opcoes.tecnicos %}
+                            <option value="{{ item }}" {% if filtros.tecnico == item %}selected{% endif %}>{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Tipo contabilidade</label>
+                    <select name="tipo_contabilidade">
+                        <option value="">(todos)</option>
+                        {% for item in opcoes.tipos %}
+                            <option value="{{ item }}" {% if filtros.tipo_contabilidade == item %}selected{% endif %}>{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Periodicidade IVA</label>
+                    <select name="periodicidade_iva">
+                        <option value="">(todas)</option>
+                        {% for item in opcoes.periodicidades %}
+                            <option value="{{ item }}" {% if filtros.periodicidade_iva == item %}selected{% endif %}>{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Regime IVA</label>
+                    <select name="regime_iva">
+                        <option value="">(todos)</option>
+                        {% for item in opcoes.regimes %}
+                            <option value="{{ item }}" {% if filtros.regime_iva == item %}selected{% endif %}>{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="hidden" name="sort" value="{{ sort_by }}">
+                <input type="hidden" name="dir" value="{{ direction }}">
+                <div class="filters-actions">
+                    <button type="submit" class="primary-button">Aplicar</button>
+                    <a href="/relacao-tecnicos" class="secondary-button">Limpar</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="tabela-tecnico-root">
+                <thead>
+                    <tr>
+                        <th class="sortable">
+                            <a href="{{ sort_links.nome }}">Nome
+                                {% if sort_by == 'nome' %}
+                                    <span class="sort-indicator">{% if direction == 'asc' %}&#9650;{% else %}&#9660;{% endif %}</span>
+                                {% endif %}
+                            </a>
+                        </th>
+                        <th>NIF</th>
+                        <th class="sortable">
+                            <a href="{{ sort_links.tecnico }}">Técnico
+                                {% if sort_by == 'tecnico' %}
+                                    <span class="sort-indicator">{% if direction == 'asc' %}&#9650;{% else %}&#9660;{% endif %}</span>
+                                {% endif %}
+                            </a>
+                        </th>
+                        <th>Tipo contabilidade</th>
+                        <th>Periodicidade IVA</th>
+                        <th>Regime IVA</th>
+                        <th class="sortable">
+                            <a href="{{ sort_links.timing }}">Timing médio
+                                {% if sort_by == 'timing' %}
+                                    <span class="sort-indicator">{% if direction == 'asc' %}&#9650;{% else %}&#9660;{% endif %}</span>
+                                {% endif %}
+                            </a>
+                        </th>
+                        <th>Alertas</th>
+                    </tr>
+                </thead>
+                {% if not linhas %}
+                <tbody>
+                    {% if not linhas %}
+                        <tr>
+                            <td colspan="8" class="empty-state">Sem registos para os filtros aplicados.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+                {% else %}
+                    {% for bloco in tecnico_blocks %}
+                        <tbody class="tecnico-block" data-tecnico-id="tabela-tecnico-{{ bloco.index }}" data-tecnico-nome="{{ bloco.nome or 'Sem técnico' }}" data-tecnico-slug="{{ bloco.slug }}">
+                            {% for linha in bloco.rows %}
+                                <tr class="{% if linha.qualidade %}alert{% endif %}">
+                                    <td class="align-left">
+                                        {% if linha.detalhe_href %}
+                                            <a href="{{ linha.detalhe_href }}">{{ linha.nome }}</a>
+                                        {% else %}
+                                            {{ linha.nome }}
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ linha.nif }}</td>
+                                    <td class="tecnico-cell">{{ linha.tecnico or '-' }}</td>
+                                    <td>{{ linha.tipo_contabilidade or '-' }}</td>
+                                    <td>{{ linha.periodicidade_iva or '-' }}</td>
+                                    <td>{{ linha.regime_iva or '-' }}</td>
+                                    <td>{{ linha.timing_media_str }}</td>
+                                    <td>
+                                        {% for alerta in linha.qualidade %}
+                                            {% if alerta == 'Sem timings' and linha.sem_timings_tooltip %}
+                                                <span class="badge" title="{{ linha.sem_timings_tooltip }}">{{ alerta }}</span>
+                                            {% else %}
+                                                <span class="badge">{{ alerta }}</span>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    {% endfor %}
+                {% endif %}
+                <tfoot>
+                    <tr>
+                        <td class="align-left">TOTAL</td>
+                        <td colspan="5"></td>
+                        <td>{{ total_str }}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        {% if tecnico_blocks %}
+        <div id="tecnico-print-tables" aria-hidden="true" style="position: fixed; left: -9999px; top: -9999px;">
+            {% for bloco in tecnico_blocks %}
+            <table id="tabela-tecnico-{{ bloco.index }}" class="tecnico-print-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>NIF</th>
+                        <th>Técnico</th>
+                        <th>Tipo contabilidade</th>
+                        <th>Periodicidade IVA</th>
+                        <th>Regime IVA</th>
+                        <th>Timing médio</th>
+                        <th>Alertas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for linha in bloco.rows %}
+                    <tr class="{% if linha.qualidade %}alert{% endif %}">
+                        <td class="align-left">{{ linha.nome }}</td>
+                        <td>{{ linha.nif }}</td>
+                        <td class="tecnico-cell">{{ linha.tecnico or '-' }}</td>
+                        <td>{{ linha.tipo_contabilidade or '-' }}</td>
+                        <td>{{ linha.periodicidade_iva or '-' }}</td>
+                        <td>{{ linha.regime_iva or '-' }}</td>
+                        <td>{{ linha.timing_media_str }}</td>
+                        <td>
+                            {% for alerta in linha.qualidade %}
+                                {% if alerta == 'Sem timings' and linha.sem_timings_tooltip %}
+                                    <span class="badge" title="{{ linha.sem_timings_tooltip }}">{{ alerta }}</span>
+                                {% else %}
+                                    <span class="badge">{{ alerta }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if tecnicos_lista %}
+        <div class="downloads-tecnicos">
+            <h2>Downloads por Técnico</h2>
+            <table class="downloads-tecnicos-table">
+                <thead>
+                    <tr>
+                        <th>Técnico</th>
+                        <th>Excel</th>
+                        <th>PDF</th>
+                        <th>Imagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in tecnicos_lista %}
+                        <tr>
+                            <td>{{ item.nome }}</td>
+                            <td>
+                                <a class="download-btn" href="/relacao-tecnicos/download/excel?tecnico={{ item.nome|urlencode }}{% if export_qs_sem_tecnico %}&{{ export_qs_sem_tecnico }}{% endif %}">Excel (este técnico)</a>
+                            </td>
+                            <td>
+                                <a class="download-btn" href="/relacao-tecnicos/download/pdf?tecnico={{ item.nome|urlencode }}{% if export_qs_sem_tecnico %}&{{ export_qs_sem_tecnico }}{% endif %}">PDF (este técnico)</a>
+                            </td>
+                            <td>
+                                <button type="button" class="download-btn download-image" onclick='downloadImagemTabelaTecnicoPaginas("tabela-tecnico-{{ item.index }}", {{ item.nome|tojson }})'>PNG (este técnico)</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha256-6H5VB5QyLldKH9oMFUmjxw2uWpPZETQXpCkBaDjquMs=" crossorigin="anonymous"></script>
+    <script>
+        function slugifyTecnico(nome) {
+            return (nome || "tecnico")
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^0-9a-zA-Z]+/g, "_")
+                .replace(/^_+|_+$/g, "")
+                .toLowerCase() || "tecnico";
+        }
+
+        function hojeISO() {
+            return new Date().toISOString().split("T")[0];
+        }
+
+        async function downloadImagemTabelaTecnicoPaginas(tabelaId, nomeTecnico) {
+            const fonteTabela = document.getElementById(tabelaId);
+            if (!fonteTabela) {
+                alert("Não foi possível localizar a tabela deste técnico.");
+                return;
+            }
+
+            const PAGE_WIDTH = 1240;
+            const PAGE_HEIGHT = Math.round(PAGE_WIDTH * 1.4142);
+            const SCALE = 4;
+
+            const wrapper = document.createElement("div");
+            wrapper.style.position = "fixed";
+            wrapper.style.left = "-9999px";
+            wrapper.style.top = "0";
+            wrapper.style.background = "#ffffff";
+            wrapper.style.padding = "36px";
+            wrapper.style.width = `${PAGE_WIDTH}px`;
+            wrapper.style.boxSizing = "border-box";
+            wrapper.style.borderRadius = "18px";
+            wrapper.style.boxShadow = "0 12px 36px rgba(0,0,0,0.25)";
+
+            const tabelaClone = fonteTabela.cloneNode(true);
+            const cloneId = `${tabelaId}-capture`;
+            tabelaClone.id = cloneId;
+            tabelaClone.style.width = "100%";
+            tabelaClone.style.borderCollapse = "collapse";
+            tabelaClone.style.backgroundColor = "#ffffff";
+
+            wrapper.appendChild(tabelaClone);
+            document.body.appendChild(wrapper);
+
+            let canvas;
+            try {
+                canvas = await html2canvas(wrapper, {
+                    scale: SCALE,
+                    backgroundColor: "#ffffff",
+                    useCORS: true,
+                    windowWidth: PAGE_WIDTH + 72,
+                    onclone: (doc) => {
+                        const tabela = doc.getElementById(cloneId);
+                        if (tabela) {
+                            tabela.style.fontSize = "16px";
+                            tabela.style.lineHeight = "1.4";
+                            tabela.querySelectorAll("th, td").forEach((cell) => {
+                                cell.style.padding = "12px 16px";
+                                cell.style.fontSize = "16px";
+                            });
+                        }
+                    },
+                });
+            } catch (error) {
+                console.error(error);
+                alert("Não foi possível gerar a imagem para este técnico.");
+            } finally {
+                if (wrapper.parentNode) {
+                    wrapper.parentNode.removeChild(wrapper);
+                }
+            }
+
+            if (!canvas) {
+                alert("Não foi possível gerar a imagem para este técnico.");
+                return;
+            }
+
+            let offsetY = 0;
+            let pagina = 1;
+            const slug = slugifyTecnico(nomeTecnico);
+            const stamp = hojeISO();
+            const scaledPageHeight = PAGE_HEIGHT * SCALE;
+
+            while (offsetY < canvas.height) {
+                const sliceHeight = Math.min(scaledPageHeight, canvas.height - offsetY);
+                const pageCanvas = document.createElement("canvas");
+                pageCanvas.width = canvas.width;
+                pageCanvas.height = sliceHeight;
+                const ctx = pageCanvas.getContext("2d");
+                if (ctx) {
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
+                    ctx.drawImage(
+                        canvas,
+                        0,
+                        offsetY,
+                        canvas.width,
+                        sliceHeight,
+                        0,
+                        0,
+                        canvas.width,
+                        sliceHeight
+                    );
+                }
+
+                const link = document.createElement("a");
+                link.href = pageCanvas.toDataURL("image/png");
+                link.download = `relacao_tecnicos_${slug}_${stamp}_p${pagina}.png`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                offsetY += sliceHeight;
+                pagina += 1;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const key = "scroll_relacao_tecnicos";
+            const saved = sessionStorage.getItem(key);
+            if (saved !== null) {
+                const y = parseInt(saved, 10);
+                if (!isNaN(y)) {
+                    window.scrollTo(0, y);
+                }
+            }
+            window.addEventListener("beforeunload", function () {
+                sessionStorage.setItem(key, window.scrollY.toString());
+            });
+        });
+    </script>
+</body>
+</html>

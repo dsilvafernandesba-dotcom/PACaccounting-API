@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Listas de opções - PACACCOUNTING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .back-button {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover { filter: brightness(1.1); }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 20px;
+            background: radial-gradient(circle at top, #111827 0, #020617 80%);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 6px;
+            font-size: 17px;
+            border-left: 4px solid #d4af37;
+            padding-left: 8px;
+        }
+        .subtitulo {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            background-color: #020617;
+            border-radius: 12px;
+            padding: 10px 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 4px 0 8px 0;
+            max-height: 180px;
+            overflow-y: auto;
+            font-size: 12px;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 0;
+            border-bottom: 1px solid #111827;
+            gap: 6px;
+        }
+        .tag-text {
+            margin-right: 6px;
+        }
+        .btn-remove {
+            background-color: transparent;
+            color: #fca5a5;
+            border: 1px solid #fca5a5;
+            border-radius: 999px;
+            font-size: 10px;
+            padding: 2px 6px;
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-remove:hover { filter: brightness(1.1); }
+
+        .form-add {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .form-add input[type="text"] {
+            flex: 1;
+            padding: 4px 6px;
+            border-radius: 6px;
+            border: 1px solid #4b5563;
+            background-color: #ffffff;
+            color: #111827;
+            font-size: 12px;
+        }
+        .btn-add {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            border-radius: 999px;
+            font-size: 11px;
+            padding: 4px 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-add:hover { filter: brightness(1.1); }
+
+        .lista-label {
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        /* inputs de edição das listas */
+        .form-edit input[type="text"] {
+            flex: 1;
+            padding: 4px 6px;
+            border-radius: 6px;
+            border: 1px solid #4b5563;
+            background-color: #ffffff;
+            color: #111827;
+            font-size: 12px;
+        }
+
+        .btn-save {
+            margin-top: 6px;
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            border-radius: 999px;
+            font-size: 11px;
+            padding: 4px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
+        }
+        .btn-save:hover { filter: brightness(1.1); }
+        .clearfix { clear: both; }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <h1>Listas de opções</h1>
+    <a href="/" class="back-button">⬅ Voltar ao Dashboard</a>
+</div>
+
+<div class="container">
+    <p class="subtitulo">
+        Estas listas alimentam as dropdowns da página de Clientes (carteira, técnico, tipos de contabilidade,
+        periodicidade e regime de IVA). Qualquer alteração aqui fica logo disponível nos clientes.
+    </p>
+
+    <div class="grid">
+
+        <!-- CARTEIRAS -->
+        <div class="card">
+            <h2>Carteiras</h2>
+            <p class="lista-label">Usado na coluna "Carteira" dos clientes.</p>
+
+            <form class="form-edit" method="post" action="/listas/guardar">
+                <ul>
+                    {% for item in listas.carteiras %}
+                        <li>
+                            <input type="text"
+                                   name="carteiras[{{ loop.index0 }}]"
+                                   value="{{ item }}">
+                            <a class="btn-remove"
+                               href="/listas/remover?lista=carteiras&valor={{ item }}">x</a>
+                        </li>
+                    {% else %}
+                        <li>(sem elementos)</li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn-save">Guardar alterações</button>
+                <div class="clearfix"></div>
+            </form>
+
+            <form class="form-add" method="post" action="/listas/adicionar">
+                <input type="hidden" name="lista" value="carteiras">
+                <input type="text" name="valor" placeholder="Nova carteira">
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- TÉCNICOS -->
+        <div class="card">
+            <h2>Técnicos</h2>
+            <p class="lista-label">Usado na coluna "Técnico" dos clientes.</p>
+
+            <form class="form-edit" method="post" action="/listas/guardar">
+                <ul>
+                    {% for item in listas.tecnicos %}
+                        <li>
+                            <input type="text"
+                                   name="tecnicos[{{ loop.index0 }}]"
+                                   value="{{ item }}">
+                            <a class="btn-remove"
+                               href="/listas/remover?lista=tecnicos&valor={{ item }}">x</a>
+                        </li>
+                    {% else %}
+                        <li>(sem elementos)</li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn-save">Guardar alterações</button>
+                <div class="clearfix"></div>
+            </form>
+
+            <form class="form-add" method="post" action="/listas/adicionar">
+                <input type="hidden" name="lista" value="tecnicos">
+                <input type="text" name="valor" placeholder="Novo técnico">
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- TÉCN. GRH -->
+        <div class="card">
+            <h2>Técn. GRH</h2>
+            <p class="lista-label">Usado na coluna "Técn. GRH" dos clientes.</p>
+
+            <form class="form-edit" method="post" action="/listas/guardar">
+                <ul>
+                    {% for item in listas.tecn_grh %}
+                        <li>
+                            <input type="text"
+                                   name="tecn_grh[{{ loop.index0 }}]"
+                                   value="{{ item }}">
+                            <a class="btn-remove"
+                               href="/listas/remover?lista=tecn_grh&valor={{ item }}">x</a>
+                        </li>
+                    {% else %}
+                        <li>(sem elementos)</li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn-save">Guardar alterações</button>
+                <div class="clearfix"></div>
+            </form>
+
+            <form class="form-add" method="post" action="/listas/adicionar">
+                <input type="hidden" name="lista" value="tecn_grh">
+                <input type="text" name="valor" placeholder="Novo técn. GRH">
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- TIPOS DE CONTABILIDADE -->
+        <div class="card">
+            <h2>Tipos de contabilidade</h2>
+            <p class="lista-label">Ex.: Organizada, Simplificada.</p>
+
+            <form class="form-edit" method="post" action="/listas/guardar">
+                <ul>
+                    {% for item in listas.tipos_contabilidade %}
+                        <li>
+                            <input type="text"
+                                   name="tipos_contabilidade[{{ loop.index0 }}]"
+                                   value="{{ item }}">
+                            <a class="btn-remove"
+                               href="/listas/remover?lista=tipos_contabilidade&valor={{ item }}">x</a>
+                        </li>
+                    {% else %}
+                        <li>(sem elementos)</li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn-save">Guardar alterações</button>
+                <div class="clearfix"></div>
+            </form>
+
+            <form class="form-add" method="post" action="/listas/adicionar">
+                <input type="hidden" name="lista" value="tipos_contabilidade">
+                <input type="text" name="valor" placeholder="Novo tipo">
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- PERIODICIDADES IVA -->
+        <div class="card">
+            <h2>Periodicidade IVA</h2>
+            <p class="lista-label">Mensal, Trimestral, Anual, etc.</p>
+
+            <form class="form-edit" method="post" action="/listas/guardar">
+                <ul>
+                    {% for item in listas.periodicidades_iva %}
+                        <li>
+                            <input type="text"
+                                   name="periodicidades_iva[{{ loop.index0 }}]"
+                                   value="{{ item }}">
+                            <a class="btn-remove"
+                               href="/listas/remover?lista=periodicidades_iva&valor={{ item }}">x</a>
+                        </li>
+                    {% else %}
+                        <li>(sem elementos)</li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn-save">Guardar alterações</button>
+                <div class="clearfix"></div>
+            </form>
+
+            <form class="form-add" method="post" action="/listas/adicionar">
+                <input type="hidden" name="lista" value="periodicidades_iva">
+                <input type="text" name="valor" placeholder="Nova periodicidade">
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- REGIMES DE IVA -->
+        <div class="card">
+            <h2>Regimes de IVA</h2>
+            <p class="lista-label">Ex.: Regime Normal, Isento art. 53.º, etc.</p>
+
+            <form class="form-edit" method="post" action="/listas/guardar">
+                <ul>
+                    {% for item in listas.regimes_iva %}
+                        <li>
+                            <input type="text"
+                                   name="regimes_iva[{{ loop.index0 }}]"
+                                   value="{{ item }}">
+                            <a class="btn-remove"
+                               href="/listas/remover?lista=regimes_iva&valor={{ item }}">x</a>
+                        </li>
+                    {% else %}
+                        <li>(sem elementos)</li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn-save">Guardar alterações</button>
+                <div class="clearfix"></div>
+            </form>
+
+            <form class="form-add" method="post" action="/listas/adicionar">
+                <input type="hidden" name="lista" value="regimes_iva">
+                <input type="text" name="valor" placeholder="Novo regime">
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

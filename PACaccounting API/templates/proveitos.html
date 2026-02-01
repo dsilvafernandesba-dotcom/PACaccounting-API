@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Proveitos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f; /* igual ao dashboard */
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* BARRA SUPERIOR IGUAL À DOS COLABORADORES */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            filter: brightness(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 20px 24px 24px;
+            background-color: #041020; /* cartão azul mais claro dentro do fundo */
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Barra do título (igual colaboradores) */
+        h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .subtitulo {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        /* TOOLBAR (ano + legenda) */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-left,
+        .toolbar-center,
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar select,
+        .toolbar button {
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        .toolbar button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .auto-label {
+            font-size: 10px;
+            color: #9ca3af;
+        }
+
+        /* TABELA EM BARRAS OVAIS (layout tipo colaboradores) */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;  /* espaço vertical entre “barras” */
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 4px 6px;
+            text-align: center;     /* valores centrados */
+            white-space: nowrap;
+            border: none;
+        }
+
+        /* CABEÇALHO dourado em barra oval */
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th {
+            font-weight: 600;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        /* Linhas do corpo como barras ovais */
+        tbody tr:not(.total-line) {
+            background-color: #020b1f;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr:not(.total-line) td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr:not(.total-line) td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        td.descricao {
+            background-color: #0b1728; /* azul escuro para a coluna das descrições */
+            text-align: left;
+        }
+
+        /* CÉLULAS AUTOMÁTICAS: amarelo “água” (como colaboradores) */
+        .celula-readonly {
+            background-color: #fffde7;
+            color: #111827;
+        }
+
+        /* CÉLULAS EDITÁVEIS: fundo branco, texto escuro, centrado */
+        input.valor-input {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff; /* fundo branco */
+            border: 1px solid #d1d5db;
+            color: #111827;            /* texto escuro */
+            padding: 2px 4px;
+            font-size: 13px;
+            border-radius: 3px;
+        }
+
+        input.valor-input:focus {
+            outline: none;
+            border-color: #d4a11f;       /* realce dourado ao focar */
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        /* AUTOMÁTICOS: igual às manuais mas com fundo amarelo-água e readonly */
+        input.valor-auto {
+            background-color: #fffde7;   /* amarelo água */
+            color: #111827;
+        }
+
+        /* TOTAL com a mesma cor do cabeçalho (rodapé dourado) */
+        tr.total-line td {
+            font-weight: bold;
+            background-color: #d4a11f;
+            color: #041020;
+        }
+
+        /* Botão gravar no estilo dourado */
+        .btn-gravar {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .btn-gravar:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <h1>Proveitos</h1>
+    <a href="/" class="back-button">⬅ Voltar ao Dashboard</a>
+</div>
+
+<div class="container">
+    <h2>Lista de proveitos</h2>
+    <p class="subtitulo">
+        Linhas automáticas (Mensalidades, GRH, Gestão Comercial) são calculadas a partir dos clientes.
+    </p>
+
+    <div class="toolbar">
+        <div class="toolbar-center">
+            <form method="get" action="/proveitos">
+                <label for="ano">Ano:&nbsp;</label>
+                <select name="ano" id="ano" onchange="this.form.submit()">
+                    {% for a in anos_lista %}
+                        <option value="{{ a }}" {% if a == ano %}selected{% endif %}>{{ a }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <div class="toolbar-right">
+            <span class="auto-label">
+                Linhas automáticas: Mensalidades, GRH, Gestão Comercial (calculadas a partir dos clientes)
+            </span>
+        </div>
+    </div>
+
+    <form method="post" action="/proveitos">
+        <input type="hidden" name="ano" value="{{ ano }}">
+
+        <table>
+            <thead>
+            <tr>
+                <th>Descrição</th>
+                {% for mes in meses_labels %}
+                    <th>{{ mes }}</th>
+                {% endfor %}
+                <th>ANO</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for linha in linhas %}
+                <tr>
+                    <td class="descricao">
+                        {{ linha.nome }}
+                        {% if linha.auto %}
+                            <br><span class="auto-label">(automático)</span>
+                        {% endif %}
+                    </td>
+
+                    {% for valor in linha.meses %}
+                        {% if linha.auto %}
+                            <!-- célula automática: input igual às manuais mas amarelo-água e readonly -->
+                            <td>
+                                <input
+                                    type="text"
+                                    class="valor-input valor-auto"
+                                    value="{{ "{:,.2f}".format(valor).replace(",", "X").replace(".", ",").replace("X", ".") }} €"
+                                    readonly
+                                >
+                            </td>
+                        {% else %}
+                            <!-- célula editável: input branco -->
+                            <td>
+                                <input
+                                    type="text"
+                                    class="valor-input"
+                                    name="{{ linha.codigo }}_{{ loop.index }}"
+                                    value="{% if valor %}{{ "{:,.2f}".format(valor).replace(",", "X").replace(".", ",").replace("X", ".") }}{% endif %}"
+                                >
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+
+                    <!-- total ano da linha (automático) em amarelo água -->
+                    <td>
+                        <input
+                            type="text"
+                            class="valor-input valor-auto"
+                            value="{{ "{:,.2f}".format(linha.total_ano).replace(",", "X").replace(".", ",").replace("X", ".") }} €"
+                            readonly
+                        >
+                    </td>
+                </tr>
+            {% endfor %}
+
+            <tr class="total-line">
+                <td class="descricao">TOTAL</td>
+                {% for valor in totais_mensais %}
+                    <td>{{ "{:,.2f} €".format(valor).replace(",", "X").replace(".", ",").replace("X", ".") }}</td>
+                {% endfor %}
+                <td>{{ "{:,.2f} €".format(total_ano_geral).replace(",", "X").replace(".", ",").replace("X", ".") }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 15px; text-align: right;">
+            <button type="submit" class="btn-gravar">Gravar Proveitos</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

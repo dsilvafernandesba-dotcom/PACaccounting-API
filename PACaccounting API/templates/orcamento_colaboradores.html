@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento – Colaboradores</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header form {
+            margin: 0;
+        }
+
+        .config-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .config-bar label {
+            margin-right: 4px;
+        }
+
+        .config-bar input {
+            width: 120px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #020b1f;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        .empty-msg {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        input.valor-input {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff; /* editáveis: branco */
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 13px;
+            border-radius: 3px;
+        }
+        input.valor-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        input.valor-input[readonly] {
+            background-color: #111827;
+            color: #f9fafb;
+            border-color: #374151;
+        }
+
+        .acao-link {
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            border: 1px solid #f87171;
+            color: #f87171;
+            background-color: transparent;
+        }
+        .acao-link:hover {
+            background-color: #f87171;
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Orçamento – Colaboradores</h1>
+        <a href="/orcamento" class="back-button">Voltar ao orçamento</a>
+    </div>
+
+    <div class="container">
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="section-title">Colaboradores – estimativas por colaborador</h2>
+                </div>
+                <div class="section-header-right">
+                    <form method="post" action="/orcamento/colaboradores/importar">
+                        <button type="submit" class="btn-simple">Importar colaboradores</button>
+                    </form>
+                    <form method="post" action="/orcamento/colaboradores/adicionar">
+                        <button type="submit" class="btn-simple">Adicionar linha manual</button>
+                    </form>
+                </div>
+            </div>
+
+            {% if linhas and linhas|length > 0 %}
+            <form method="post" action="/orcamento/colaboradores/guardar">
+                <div class="config-bar">
+                    <label for="sub_alim_diario_default">Subsídio alim. diário (€):</label>
+                    <input
+                        type="text"
+                        id="sub_alim_diario_default"
+                        name="sub_alim_diario_default"
+                        class="valor-input"
+                        value="{{ '{:,.2f}'.format(subsidio_alim_diario_default).replace(',', 'X').replace('.', ',').replace('X', '.') }}"
+                    >
+
+                    <label for="dias_uteis_mes">Dias úteis/mês:</label>
+                    <input
+                        type="text"
+                        id="dias_uteis_mes"
+                        name="dias_uteis_mes"
+                        class="valor-input"
+                        value="{{ dias_uteis_mes }}"
+                    >
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Colaborador</th>
+                            <th>Vencimento base (mês)</th>
+                            <th>Sub. alim diário (€)</th>
+                            <th>Sub. alimentação (mês)</th>
+                            <th>Ajudas de custo (mês)</th>
+                            <th>TSU (mês)</th>
+                            <th>Sub. férias (mês)</th>
+                            <th>Sub. natal (mês)</th>
+                            <th>Medicina trab. (mês)</th>
+                            <th>Seguro (mês)</th>
+                            <th>Outras despesas (mês)</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for linha in linhas %}
+                            {% set idx = loop.index0 %}
+
+                            {% set vb = linha.vencimento_base | default(none) %}
+                            {% set diario = linha.subsidio_alimentacao_diario | default(0) %}
+                            {% set sa = linha.subsidio_alimentacao | default(0) %}
+                            {% set ac = linha.ajudas_custo | default(none) %}
+                            {% set ferias = linha.subsidio_ferias_mensal | default(0) %}
+                            {% set natal = linha.subsidio_natal_mensal | default(0) %}
+                            {% set tsu = linha.tsu | default(none) %}
+                            {% set med = linha.medicina_trabalho | default(none) %}
+                            {% set seg = linha.seguro | default(none) %}
+                            {% set out = linha.outras_despesas | default(none) %}
+
+                            <tr>
+                                <td class="align-left">
+                            {{ linha.nome }}
+                                    <input type="hidden" name="linhas[{{ idx }}][id]" value="{{ linha.id }}">
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][vencimento_base]"
+                                        value="{% if vb is not none %}{{ '{:,.2f}'.format(vb).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][subsidio_alimentacao_diario]"
+                                        value="{% if diario and diario > 0 %}{{ '{:,.2f}'.format(diario).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                        placeholder="{{ '{:,.2f}'.format(subsidio_alim_diario_default).replace(',', 'X').replace('.', ',').replace('X', '.') }}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input type="text" class="valor-input" value="{{ '{:,.2f}'.format(sa).replace(',', 'X').replace('.', ',').replace('X', '.') }}" readonly>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][ajudas_custo]"
+                                        value="{% if ac is not none %}{{ '{:,.2f}'.format(ac).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][tsu]"
+                                        value="{% if tsu is not none %}{{ '{:,.2f}'.format(tsu).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input type="text" class="valor-input" value="{{ '{:,.2f}'.format(ferias).replace(',', 'X').replace('.', ',').replace('X', '.') }}" readonly>
+                                </td>
+
+                                <td>
+                                    <input type="text" class="valor-input" value="{{ '{:,.2f}'.format(natal).replace(',', 'X').replace('.', ',').replace('X', '.') }}" readonly>
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][medicina_trabalho]"
+                                        value="{% if med is not none %}{{ '{:,.2f}'.format(med).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][seguro]"
+                                        value="{% if seg is not none %}{{ '{:,.2f}'.format(seg).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="linhas[{{ idx }}][outras_despesas]"
+                                        value="{% if out is not none %}{{ '{:,.2f}'.format(out).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}"
+                                    >
+                                </td>
+
+                                <td>
+                                    <a
+                                        href="/orcamento/colaboradores/{{ linha.id }}/excluir"
+                                        class="acao-link"
+                                        onclick="return confirm('Tem a certeza que pretende excluir este colaborador do orçamento?');"
+                                    >
+                                        Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 15px; text-align: right;">
+                    <button type="submit" class="btn-simple">Gravar estimativas</button>
+                </div>
+            </form>
+            {% else %}
+                <p class="empty-msg">
+                    Ainda não há colaboradores no orçamento. Use o botão “Importar colaboradores”
+                    para trazer os colaboradores atuais ou “Adicionar linha manual” para simulações.
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+    // Manter a posição de scroll nesta página (como nos outros módulos)
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_orcamento_colaboradores";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+    </script>
+</body>
+</html>

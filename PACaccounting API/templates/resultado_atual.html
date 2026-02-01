@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado Atual</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            background-color: #020b1f;
+            padding: 16px 24px;
+            border-bottom: 2px solid #fbbf24;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .top-bar .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+        }
+
+        .top-bar .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: #0b1b3a;
+            border-radius: 16px;
+            padding: 18px 20px 24px 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #fbbf24;
+        }
+
+        .summary-line {
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        .bars {
+            margin-top: 12px;
+        }
+
+        .bar-label {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .bar-bg {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-radius: 999px;
+            width: 100%;
+            height: 18px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            background-color: #fbbf24;
+        }
+
+        .resultado-positivo {
+            color: #22c55e; /* verde */
+        }
+
+        .resultado-negativo {
+            color: #f97373; /* vermelho suave */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(248, 250, 252, 0.15);
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .align-left {
+            text-align: left;
+        }
+
+        .empty-msg {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Resultado Atual</h1>
+        <a href="/dashboard" class="back-button">Voltar ao dashboard</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Resumo global anual</h2>
+            <p class="summary-line">
+                <span class="highlight">Receitas anuais estimadas:</span>
+                {{ "%.2f"|format(total_receitas_anual) }} €
+            </p>
+            <p class="summary-line">
+                <span class="highlight">Despesas anuais totais:</span>
+                {{ "%.2f"|format(total_despesas_anual) }} €
+                (Colaboradores: {{ "%.2f"|format(custo_colabs_anual) }} €,
+                 Outras despesas: {{ "%.2f"|format(outras_despesas_anual) }} €)
+            </p>
+            <p class="summary-line">
+                <span class="highlight">Resultado anual:</span>
+                {% if resultado >= 0 %}
+                    <span class="resultado-positivo">{{ "%.2f"|format(resultado) }} €</span>
+                {% else %}
+                    <span class="resultado-negativo">{{ "%.2f"|format(resultado) }} €</span>
+                {% endif %}
+            </p>
+            <p class="summary-line">
+                <span class="highlight">Margem:</span>
+                {{ "%.2f"|format(margem * 100) }} %
+            </p>
+
+            <div class="bars">
+                <div class="bar-label">Receitas vs Despesas (escala relativa)</div>
+                <div class="bar-bg" style="margin-bottom: 6px;">
+                    <div class="bar-fill" style="width: {{ "%.1f"|format(pct_receitas) }}%;"></div>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: {{ "%.1f"|format(pct_despesas) }}%; background-color: #f97316;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Detalhe – Custos com colaboradores</h2>
+            {% if colaboradores and colaboradores|length > 0 %}
+            <table>
+                <thead>
+                    <tr>
+                        <th class="align-left">Colaborador</th>
+                        <th>Custo mensal</th>
+                        <th>Custo anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in colaboradores %}
+                    <tr>
+                        <td class="align-left">{{ c.nome }}</td>
+                        <td>{{ "%.2f"|format(c.custo_mensal) }} €</td>
+                        <td>{{ "%.2f"|format(c.custo_anual) }} €</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p class="empty-msg">Ainda não existem colaboradores registados no sistema.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+    // Manter posição de scroll (como nos outros módulos)
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_resultado_atual";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+    </script>
+</body>
+</html>

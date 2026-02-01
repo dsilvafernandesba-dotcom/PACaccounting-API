@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Colaborador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto 40px auto;
+            background-color: #061737;
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid #111827;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+
+        .linha {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .linha > div {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .btn-guardar {
+            margin-top: 15px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/colaboradores" class="back-button">Voltar a Colaboradores</a>
+
+    <h1>{{ "Novo colaborador" if indice is none else "Editar colaborador" }}</h1>
+
+    <div class="container">
+        <form method="post"
+              action="{{ '/colaboradores/novo' if indice is none else ('/colaboradores/' ~ indice) }}">
+
+            <label>Nome</label>
+            <input type="text" name="nome"
+                   value="{{ colaborador.nome if colaborador.nome is defined else '' }}" required>
+
+            <label>Função</label>
+            <select name="funcao">
+                <option value="">(sem função)</option>
+                {% for f in funcoes_opcoes %}
+                    <option value="{{ f }}"
+                        {% if colaborador.funcao is defined and colaborador.funcao == f %}selected{% endif %}>
+                        {{ f }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <div class="linha">
+                <div>
+                    <label>Vencimento mensal</label>
+                    <input type="number" step="0.01" id="vencimento_mensal" name="vencimento_mensal"
+                           value="{{ colaborador.vencimento_mensal if colaborador.vencimento_mensal is defined else '' }}">
+                </div>
+                <div>
+                    <label>Subs. alimentação diário</label>
+                    <input type="number" step="0.01" name="subsidio_alimentacao_diario"
+                           value="{{ colaborador.subsidio_alimentacao_diario if colaborador.subsidio_alimentacao_diario is defined else '' }}">
+                </div>
+            </div>
+
+            <div class="linha">
+                <div>
+                    <label>Ajudas de custo (mês)</label>
+                    <input type="number" step="0.01" name="ajudas_custo_mensal"
+                           value="{{ colaborador.ajudas_custo_mensal if colaborador.ajudas_custo_mensal is defined else '' }}">
+                </div>
+                <div>
+                    <label>Dias de trabalho/mês</label>
+                    <input type="number" name="dias_trabalho_mes"
+                           value="{{ colaborador.dias_trabalho_mes if colaborador.dias_trabalho_mes is defined else 22 }}">
+                </div>
+            </div>
+
+            <!-- Subsídios lado a lado -->
+            <div class="linha">
+                <div>
+                    <label>Subsídio de férias</label>
+                    {% set sf = colaborador.subsidio_ferias_modo if colaborador.subsidio_ferias_modo is defined else "completo" %}
+                    <select name="subsidio_ferias_modo">
+                        <option value="completo" {% if sf == "completo" %}selected{% endif %}>Completo</option>
+                        <option value="duodecimos" {% if sf == "duodecimos" %}selected{% endif %}>Duodécimos</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Subsídio de Natal</label>
+                    {% set sn = colaborador.subsidio_natal_modo if colaborador.subsidio_natal_modo is defined else "completo" %}
+                    <select name="subsidio_natal_modo">
+                        <option value="completo" {% if sn == "completo" %}selected{% endif %}>Completo</option>
+                        <option value="duodecimos" {% if sn == "duodecimos" %}selected{% endif %}>Duodécimos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="linha">
+                <div>
+                    <label>TSU (mês) – automático</label>
+                    <input type="number" step="0.01" id="tsu" name="tsu"
+                           value="{{ colaborador.tsu if colaborador.tsu is defined else '' }}" readonly>
+                </div>
+                <div>
+                    <label>Medicina no trabalho (mês)</label>
+                    <input type="number" step="0.01" id="medicina_trabalho" name="medicina_trabalho"
+                           value="{{ colaborador.medicina_trabalho if colaborador.medicina_trabalho is defined else '' }}">
+                </div>
+            </div>
+
+            <div class="linha">
+                <div>
+                    <label>Seguro (1% do vencimento base)</label>
+                    <input type="number" step="0.01" id="seguro" name="seguro"
+                           value="{{ colaborador.seguro if colaborador.seguro is defined else '' }}" readonly>
+                </div>
+                <div>
+                    <label>Outras despesas</label>
+                    <input type="number" step="0.01" id="outras_despesas" name="outras_despesas"
+                           value="{{ colaborador.outras_despesas if colaborador.outras_despesas is defined else '' }}">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        const vencInput = document.getElementById('vencimento_mensal');
+        const seguroInput = document.getElementById('seguro');
+        const tsuInput = document.getElementById('tsu');
+
+        // Seguro = 1% do vencimento base
+        function atualizarSeguro() {
+            if (!vencInput || !seguroInput) return;
+            const v = parseFloat((vencInput.value || '').replace(',', '.')) || 0;
+            seguroInput.value = (v * 0.01).toFixed(2);
+        }
+
+        // TSU = 23,75% sobre vencimento + subs. férias + subs. Natal
+        // (14 meses / 12 meses = 14/12)
+        function atualizarTSU() {
+            if (!vencInput || !tsuInput) return;
+            const v = parseFloat((vencInput.value || '').replace(',', '.')) || 0;
+            const baseMensalComSubs = v * (14.0 / 12.0);
+            tsuInput.value = (baseMensalComSubs * 0.2375).toFixed(2);
+        }
+
+        function atualizarTudo() {
+            atualizarSeguro();
+            atualizarTSU();
+        }
+
+        if (vencInput) {
+            vencInput.addEventListener('input', atualizarTudo);
+        }
+
+        window.addEventListener('load', atualizarTudo);
+    </script>
+</body>
+</html>

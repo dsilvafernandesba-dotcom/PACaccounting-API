@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento – Despesas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section-header form {
+            margin: 0;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #ffffff; /* linhas em branco */
+            color: #111827;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        input.valor-input {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff; /* editáveis em branco */
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 13px;
+            border-radius: 3px;
+        }
+        input.valor-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        .valor-auto {
+            background-color: #fffde7; /* amarelo água para campos automáticos */
+        }
+
+        .acao-link {
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            border: 1px solid #f87171;
+            color: #f87171;
+            background-color: transparent;
+        }
+        .acao-link:hover {
+            background-color: #f87171;
+            color: #111827;
+        }
+
+        .totais-bar {
+            margin-top: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background-color: #d4af37;
+            color: #111827;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Orçamento – Despesas</h1>
+        <a href="/orcamento" class="back-button">Voltar ao Orçamento</a>
+    </div>
+
+    <div class="container">
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="section-title">Despesas – rubricas detalhadas</h2>
+                </div>
+                <div class="section-header-right">
+                    <form method="post" action="/orcamento/despesas/importar">
+                        <button type="submit" class="btn-simple">Importar rubricas</button>
+                    </form>
+                    <form method="post" action="/orcamento/despesas/adicionar">
+                        <button type="submit" class="btn-simple">Adicionar linha</button>
+                    </form>
+                </div>
+            </div>
+
+            {% if orcamento_despesas and orcamento_despesas|length > 0 %}
+            <form method="post" action="/orcamento/despesas/guardar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Rubrica</th>
+                            <th>Valor mensal</th>
+                            <th>Valor anual</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for linha in orcamento_despesas %}
+                            {% set idx_vis = loop.index0 %}
+                            <tr>
+                                <td class="align-left">
+                                    {% if idx_vis == 0 %}
+                                        {{ linha.descricao }}
+                                    {% else %}
+                                        {% set idx = idx_vis - 1 %}
+                                        <input
+                                            type="text"
+                                            class="valor-input"
+                                            name="desc_{{ idx }}"
+                                            value="{{ linha.descricao }}"
+                                        >
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {% if idx_vis == 0 %}
+                                        <input
+                                            type="text"
+                                            class="valor-input valor-auto"
+                                            value="{{ linha.valor_mensal_str }}"
+                                            readonly
+                                        >
+                                    {% else %}
+                                        {% set idx = idx_vis - 1 %}
+                                        <input
+                                            type="text"
+                                            class="valor-input"
+                                            name="mensal_{{ idx }}"
+                                            value="{{ linha.valor_mensal_str }}"
+                                        >
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <input
+                                        type="text"
+                                        class="valor-input valor-auto"
+                                        value="{{ linha.valor_anual_str }}"
+                                        readonly
+                                    >
+                                </td>
+
+                                <td>
+                                    {% if idx_vis == 0 %}
+                                        -
+                                    {% else %}
+                                        {% set idx = idx_vis - 1 %}
+                                        <a
+                                            href="/orcamento/despesas/excluir/{{ idx }}"
+                                            class="acao-link"
+                                            onclick="return confirm('Tem a certeza que pretende excluir esta rubrica do orçamento?');"
+                                        >
+                                            Excluir
+                                        </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 15px; text-align: right;">
+                    <button type="submit" class="btn-simple">Gravar alterações</button>
+                </div>
+            </form>
+
+            <div class="totais-bar">
+                <div><strong>Total mensal:</strong> {{ total_despesas_mensal }}</div>
+                <div><strong>Total anual:</strong> {{ total_despesas_anual }}</div>
+            </div>
+            {% else %}
+                <p>Não existem rubricas de despesa no orçamento. Use "Importar rubricas".</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+    // manter posição de scroll nesta página
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_orcamento_despesas";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+    </script>
+</body>
+</html>

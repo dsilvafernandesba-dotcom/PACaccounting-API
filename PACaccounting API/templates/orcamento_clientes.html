@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento – Clientes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #020b1f;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        input.valor-input {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+        input.valor-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+        input.valor-auto {
+            background-color: #fffde7;
+        }
+
+        input.input-estimado {
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cell-wrap {
+            position: relative;
+        }
+        .cell-wrap .badge {
+            display: none;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            background: #ff9800;
+            color: #111827;
+            font-weight: 700;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+        }
+        .cell-wrap.changed input.input-estimado {
+            background-color: #ffe08a !important;
+            border: 2px solid #ff9800 !important;
+            box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.35) !important;
+            color: #111827 !important;
+            font-weight: 700;
+        }
+        .cell-wrap.changed .badge {
+            display: inline-block;
+        }
+
+        .pct-label {
+            font-size: 11px;
+        }
+
+        .btn-excluir {
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            background-color: transparent;
+        }
+        .btn-excluir:hover {
+            background-color: #ef4444;
+            color: #fff;
+        }
+
+        .empty-msg {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Orçamento – Clientes</h1>
+        <a href="/orcamento" class="back-button">Voltar ao Orçamento</a>
+    </div>
+
+    <div class="container">
+        <div class="section-card">
+            <h2>Mensalidades / GRH / Gestão Comercial</h2>
+
+            <div class="toolbar">
+                <form method="post" action="/orcamento/clientes/importar">
+                    <button type="submit" class="btn-simple">Importar clientes</button>
+                </form>
+
+                <form method="post" action="/orcamento/clientes/adicionar">
+                    <button type="submit" class="btn-simple">Adicionar cliente</button>
+                </form>
+            </div>
+
+            {% if linhas is defined and linhas and linhas|length > 0 %}
+            <form method="post" action="/orcamento/clientes/guardar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Cliente</th>
+                            <th>Mensalidade atual</th>
+                            <th>Mensalidade estimada</th>
+                            <th>%</th>
+                            <th>GRH atual</th>
+                            <th>GRH estimada</th>
+                            <th>%</th>
+                            <th>Gestão Comercial atual</th>
+                            <th>Gestão Comercial estimada</th>
+                            <th>%</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for linha in linhas %}
+                        <tr>
+                            <td class="align-left">
+                                <input type="hidden" name="linhas[{{ loop.index0 }}][id]" value="{{ linha.id }}">
+                                {{ linha.nome }}
+                            </td>
+
+                            {# Mensalidade #}
+                            <td>
+                                <input type="text"
+                                       class="valor-input valor-auto"
+                                       value="{{ '{:,.2f} €'.format(linha.mensalidade_atual_valor).replace(',', 'X').replace('.', ',').replace('X', '.') }}"
+                                       readonly>
+                            </td>
+                            <td>
+                                <div class="cell-wrap{% if linha.mudou_mensalidade %} changed{% endif %}">
+                                    <input type="text"
+                                           class="valor-input input-estimado"
+                                           name="linhas[{{ loop.index0 }}][mensalidade_estimativa]"
+                                           value="{% if linha.mensalidade_estimativa is defined and linha.mensalidade_estimativa is not none %}{{ '{:,.2f}'.format(linha.mensalidade_estimativa_valor).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}">
+                                    {% if linha.mudou_mensalidade %}
+                                        <span class="badge">ALTERADO</span>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td class="pct-label">
+                                {% if linha.mensalidade_atual_valor %}
+                                    {% set diff_m = linha.mensalidade_estimativa_valor - linha.mensalidade_atual_valor %}
+                                    {% set pct_m = (diff_m / linha.mensalidade_atual_valor) * 100 %}
+                                    {{ '{:+.1f}%'.format(pct_m) }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+
+                            {# GRH #}
+                            <td>
+                                <input type="text"
+                                       class="valor-input valor-auto"
+                                       value="{{ '{:,.2f} €'.format(linha.grh_atual_valor).replace(',', 'X').replace('.', ',').replace('X', '.') }}"
+                                       readonly>
+                            </td>
+                            <td>
+                                <div class="cell-wrap{% if linha.mudou_grh %} changed{% endif %}">
+                                    <input type="text"
+                                           class="valor-input input-estimado"
+                                           name="linhas[{{ loop.index0 }}][grh_estimativa]"
+                                           value="{% if linha.grh_estimativa is defined and linha.grh_estimativa is not none %}{{ '{:,.2f}'.format(linha.grh_estimativa_valor).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}">
+                                    {% if linha.mudou_grh %}
+                                        <span class="badge">ALTERADO</span>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td class="pct-label">
+                                {% if linha.grh_atual_valor %}
+                                    {% set diff_g = linha.grh_estimativa_valor - linha.grh_atual_valor %}
+                                    {% set pct_g = (diff_g / linha.grh_atual_valor) * 100 %}
+                                    {{ '{:+.1f}%'.format(pct_g) }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+
+                            {# Gestão Comercial #}
+                            <td>
+                                <input type="text"
+                                       class="valor-input valor-auto"
+                                       value="{{ '{:,.2f} €'.format(linha.comercial_atual_valor).replace(',', 'X').replace('.', ',').replace('X', '.') }}"
+                                       readonly>
+                            </td>
+                            <td>
+                                <div class="cell-wrap{% if linha.mudou_gcom %} changed{% endif %}">
+                                    <input type="text"
+                                           class="valor-input input-estimado"
+                                           name="linhas[{{ loop.index0 }}][comercial_estimativa]"
+                                           value="{% if linha.comercial_estimativa is defined and linha.comercial_estimativa is not none %}{{ '{:,.2f}'.format(linha.comercial_estimativa_valor).replace(',', 'X').replace('.', ',').replace('X', '.') }}{% endif %}">
+                                    {% if linha.mudou_gcom %}
+                                        <span class="badge">ALTERADO</span>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td class="pct-label">
+                                {% if linha.comercial_atual_valor %}
+                                    {% set diff_c = linha.comercial_estimativa_valor - linha.comercial_atual_valor %}
+                                    {% set pct_c = (diff_c / linha.comercial_atual_valor) * 100 %}
+                                    {{ '{:+.1f}%'.format(pct_c) }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                <a href="/orcamento/clientes/{{ linha.id }}/excluir" class="btn-excluir">Excluir</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div style="text-align: right; margin-top: 12px;">
+                    <button type="submit" class="btn-simple">Gravar alterações</button>
+                </div>
+            </form>
+            {% else %}
+                <p class="empty-msg">
+                    Ainda não existem linhas de orçamento para clientes.
+                    Use “Importar clientes” para começar.
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_orcamento_clientes";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+    </script>
+</body>
+</html>

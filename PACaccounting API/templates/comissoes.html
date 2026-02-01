@@ -1,0 +1,638 @@
+<!-- [VERSÃO ESTÁVEL] Página Comissões — data 2026-01-10 -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Comissões Mensais</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1700px;
+            margin: 24px auto 48px;
+            padding: 0 24px 24px;
+        }
+
+        .card {
+            background-color: #041020;
+            padding: 20px 24px 28px;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+        }
+        .controls label {
+            font-weight: bold;
+        }
+        .controls input[type="month"] {
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid #d4af37;
+            background-color: #020617;
+            color: #f9fafb;
+            font-size: 14px;
+        }
+        .timestamp {
+            font-size: 12px;
+            color: #d1d5db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            font-size: 13px;
+        }
+        th, td {
+            padding: 8px 10px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child { border-top-left-radius: 999px; border-bottom-left-radius: 999px; }
+        thead th:last-child { border-top-right-radius: 999px; border-bottom-right-radius: 999px; }
+        tbody tr {
+            background-color: #ffffff;
+            color: #111827;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+        }
+        tbody tr td:first-child { border-top-left-radius: 999px; border-bottom-left-radius: 999px; text-align: left; }
+        tbody tr td:last-child { border-top-right-radius: 999px; border-bottom-right-radius: 999px; font-weight: bold; }
+        .align-left { text-align: left; }
+
+        .checkbox-wrapper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: bold;
+            color: #041020;
+        }
+
+        .input-mensalidades {
+            width: 90px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 3px 6px;
+            font-size: 13px;
+            border-radius: 999px;
+        }
+        .input-mensalidades:disabled {
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+        .input-mensalidades:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5);
+        }
+
+        .taxa-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background-color: #1f2937;
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        .totais {
+            margin-top: 26px;
+            font-size: 13px;
+            display: grid;
+            gap: 18px;
+        }
+        .totais-card {
+            background-color: #07162b;
+            padding: 16px 18px;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+        .totais-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            color: #fbbf24;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .summary-table th,
+        .summary-table td {
+            padding: 6px 10px;
+            text-align: left;
+        }
+        .summary-table thead {
+            background-color: #10233f;
+        }
+        .summary-table tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .summary-table tfoot td {
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .exports-card {
+            background-color: #061834;
+            padding: 16px 18px;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+        .exports-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 15px;
+            color: #fbbf24;
+        }
+        .downloads-quick {
+            margin: 0 0 12px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+        .exports-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .exports-table th,
+        .exports-table td {
+            padding: 6px 8px;
+            text-align: left;
+        }
+        .exports-table thead {
+            background-color: #10233f;
+        }
+        .exports-table tbody tr {
+            background-color: rgba(12, 34, 70, 0.85);
+            color: #f9fafb;
+        }
+        .exports-table tbody tr:nth-child(even) {
+            background-color: rgba(15, 45, 90, 0.7);
+        }
+        .exports-table td {
+            color: #f9fafb !important;
+        }
+        .exports-table td:first-child {
+            color: #f9fafb !important;
+            font-weight: bold;
+        }
+        .exports-table a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .exports-table a:visited {
+            color: #fbbf24;
+        }
+        .exports-table a:hover {
+            text-decoration: underline;
+        }
+
+        .acoes {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+        .btn {
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #fbbf24;
+            cursor: pointer;
+        }
+        .btn-primario {
+            background-color: #fbbf24;
+            color: #020b1f;
+        }
+        .btn-secundario {
+            background-color: transparent;
+            color: #fbbf24;
+        }
+        .btn:hover {
+            filter: brightness(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Comissões Mensais</h1>
+        <a href="/" class="back-button">Voltar ao Dashboard</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="controls">
+                <label for="mes">Mês:</label>
+                <input type="month" id="mes" name="mes_control" value="{{ mes }}">
+                <span class="timestamp">
+                    {% if updated_at %}
+                        Última atualização: {{ updated_at.replace("T", " ") }}
+                    {% else %}
+                        Sem histórico guardado para este mês.
+                    {% endif %}
+                </span>
+            </div>
+
+            <form id="formComissoes" method="post" action="/comissoes/guardar">
+                <input type="hidden" name="mes" value="{{ mes }}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Carteira</th>
+                            <th>Técnico</th>
+                            <th>Cliente</th>
+                            <th>NIF</th>
+                            <th>Mensalidade (ref.)</th>
+                            <th>Recebido?</th>
+                            <th>Nº mensalidades pagas</th>
+                            <th>Valor recebido (mês)</th>
+                            <th>Comissão</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for linha in rows %}
+                        <tr
+                            class="com-row"
+                            data-carteira="{{ linha.carteira }}"
+                            data-mensalidade="{{ "%.2f"|format(linha.mensalidade) }}"
+                            data-taxa="{{ "%.5f"|format(linha.taxa) }}"
+                            data-mensalidades="{{ linha.num_mensalidades }}"
+                        >
+                            <td>{{ linha.carteira }}</td>
+                            <td>{{ linha.tecnico }}</td>
+                            <td class="align-left">{{ linha.nome }}</td>
+                            <td>{{ linha.nif }}</td>
+                            <td>{{ fmt_euro(linha.mensalidade) }}</td>
+                            <td>
+                                <label class="checkbox-wrapper">
+                                    <input
+                                        type="checkbox"
+                                        class="recebido-toggle"
+                                        name="recebido_{{ linha.nif }}"
+                                        {% if linha.recebido %}checked{% endif %}
+                                    >
+                                    <span>Recebido</span>
+                                </label>
+                            </td>
+                            <td>
+                                <input
+                                    class="input-mensalidades"
+                                    type="number"
+                                    min="0"
+                                    max="{{ max_mensalidades }}"
+                                    name="num_mensalidades_{{ linha.nif }}"
+                                    value="{{ linha.num_mensalidades }}"
+                                    {% if not linha.recebido %}disabled{% endif %}
+                                >
+                            </td>
+                            <td>
+                                <span class="valor-recebido" data-value="{{ "%.2f"|format(linha.valor_recebido) }}">
+                                    {{ fmt_euro(linha.valor_recebido) }}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="valor-comissao" data-value="{{ "%.2f"|format(linha.comissao) }}">
+                                    {{ fmt_euro(linha.comissao) }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="totais">
+                    <div class="totais-card">
+                        <h3>Resumo por carteira</h3>
+                        <table class="summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Carteira</th>
+                                    <th>Mensalidades recebidas</th>
+                                    <th>Total recebido (€)</th>
+                                    <th>Total comissão (€)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for carteira in allowed_carteiras %}
+                                <tr>
+                                    <td>{{ carteira }}</td>
+                                    <td>
+                                        <span class="total-mensalidades" data-carteira="{{ carteira }}">
+                                            {{ totais_por_carteira[carteira]["mensalidades"] }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="total-recebido" data-carteira="{{ carteira }}">
+                                            {{ fmt_euro(totais_por_carteira[carteira]["recebido"]) }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="total-comissao" data-carteira="{{ carteira }}">
+                                            {{ fmt_euro(totais_por_carteira[carteira]["comissao"]) }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Total geral</td>
+                                    <td><span id="total-geral-mensalidades">{{ total_geral["mensalidades"] }}</span></td>
+                                    <td><span id="total-geral-recebido">{{ fmt_euro(total_geral["recebido"]) }}</span></td>
+                                    <td><span id="total-geral-comissao">{{ fmt_euro(total_geral["comissao"]) }}</span></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="exports-card">
+                        <h3>Downloads</h3>
+                        <div class="downloads-quick">
+                            <a class="btn btn-secundario js-download" href="#" data-href="/comissoes/exportar-excel?mes={{ mes }}">Excel global</a>
+                            <a class="btn btn-secundario js-download" href="#" data-href="/comissoes/exportar-resumo-excel?mes={{ mes }}">Resumo Excel</a>
+                            <a class="btn btn-secundario js-download" href="#" data-href="/comissoes/exportar-resumo-pdf?mes={{ mes }}">Resumo PDF</a>
+                            <a class="btn btn-secundario js-download" href="#" data-href="/comissoes/exportar-resumo-png?mes={{ mes }}">Resumo PNG</a>
+                        </div>
+                        <table class="exports-table">
+                            <thead>
+                                <tr>
+                                    <th>Carteira</th>
+                                    <th>Excel</th>
+                                    <th>PDF</th>
+                                    <th>PNG</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for carteira in allowed_carteiras %}
+                                <tr>
+                                    <td>{{ carteira }}</td>
+                                    <td><a class="js-download" href="#" data-href="/comissoes/exportar-excel-carteira?mes={{ mes }}&carteira={{ carteira|urlencode }}">Descarregar</a></td>
+                                    <td><a class="js-download" href="#" data-href="/comissoes/exportar-pdf?mes={{ mes }}&carteira={{ carteira|urlencode }}">Descarregar</a></td>
+                                    <td><a class="js-download" href="#" data-href="/comissoes/exportar-png?mes={{ mes }}&carteira={{ carteira|urlencode }}">Descarregar</a></td>
+                                </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td>Resumo por carteira (todas)</td>
+                                    <td><a class="js-download" href="#" data-href="/comissoes/exportar-resumo-excel?mes={{ mes }}">Descarregar</a></td>
+                                    <td><a class="js-download" href="#" data-href="/comissoes/exportar-resumo-pdf?mes={{ mes }}">Descarregar</a></td>
+                                    <td><a class="js-download" href="#" data-href="/comissoes/exportar-resumo-png?mes={{ mes }}">Descarregar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="acoes">
+                    <button type="submit" class="btn btn-primario">Guardar mês</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        const maxMensalidades = {{ max_mensalidades }};
+        const rows = Array.from(document.querySelectorAll(".com-row"));
+
+        function formatEuro(value) {
+            const fixed = Number(value || 0).toFixed(2);
+            const parts = fixed.split(".");
+            const inteiroFmt = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return `${inteiroFmt},${parts[1]} €`;
+        }
+
+        function updateRow(row, triggerTotals = true) {
+            const checkbox = row.querySelector(".recebido-toggle");
+            const input = row.querySelector(".input-mensalidades");
+            const valorSpan = row.querySelector(".valor-recebido");
+            const comissaoSpan = row.querySelector(".valor-comissao");
+            const mensalidade = parseFloat(row.dataset.mensalidade || "0");
+            const taxa = parseFloat(row.dataset.taxa || "0");
+
+            if (!checkbox.checked) {
+                input.value = "0";
+                input.disabled = true;
+                row.dataset.valorRecebido = "0";
+                row.dataset.comissao = "0";
+                row.dataset.mensalidades = "0";
+                valorSpan.textContent = formatEuro(0);
+                comissaoSpan.textContent = formatEuro(0);
+            } else {
+                input.disabled = false;
+                let quantidade = parseInt(input.value || "0", 10);
+                if (isNaN(quantidade) || quantidade < 1) {
+                    quantidade = 1;
+                }
+                if (quantidade > maxMensalidades) {
+                    quantidade = maxMensalidades;
+                }
+                input.value = String(quantidade);
+
+                const valorRecebido = mensalidade * quantidade;
+                const comissao = valorRecebido * taxa;
+                row.dataset.valorRecebido = valorRecebido.toFixed(2);
+                row.dataset.comissao = comissao.toFixed(2);
+                row.dataset.mensalidades = String(quantidade);
+                valorSpan.textContent = formatEuro(valorRecebido);
+                comissaoSpan.textContent = formatEuro(comissao);
+            }
+
+            if (triggerTotals) {
+                updateTotals();
+            }
+        }
+
+        function updateTotals() {
+            const totals = {};
+            let recebidoGeral = 0;
+            let comissaoGeral = 0;
+            let mensalidadesGerais = 0;
+
+            rows.forEach((row) => {
+                const carteira = row.dataset.carteira;
+                const recebido = parseFloat(row.dataset.valorRecebido || "0");
+                const comissao = parseFloat(row.dataset.comissao || "0");
+                const mensalidades = parseInt(row.dataset.mensalidades || "0", 10) || 0;
+                if (!totals[carteira]) {
+                    totals[carteira] = { mensalidades: 0, recebido: 0, comissao: 0 };
+                }
+                totals[carteira].mensalidades += mensalidades;
+                totals[carteira].recebido += recebido;
+                totals[carteira].comissao += comissao;
+                mensalidadesGerais += mensalidades;
+                recebidoGeral += recebido;
+                comissaoGeral += comissao;
+            });
+
+            document.querySelectorAll(".total-mensalidades").forEach((span) => {
+                const carteira = span.dataset.carteira;
+                const valores = totals[carteira] || { mensalidades: 0 };
+                span.textContent = String(valores.mensalidades || 0);
+            });
+
+            document.querySelectorAll(".total-recebido").forEach((span) => {
+                const carteira = span.dataset.carteira;
+                const valores = totals[carteira] || { recebido: 0 };
+                span.textContent = formatEuro(valores.recebido);
+            });
+
+            document.querySelectorAll(".total-comissao").forEach((span) => {
+                const carteira = span.dataset.carteira;
+                const valores = totals[carteira] || { comissao: 0 };
+                span.textContent = formatEuro(valores.comissao);
+            });
+
+            const totalRecebidoEl = document.getElementById("total-geral-recebido");
+            if (totalRecebidoEl) {
+                totalRecebidoEl.textContent = formatEuro(recebidoGeral);
+            }
+            const totalComissaoEl = document.getElementById("total-geral-comissao");
+            if (totalComissaoEl) {
+                totalComissaoEl.textContent = formatEuro(comissaoGeral);
+            }
+            const totalMensalidadesEl = document.getElementById("total-geral-mensalidades");
+            if (totalMensalidadesEl) {
+                totalMensalidadesEl.textContent = String(mensalidadesGerais);
+            }
+        }
+
+        rows.forEach((row) => {
+            const checkbox = row.querySelector(".recebido-toggle");
+            const input = row.querySelector(".input-mensalidades");
+
+            checkbox.addEventListener("change", () => {
+                if (checkbox.checked && parseInt(input.value || "0", 10) < 1) {
+                    input.value = "1";
+                }
+                updateRow(row);
+            });
+
+            input.addEventListener("input", () => {
+                updateRow(row);
+            });
+
+            updateRow(row, false);
+        });
+
+        updateTotals();
+
+        const mesInput = document.getElementById("mes");
+        mesInput.addEventListener("change", function () {
+            if (this.value) {
+                window.location.href = `/comissoes?mes=${this.value}`;
+            }
+        });
+
+        const form = document.getElementById("formComissoes");
+        const downloadLinks = Array.from(document.querySelectorAll(".js-download"));
+
+        function withTimestamp(url) {
+            if (!url) {
+                return "";
+            }
+            const separator = url.includes("?") ? "&" : "?";
+            return `${url}${separator}_ts=${Date.now()}`;
+        }
+
+        async function handleDownload(event) {
+            event.preventDefault();
+            const link = event.currentTarget;
+            if (!link || link.dataset.saving === "1") {
+                return;
+            }
+            const targetUrl = link.dataset.href;
+            if (!targetUrl) {
+                return;
+            }
+            if (!form) {
+                window.location.href = withTimestamp(targetUrl);
+                return;
+            }
+
+            if (!link.dataset.originalText) {
+                link.dataset.originalText = link.textContent;
+            }
+            link.dataset.saving = "1";
+            link.textContent = "A guardar…";
+            link.style.pointerEvents = "none";
+            link.style.cursor = "progress";
+
+            try {
+                const response = await fetch("/comissoes/guardar", {
+                    method: "POST",
+                    body: new FormData(form),
+                    redirect: "follow"
+                });
+                if (response.status >= 400) {
+                    throw new Error(`Guardar falhou: ${response.status}`);
+                }
+                window.location.href = withTimestamp(targetUrl);
+            } catch (error) {
+                console.error(error);
+                alert("Não foi possível guardar antes do download. Tente novamente.");
+            } finally {
+                link.dataset.saving = "0";
+                link.textContent = link.dataset.originalText;
+                link.style.pointerEvents = "";
+                link.style.cursor = "";
+                link.blur();
+            }
+        }
+
+        downloadLinks.forEach((link) => {
+            link.addEventListener("click", handleDownload);
+        });
+    })();
+    </script>
+</body>
+</html>

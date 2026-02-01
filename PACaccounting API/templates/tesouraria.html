@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Orçamento de Tesouraria</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #020b1f;
+            color: #f9fafb;
+        }
+
+        .top-bar {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: none;
+            font-weight: bold;
+            background-color: #d4af37;
+            color: #111827;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            filter: brightness(1.05);
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px 20px 20px;
+        }
+
+        .section-card {
+            background-color: #041020;
+            padding: 16px 18px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+        }
+
+        h2.section-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .filter-row label {
+            margin-right: 4px;
+        }
+
+        .filter-row input[type="text"],
+        .filter-row select {
+            font-size: 13px;
+            padding: 3px 6px;
+            border-radius: 999px;
+            border: 1px solid #9ca3af;
+            background-color: #020617;
+            color: #f9fafb;
+            text-align: center;
+        }
+
+        .totais-info {
+            font-size: 13px;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            color: #e5e7eb;
+        }
+        .totais-info span {
+            margin-right: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: none;
+            white-space: nowrap;
+        }
+        thead tr {
+            background-color: #d4af37;
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+        tbody tr {
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+            text-align: left;
+        }
+        tbody tr td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        .align-left { text-align: left; }
+
+        .extra-input {
+            width: 80px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 999px;
+        }
+        .extra-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        .valor-auto {
+            font-weight: bold;
+        }
+
+        .acoes {
+            margin-top: 12px;
+            text-align: right;
+        }
+
+        .btn-simple {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid #fbbf24;
+            color: #020b1f;
+            background-color: #fbbf24;
+            cursor: pointer;
+        }
+        .btn-simple:hover {
+            filter: brightness(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Orçamento de Tesouraria</h1>
+        <a href="/" class="back-button">Voltar ao Dashboard</a>
+    </div>
+
+    <div class="container">
+        <div class="section-card">
+            <h2 class="section-title">Mapa mensal de caixa</h2>
+
+            <div class="totais-info">
+                <span><strong>Saldo inicial:</strong> {{ "%.2f"|format(totais.saldo_inicial) }} €</span>
+                <span><strong>Total entradas ano:</strong> {{ "%.2f"|format(totais.total_entradas) }} €</span>
+                <span><strong>Total saídas ano:</strong> {{ "%.2f"|format(totais.total_saidas) }} €</span>
+                <span><strong>Saldo final ano:</strong> {{ "%.2f"|format(totais.saldo_final) }} €</span>
+                <span><strong>Mínimo de caixa:</strong> {{ "%.2f"|format(totais.saldo_minimo) }} € ({{ totais.mes_minimo }})</span>
+            </div>
+
+            <form method="post" action="/tesouraria/gravar">
+                <div class="filter-row">
+                    <label for="ano">Ano:</label>
+                    <input type="text" id="ano" name="ano" value="{{ ano }}">
+
+                    <label for="saldo_inicial">Saldo inicial global:</label>
+                    <input
+                        type="text"
+                        id="saldo_inicial"
+                        name="saldo_inicial"
+                        value="{{ "%.2f"|format(saldo_inicial_config) }}">
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align-left">Mês</th>
+                            <th>Saldo inicial (editável)</th>
+                            <th>Recebimentos base</th>
+                            <th>Recebimentos extra</th>
+                            <th>Total recebimentos</th>
+                            <th>Pagamentos base</th>
+                            <th>Pagamentos extra</th>
+                            <th>Total pagamentos</th>
+                            <th>Saldo final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(meses|length) %}
+                        <tr>
+                            <td class="align-left">{{ meses[i] }}</td>
+
+                            <td>
+                                <input
+                                    class="extra-input"
+                                    type="text"
+                                    name="saldo_inicial_mes_{{ i+1 }}"
+                                    value="{% if saldos_iniciais_man[i] is not none %}{{ "%.2f"|format(saldos_iniciais_man[i]) }}{% else %}{{ "%.2f"|format(saldos_iniciais[i]) }}{% endif %}">
+                            </td>
+
+                            <td class="valor-auto">
+                                {{ "%.2f"|format(entradas[i] - entradas_extras[i]) }} €
+                            </td>
+
+                            <td>
+                                <input
+                                    class="extra-input"
+                                    type="text"
+                                    name="entrada_extra_{{ i+1 }}"
+                                    value="{{ "%.2f"|format(entradas_extras[i]) }}">
+                            </td>
+
+                            <td class="valor-auto">
+                                {{ "%.2f"|format(entradas[i]) }} €
+                            </td>
+
+                            <td class="valor-auto">
+                                {{ "%.2f"|format(saidas[i] - saidas_extras[i]) }} €
+                            </td>
+
+                            <td>
+                                <input
+                                    class="extra-input"
+                                    type="text"
+                                    name="saida_extra_{{ i+1 }}"
+                                    value="{{ "%.2f"|format(saidas_extras[i]) }}">
+                            </td>
+
+                            <td class="valor-auto">
+                                {{ "%.2f"|format(saidas[i]) }} €
+                            </td>
+
+                            <td class="valor-auto">
+                                {{ "%.2f"|format(saldos_finais[i]) }} €
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="acoes">
+                    <button type="submit" class="btn-simple">
+                        Gravar orçamento de tesouraria
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    // Manter a posição de scroll (igual ao Timings)
+    document.addEventListener("DOMContentLoaded", function () {
+        const key = "scroll_tesouraria";
+        const saved = sessionStorage.getItem(key);
+        if (saved !== null) {
+            window.scrollTo(0, parseInt(saved, 10));
+        }
+        window.addEventListener("beforeunload", function () {
+            sessionStorage.setItem(key, window.scrollY.toString());
+        });
+    });
+    </script>
+</body>
+</html>

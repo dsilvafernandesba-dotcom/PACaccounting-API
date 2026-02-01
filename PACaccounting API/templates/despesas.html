@@ -1,0 +1,369 @@
+<!DOCTYPE html> 
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Despesas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020b1f; /* igual ao dashboard */
+            color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* BARRA SUPERIOR (igual Colaboradores/Proveitos) */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #1f2937, #020b1f);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+        .top-bar h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .back-button {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            filter: brightness(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 40px auto;
+            padding: 20px 24px 24px;
+            background-color: #041020; /* cartão azul mais claro dentro do fundo */
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* TÍTULO DO BLOCO (barra dourada tipo h2 dos outros módulos) */
+        h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 16px;
+            background-color: #d4af37;
+            color: #111827;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .subtitulo {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        /* BARRA DO TOTAL ANUAL DAS DESPESAS (mantida como tinhas) */
+        .top-total-bar {
+            background-color: #d4a11f;   /* dourado */
+            color: #ffffff;              /* letras brancas */
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .top-total-bar-main {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .top-total-meses {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4px;
+            font-size: 12px;
+        }
+
+        .mes-box {
+            text-align: center;
+        }
+
+        .mes-label {
+            font-weight: bold;
+        }
+
+        .mes-valor {
+            margin-top: 2px;
+        }
+
+        /* TOOLBAR (ano + legenda) */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-left,
+        .toolbar-center,
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar select, .toolbar button {
+            padding: 4px 8px;
+            font-size: 14px;
+        }
+
+        .auto-label {
+            font-size: 10px;
+            color: #9ca3af;
+        }
+
+        /* TABELAS EM BARRAS OVAIS (layout tipo Proveitos/Colaboradores) */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;  /* espaço vertical entre “barras” */
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 4px 6px;
+            text-align: center;
+            white-space: nowrap;
+            border: none;
+        }
+
+        /* CABEÇALHO dourado em barra oval */
+        thead tr {
+            background-color: #d4a11f; /* dourado PACACCOUNTING */
+            color: #041020;
+            border-radius: 999px;
+        }
+        thead th {
+            font-weight: 600;
+        }
+        thead th:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        thead th:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        /* Linhas do corpo como barras ovais */
+        tbody tr:not(.total-line) {
+            background-color: #020b1f;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        tbody tr:not(.total-line) td:first-child {
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        tbody tr:not(.total-line) td:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+
+        td.descricao {
+            background-color: #0b1728; /* azul escuro para a coluna das descrições */
+            text-align: left;
+        }
+
+        tr.total-line td {
+            font-weight: bold;
+            background-color: #d4a11f; /* igual ao cabeçalho */
+            color: #041020;
+        }
+
+        /* CÉLULAS EDITÁVEIS: fundo branco, texto escuro, centrado */
+        input.valor-input {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+            padding: 2px 4px;
+            font-size: 13px;
+            border-radius: 3px;
+        }
+
+        input.valor-input:focus {
+            outline: none;
+            border-color: #d4a11f;
+            box-shadow: 0 0 0 1px rgba(212, 161, 31, 0.5);
+        }
+
+        /* AUTOMÁTICOS: igual às manuais mas com fundo amarelo-água e readonly */
+        input.valor-auto {
+            background-color: #fffde7;   /* amarelo água */
+            color: #111827;
+        }
+
+        /* Botão gravar no estilo dourado (igual Proveitos) */
+        .btn-gravar {
+            background-color: #d4af37;
+            color: #111827;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .btn-gravar:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <h1>Despesas</h1>
+    <a href="/" class="back-button">⬅ Voltar ao Dashboard</a>
+</div>
+
+<div class="container">
+    <!-- Barra dourada com o total anual das despesas + totais por mês -->
+    <div class="top-total-bar">
+        <div class="top-total-bar-main">
+            Total da despesa anual:
+            {{ "{:,.2f} €".format(total_despesa_ano).replace(",", "X").replace(".", ",").replace("X", ".") }}
+        </div>
+
+        <div class="top-total-meses">
+            {% for mes in meses_labels %}
+                <div class="mes-box">
+                    <div class="mes-label">
+                        {{ mes[:3] }} <!-- JAN, FEV, MAR... se quiseres nome inteiro tira o [:3] -->
+                    </div>
+                    <div class="mes-valor">
+                        {{ "{:,.2f} €".format(totais_despesa_mensais[loop.index0]).replace(",", "X").replace(".", ",").replace("X", ".") }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Título da secção de tabelas (igual barra dourada dos outros módulos) -->
+    <h2>Lista de despesas por grupo</h2>
+    <p class="subtitulo">
+        Custos com colaboradores e outras linhas automáticas são calculados a partir dos módulos internos.
+    </p>
+
+    <div class="toolbar">
+        <div class="toolbar-center">
+            <form method="get" action="/despesas">
+                <label for="ano">Ano:&nbsp;</label>
+                <select name="ano" id="ano" onchange="this.form.submit()">
+                    {% for a in anos_lista %}
+                        <option value="{{ a }}" {% if a == ano %}selected{% endif %}>{{ a }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <div class="toolbar-right">
+            <span class="auto-label">
+                Custos com colaboradores automáticos; restantes blocos preenchidos manualmente.
+            </span>
+        </div>
+    </div>
+
+    <form method="post" action="/despesas">
+        <input type="hidden" name="ano" value="{{ ano }}">
+
+        {% for grupo in grupos %}
+            <h2>{{ grupo.nome }}</h2>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Descrição</th>
+                    {% for mes in meses_labels %}
+                        <th>{{ mes }}</th>
+                    {% endfor %}
+                    <th>ANO</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for linha in grupo.linhas %}
+                    <tr>
+                        <td class="descricao">
+                            {{ linha.nome }}
+                            {% if not grupo.manual %}
+                                <br><span class="auto-label">(automático)</span>
+                            {% endif %}
+                        </td>
+
+                        {% for valor in linha.meses %}
+                            <td>
+                                {% if grupo.manual %}
+                                    <!-- manual: input branco editável -->
+                                    <input
+                                        type="text"
+                                        class="valor-input"
+                                        name="{{ grupo.codigo }}__{{ linha.codigo }}__{{ loop.index }}"
+                                        value="{% if valor %}{{ "{:,.2f}".format(valor).replace(",", "X").replace(".", ",").replace("X", ".") }}{% endif %}"
+                                    >
+                                {% else %}
+                                    <!-- automático: input igual mas amarelo-água e readonly -->
+                                    <input
+                                        type="text"
+                                        class="valor-input valor-auto"
+                                        value="{{ "{:,.2f}".format(valor).replace(",", "X").replace(".", ",").replace("X", ".") }} €"
+                                        readonly
+                                    >
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+
+                        <td>
+                            <!-- total ano da linha (sempre automático, amarelo-água e readonly) -->
+                            <input
+                                type="text"
+                                class="valor-input valor-auto"
+                                value="{{ "{:,.2f}".format(linha.total_ano).replace(",", "X").replace(".", ",").replace("X", ".") }} €"
+                                readonly
+                            >
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                <tr class="total-line">
+                    <td class="descricao">Subtotal {{ grupo.nome }}</td>
+                    {% for valor in grupo.totais_mensais %}
+                        <td>{{ "{:,.2f} €".format(valor).replace(",", "X").replace(".", ",").replace("X", ".") }}</td>
+                    {% endfor %}
+                    <td>{{ "{:,.2f} €".format(grupo.total_ano_geral).replace(",", "X").replace(".", ",").replace("X", ".") }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+
+        <div style="margin-top: 15px; text-align: right;">
+            <button type="submit" class="btn-gravar">Gravar Despesas</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
